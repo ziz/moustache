@@ -24,8 +24,6 @@ export const LIFETIME_TURNS_SPENT = prefix("turnsLifetime");
 
 export const CLUB_POPULARITY = prefix("clubPopularity");
 
-
-
 export const HEAP_ATTEMPTS = daily("heapAttempts");
 export const LAST_STENCH_CHECK = daily("heapAttemptsAtLastStenchCheck");
 export const CURRENT_PLAYERS = daily("currentPlayers");
