@@ -25,7 +25,7 @@ export function noncombatEffects(): Effect[] {
   return filterHave($effects`The Sonata of Sneakiness, Smooth Movements`);
 }
 
-export function plusCombatEffects(): Effect[] {
+export function pluscombatEffects(): Effect[] {
   return filterHave($effects`Carlweather's Cantata of Confrontation, Hippy Stench, Musk of the Moose`)
 }
 

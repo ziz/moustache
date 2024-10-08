@@ -13,12 +13,12 @@ import { $items, getModifier, have } from "libram";
 type Info = { item: Item; modifier: number; duration: number; price: number };
 
 // Value of 1 turn of 5% -NC
-const EFFECTIVE_NC_VALUE = 100;
+const EFFECTIVE_PC_VALUE = 100;
 
 const itemInfo: Info[] = [];
 for (const item of $items``) {
   const effect = effectModifier(item, "Effect");
-  const modifier = -1 * getModifier("Combat Rate", effect);
+  const modifier = getModifier("Combat Rate", effect);
 
   if (modifier <= 0) {
     continue;
@@ -35,7 +35,7 @@ for (const item of $items``) {
 
   const price = mallPrice(item);
 
-  if (price / duration > EFFECTIVE_NC_VALUE) {
+  if (price / duration > EFFECTIVE_PC_VALUE) {
     continue;
   }
 
@@ -66,7 +66,7 @@ function value(info: Info): number {
   return (info.duration * info.modifier) / info.price;
 }
 
-export function capPlusCombat(): void {
+export function capNonCombat(): void {
   let itemBought = false;
 
   for (let i = 0; i < itemInfo.length; i++) {
@@ -79,7 +79,7 @@ export function capPlusCombat(): void {
       continue;
     }
 
-    const maxPrice = Math.min((EFFECTIVE_NC_VALUE * info.duration * info.modifier) / 5, 10000);
+    const maxPrice = Math.min((EFFECTIVE_PC_VALUE * info.duration * info.modifier) / 5, 10000);
     if (info.price < maxPrice && have(item)) {
       if (!use(item, 1)) {
         throw `Failed to use item`;
