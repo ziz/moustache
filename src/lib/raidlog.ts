@@ -1,7 +1,4 @@
-import { visitUrl, print } from "kolmafia";
-import { Clan } from "libram";
-
-function extractInt(regex: RegExp, text: string, group = 1) {
+function extractInt(regex: RegExp, text: string, group = 1): number {
   if (!regex.global) throw "Regexes must be global.";
   let result = 0;
   let match;
@@ -15,7 +12,7 @@ function extractInt(regex: RegExp, text: string, group = 1) {
   return result;
 }
 
-function between(text: string, start: string, end: string) {
+function between(text: string, start: string, end: string): string {
   const startIndex = text.indexOf(start);
   if (startIndex === -1) return "";
   const endIndex = text.indexOf(end, startIndex + start.length);
@@ -23,29 +20,29 @@ function between(text: string, start: string, end: string) {
   return text.slice(startIndex + start.length, endIndex);
 }
 
-function matchAll(regex: RegExp, text: string) {
-  if (!regex.global) throw "Regexes must be global.";
-  let matches = [];
-  let match;
-  while ((match = regex.exec(text)) !== null) {
-    matches.push(match);
-  }
-  return matches;
-}
+// function matchAll(regex: RegExp, text: string) {
+//   if (!regex.global) throw "Regexes must be global.";
+//   const matches = [];
+//   let match;
+//   while ((match = regex.exec(text)) !== null) {
+//     matches.push(match);
+//   }
+//   return matches;
+// }
 
-function nbsptrim(text: string): string {
-  return text.replace(/&nbsp;/g, " ").trim();
-}
+export function clubPopularityFromRaidlog(page: string): number {
+  const raidLog = between(page, "<b>Hobopolis", "<b>Loot Distribution:");
 
-function clubPopularityFromRaidlog(page: string): string[] {
-  let raidLog = between(page,"<b>Hobopolis", "<b>Loot Distribution:");
-
-  let positives = matchAll(/(diverted some cold|bamboozled|flimflammed).*?\((\d*) turns?\)/g, raidLog);
-  let goodThings = Array.from(positives).map((match => match[2])).sum();
-  let steams = matchAll(/diverted some steam.*?\((\d*) turns?\)/g, raidLog);
-  let nosepicks = matchAll(/danced like a superstar.*?\((\d*) turns?\)/g, raidLog);
-  let steamCount = Array.from(steams).map((match => match[1])).sum();
-  let nosepickCount = Math.max(Array.from(nosepicks).map((match => match[1])).sum() - 1,0);
-  const result = goodThings - steamCount - nosepickCount;
-  return result
+  const positives = extractInt(
+    /(diverted some cold|bamboozled|flimflammed).*?\((\d*) turns?\)/g,
+    raidLog,
+    2,
+  );
+  const steams = extractInt(/diverted some steam.*?\((\d*) turns?\)/g, raidLog);
+  const nosepicks = Math.min(
+    extractInt(/danced like a superstar.*?\((\d*) turns?\)/g, raidLog) - 1,
+    0,
+  );
+  const result = positives - steams - nosepicks;
+  return result;
 }

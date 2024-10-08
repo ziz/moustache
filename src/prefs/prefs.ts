@@ -31,8 +31,6 @@ export function resetDailyPreference(trackingPreference: string): boolean {
 export function maybeResetDailyPreferences(): void {
   if (resetDailyPreference(Properties.RESULTS_DAY)) {
     set(Properties.TURNS_SPENT, 0);
-    set(Properties.COGNACS, 0);
-    set(Properties.DIVES, 0);
   }
 }
 
