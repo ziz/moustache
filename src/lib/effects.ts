@@ -1,5 +1,5 @@
 import { Effect, toSkill } from "kolmafia";
-import { $effects, have, $familiar, $effect } from "libram";
+import { $effect, $effects, $familiar, have } from "libram";
 
 import { selectBestFamiliar } from "./familiar";
 
@@ -26,7 +26,9 @@ export function noncombatEffects(): Effect[] {
 }
 
 export function pluscombatEffects(): Effect[] {
-  return filterHave($effects`Carlweather's Cantata of Confrontation, Hippy Stench, Musk of the Moose`)
+  return filterHave(
+    $effects`Carlweather's Cantata of Confrontation, Hippy Stench, Musk of the Moose`,
+  );
 }
 
 export function resistanceEffects(): Effect[] {
