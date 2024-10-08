@@ -5337,7 +5337,7 @@ var CommandParser = /* @__PURE__ */ function() {
 
 // node_modules/grimoire-kolmafia/dist/combat.js
 init_kolmafia_polyfill();
-var import_kolmafia19 = require("kolmafia");
+var import_kolmafia18 = require("kolmafia");
 
 // node_modules/libram/dist/index.js
 init_kolmafia_polyfill();
@@ -5978,11 +5978,6 @@ function countedMapToString(map) {
     var _ref5 = _slicedToArray2(_ref4, 2), item4 = _ref5[0], quantity = _ref5[1];
     return "".concat(quantity, " x ").concat(item4);
   }).join(", ");
-}
-function sum(addends, x) {
-  return addends.reduce(function(subtotal, element) {
-    return subtotal + (typeof x == "function" ? x(element) : element[x]);
-  }, 0);
 }
 function arrayContains(item4, array) {
   return array.includes(item4);
@@ -7443,8 +7438,8 @@ function applyModes(modes) {
     _iterator2.f();
   }
 }
-var cachedSlots = $slots(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral2(["hat, weapon, off-hand, back, shirt, pants, acc1, acc2, acc3, familiar"]))), CacheEntry = /* @__PURE__ */ _createClass6(function CacheEntry2(equipment, rider, familiar3, canEquipItemCount2, modes) {
-  _classCallCheck6(this, CacheEntry2), _defineProperty5(this, "equipment", void 0), _defineProperty5(this, "rider", void 0), _defineProperty5(this, "familiar", void 0), _defineProperty5(this, "canEquipItemCount", void 0), _defineProperty5(this, "modes", void 0), this.equipment = equipment, this.rider = rider, this.familiar = familiar3, this.canEquipItemCount = canEquipItemCount2, this.modes = modes;
+var cachedSlots = $slots(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral2(["hat, weapon, off-hand, back, shirt, pants, acc1, acc2, acc3, familiar"]))), CacheEntry = /* @__PURE__ */ _createClass6(function CacheEntry2(equipment, rider, familiar2, canEquipItemCount2, modes) {
+  _classCallCheck6(this, CacheEntry2), _defineProperty5(this, "equipment", void 0), _defineProperty5(this, "rider", void 0), _defineProperty5(this, "familiar", void 0), _defineProperty5(this, "canEquipItemCount", void 0), _defineProperty5(this, "modes", void 0), this.equipment = equipment, this.rider = rider, this.familiar = familiar2, this.canEquipItemCount = canEquipItemCount2, this.modes = modes;
 }), _outfitSlots = /* @__PURE__ */ new WeakMap(), _useHistory = /* @__PURE__ */ new WeakMap(), _maxSize = /* @__PURE__ */ new WeakMap(), OutfitLRUCache = /* @__PURE__ */ function() {
   function OutfitLRUCache2(maxSize) {
     _classCallCheck6(this, OutfitLRUCache2), _classPrivateFieldInitSpec(this, _outfitSlots, {
@@ -9651,327 +9646,6 @@ var clanIdCache = {}, toPlayerId = function(player) {
   }]), Clan2;
 }();
 
-// node_modules/libram/dist/session.js
-init_kolmafia_polyfill();
-var import_kolmafia18 = require("kolmafia");
-var _templateObject59, _templateObject219, _templateObject316, _templateObject415, _templateObject510, _templateObject66, _templateObject76, _templateObject86, _templateObject97, _templateObject106, _templateObject116, _templateObject126, _templateObject136, _templateObject145, _templateObject155, _templateObject165, _templateObject175, _templateObject185, _templateObject195, _templateObject205, _templateObject2110, _templateObject225, _templateObject235, _templateObject245, _templateObject255, _templateObject265, _templateObject275, _templateObject284, _templateObject294, _templateObject304, _templateObject317, _templateObject324, _templateObject334;
-function _classCallCheck9(instance, Constructor) {
-  if (!(instance instanceof Constructor))
-    throw new TypeError("Cannot call a class as a function");
-}
-function _defineProperties9(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey9(descriptor.key), descriptor);
-  }
-}
-function _createClass9(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties9(Constructor.prototype, protoProps), staticProps && _defineProperties9(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
-}
-function _defineProperty8(obj, key, value2) {
-  return key = _toPropertyKey9(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
-}
-function _toPropertyKey9(arg) {
-  var key = _toPrimitive9(arg, "string");
-  return typeof key == "symbol" ? key : String(key);
-}
-function _toPrimitive9(input, hint) {
-  if (typeof input != "object" || input === null)
-    return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== void 0) {
-    var res = prim.call(input, hint || "default");
-    if (typeof res != "object")
-      return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-function _createForOfIteratorHelper7(o, allowArrayLike) {
-  var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
-  if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray11(o)) || allowArrayLike && o && typeof o.length == "number") {
-      it && (o = it);
-      var i = 0, F = function() {
-      };
-      return { s: F, n: function() {
-        return i >= o.length ? { done: !0 } : { done: !1, value: o[i++] };
-      }, e: function(_e2) {
-        throw _e2;
-      }, f: F };
-    }
-    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-  }
-  var normalCompletion = !0, didErr = !1, err;
-  return { s: function() {
-    it = it.call(o);
-  }, n: function() {
-    var step = it.next();
-    return normalCompletion = step.done, step;
-  }, e: function(_e3) {
-    didErr = !0, err = _e3;
-  }, f: function() {
-    try {
-      !normalCompletion && it.return != null && it.return();
-    } finally {
-      if (didErr)
-        throw err;
-    }
-  } };
-}
-function _slicedToArray8(arr, i) {
-  return _arrayWithHoles8(arr) || _iterableToArrayLimit8(arr, i) || _unsupportedIterableToArray11(arr, i) || _nonIterableRest8();
-}
-function _nonIterableRest8() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _iterableToArrayLimit8(arr, i) {
-  var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
-  if (_i != null) {
-    var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
-    try {
-      if (_x = (_i = _i.call(arr)).next, i === 0) {
-        if (Object(_i) !== _i)
-          return;
-        _n = !1;
-      } else
-        for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0)
-          ;
-    } catch (err) {
-      _d = !0, _e = err;
-    } finally {
-      try {
-        if (!_n && _i.return != null && (_r = _i.return(), Object(_r) !== _r))
-          return;
-      } finally {
-        if (_d)
-          throw _e;
-      }
-    }
-    return _arr;
-  }
-}
-function _arrayWithHoles8(arr) {
-  if (Array.isArray(arr))
-    return arr;
-}
-function _taggedTemplateLiteral9(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-function _toConsumableArray6(arr) {
-  return _arrayWithoutHoles6(arr) || _iterableToArray6(arr) || _unsupportedIterableToArray11(arr) || _nonIterableSpread6();
-}
-function _nonIterableSpread6() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray11(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray11(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray11(o, minLen);
-  }
-}
-function _iterableToArray6(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
-}
-function _arrayWithoutHoles6(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray11(arr);
-}
-function _arrayLikeToArray11(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
-}
-function mySessionItemsWrapper() {
-  for (var manyToOne = function(primary, mapped) {
-    return mapped.map(function(target) {
-      return [target, primary];
-    });
-  }, foldable = function(item5) {
-    return manyToOne(item5, getFoldGroup(item5));
-  }, itemMappings = new Map([].concat(_toConsumableArray6(foldable($item(_templateObject59 || (_templateObject59 = _taggedTemplateLiteral9(["liar's pants"]))))), _toConsumableArray6(foldable($item(_templateObject219 || (_templateObject219 = _taggedTemplateLiteral9(["ice pick"]))))), _toConsumableArray6(manyToOne($item(_templateObject316 || (_templateObject316 = _taggedTemplateLiteral9(["Spooky Putty sheet"]))), [$item(_templateObject415 || (_templateObject415 = _taggedTemplateLiteral9(["Spooky Putty monster"])))].concat(_toConsumableArray6(getFoldGroup($item(_templateObject510 || (_templateObject510 = _taggedTemplateLiteral9(["Spooky Putty sheet"])))))))), _toConsumableArray6(foldable($item(_templateObject66 || (_templateObject66 = _taggedTemplateLiteral9(["stinky cheese sword"]))))), _toConsumableArray6(foldable($item(_templateObject76 || (_templateObject76 = _taggedTemplateLiteral9(["naughty paper shuriken"]))))), _toConsumableArray6(foldable($item(_templateObject86 || (_templateObject86 = _taggedTemplateLiteral9(["Loathing Legion knife"]))))), _toConsumableArray6(foldable($item(_templateObject97 || (_templateObject97 = _taggedTemplateLiteral9(["deceased crimbo tree"]))))), _toConsumableArray6(foldable($item(_templateObject106 || (_templateObject106 = _taggedTemplateLiteral9(["makeshift turban"]))))), _toConsumableArray6(foldable($item(_templateObject116 || (_templateObject116 = _taggedTemplateLiteral9(["turtle wax shield"]))))), _toConsumableArray6(foldable($item(_templateObject126 || (_templateObject126 = _taggedTemplateLiteral9(["metallic foil bow"]))))), _toConsumableArray6(foldable($item(_templateObject136 || (_templateObject136 = _taggedTemplateLiteral9(["ironic moustache"]))))), _toConsumableArray6(foldable($item(_templateObject145 || (_templateObject145 = _taggedTemplateLiteral9(["bugged balaclava"]))))), _toConsumableArray6(foldable($item(_templateObject155 || (_templateObject155 = _taggedTemplateLiteral9(["toggle switch (Bartend)"]))))), _toConsumableArray6(foldable($item(_templateObject165 || (_templateObject165 = _taggedTemplateLiteral9(["mushroom cap"]))))), _toConsumableArray6(manyToOne($item(_templateObject175 || (_templateObject175 = _taggedTemplateLiteral9(["can of Rain-Doh"]))), $items(_templateObject185 || (_templateObject185 = _taggedTemplateLiteral9(["empty Rain-Doh can"]))))), _toConsumableArray6(manyToOne($item(_templateObject195 || (_templateObject195 = _taggedTemplateLiteral9(["meteorite fragment"]))), $items(_templateObject205 || (_templateObject205 = _taggedTemplateLiteral9(["meteorite earring, meteorite necklace, meteorite ring"]))))), _toConsumableArray6(manyToOne($item(_templateObject2110 || (_templateObject2110 = _taggedTemplateLiteral9(["Sneaky Pete's leather jacket"]))), $items(_templateObject225 || (_templateObject225 = _taggedTemplateLiteral9(["Sneaky Pete's leather jacket (collar popped)"]))))), _toConsumableArray6(manyToOne($item(_templateObject235 || (_templateObject235 = _taggedTemplateLiteral9(["Boris's Helm"]))), $items(_templateObject245 || (_templateObject245 = _taggedTemplateLiteral9(["Boris's Helm (askew)"]))))), _toConsumableArray6(manyToOne($item(_templateObject255 || (_templateObject255 = _taggedTemplateLiteral9(["Jarlsberg's pan"]))), $items(_templateObject265 || (_templateObject265 = _taggedTemplateLiteral9(["Jarlsberg's pan (Cosmic portal mode)"]))))), _toConsumableArray6(manyToOne($item(_templateObject275 || (_templateObject275 = _taggedTemplateLiteral9(["tiny plastic sword"]))), $items(_templateObject284 || (_templateObject284 = _taggedTemplateLiteral9(["grogtini, bodyslam, dirty martini, vesper, cherry bomb, sangria del diablo"]))))), _toConsumableArray6(manyToOne($item(_templateObject294 || (_templateObject294 = _taggedTemplateLiteral9(["earthenware muffin tin"]))), $items(_templateObject304 || (_templateObject304 = _taggedTemplateLiteral9(["blueberry muffin, bran muffin, chocolate chip muffin"]))))), _toConsumableArray6(manyToOne($item(_templateObject317 || (_templateObject317 = _taggedTemplateLiteral9(["ChibiBuddy\u2122 (on)"]))), $items(_templateObject324 || (_templateObject324 = _taggedTemplateLiteral9(["ChibiBuddy\u2122 (off)"]))))))), inventory = /* @__PURE__ */ new Map(), _i = 0, _arr = [import_kolmafia18.mySessionItems, import_kolmafia18.getCloset, import_kolmafia18.getDisplay, import_kolmafia18.getStorage]; _i < _arr.length; _i++)
-    for (var inventoryFunc = _arr[_i], _i2 = 0, _Object$entries = Object.entries(inventoryFunc()); _i2 < _Object$entries.length; _i2++) {
-      var _itemMappings$get, _inventory$get, _Object$entries$_i = _slicedToArray8(_Object$entries[_i2], 2), itemStr = _Object$entries$_i[0], quantity = _Object$entries$_i[1], item4 = (0, import_kolmafia18.toItem)(itemStr), mappedItem = (_itemMappings$get = itemMappings.get(item4)) !== null && _itemMappings$get !== void 0 ? _itemMappings$get : item4;
-      inventory.set(mappedItem, quantity + ((_inventory$get = inventory.get(mappedItem)) !== null && _inventory$get !== void 0 ? _inventory$get : 0));
-    }
-  for (var _i3 = 0, _Object$entries2 = Object.entries((0, import_kolmafia18.getCampground)()); _i3 < _Object$entries2.length; _i3++) {
-    var _itemMappings$get2, _inventory$get2, _Object$entries2$_i = _slicedToArray8(_Object$entries2[_i3], 2), _itemStr = _Object$entries2$_i[0], _quantity = _Object$entries2$_i[1], _item = (0, import_kolmafia18.toItem)(_itemStr);
-    if (_item !== $item(_templateObject334 || (_templateObject334 = _taggedTemplateLiteral9(["big rock"])))) {
-      var _mappedItem = (_itemMappings$get2 = itemMappings.get(_item)) !== null && _itemMappings$get2 !== void 0 ? _itemMappings$get2 : _item;
-      inventory.set(_mappedItem, _quantity + ((_inventory$get2 = inventory.get(_mappedItem)) !== null && _inventory$get2 !== void 0 ? _inventory$get2 : 0));
-    }
-  }
-  return inventory;
-}
-function inventoryOperation(a, b, op) {
-  var difference = /* @__PURE__ */ new Map(), _iterator2 = _createForOfIteratorHelper7(new Set([].concat(_toConsumableArray6(a.keys()), _toConsumableArray6(b.keys())))), _step2;
-  try {
-    for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
-      var _a$get, _b$get, item4 = _step2.value;
-      difference.set(item4, op((_a$get = a.get(item4)) !== null && _a$get !== void 0 ? _a$get : 0, (_b$get = b.get(item4)) !== null && _b$get !== void 0 ? _b$get : 0));
-    }
-  } catch (err) {
-    _iterator2.e(err);
-  } finally {
-    _iterator2.f();
-  }
-  var diffEntries = _toConsumableArray6(difference.entries());
-  return new Map(diffEntries.filter(function(value2) {
-    return value2[1] !== 0;
-  }));
-}
-var Session = /* @__PURE__ */ function() {
-  function Session2(meat, items) {
-    _classCallCheck9(this, Session2), _defineProperty8(this, "meat", void 0), _defineProperty8(this, "items", void 0), this.meat = meat, this.items = items;
-  }
-  return _createClass9(Session2, [{
-    key: "register",
-    value: function(target, quantity) {
-      if (target === "meat")
-        this.meat += quantity;
-      else {
-        var _this$items$get;
-        this.items.set(target, ((_this$items$get = this.items.get(target)) !== null && _this$items$get !== void 0 ? _this$items$get : 0) + quantity);
-      }
-    }
-    /**
-     * Value this session
-     *
-     * @param itemValue a function that, when given an item, will give a meat value of the item
-     * @returns ItemResult with the full value of this session given the input function
-     */
-  }, {
-    key: "value",
-    value: function(itemValue) {
-      var meat = Math.floor(this.meat), itemDetails = _toConsumableArray6(this.items.entries()).map(function(_ref) {
-        var _ref2 = _slicedToArray8(_ref, 2), item4 = _ref2[0], quantity = _ref2[1];
-        return {
-          item: item4,
-          quantity: quantity,
-          value: itemValue(item4) * quantity
-        };
-      }), items = Math.floor(sum(itemDetails, "value"));
-      return {
-        meat: meat,
-        items: items,
-        total: meat + items,
-        itemDetails: itemDetails
-      };
-    }
-    /**
-     * Subtract the contents of another session from this one, removing any items that have a resulting quantity of 0
-     *  (this will ignore elements in b but not in a)
-     *
-     * @param other the session from which to pull values to remove from this session
-     * @returns a new session representing the difference between this session and the other session
-     */
-  }, {
-    key: "diff",
-    value: function(other) {
-      return new Session2(this.meat - other.meat, inventoryOperation(this.items, other.items, function(a, b) {
-        return a - b;
-      }));
-    }
-    /**
-     * Subtract the contents of snasphot b from session a, removing any items that have a resulting quantity of 0
-     *  (this will ignore elements in b but not in a)
-     *
-     * @param a the session from which to subtract elements
-     * @param b the session from which to add elements
-     * @returns a new session representing the difference between a and b
-     */
-  }, {
-    key: "add",
-    value: (
-      /**
-       * Generate a new session combining multiple sessions together
-       *
-       * @param other the session from which to add elements to this set
-       * @returns a new session representing the addition of other to this
-       */
-      function(other) {
-        return new Session2(this.meat + other.meat, inventoryOperation(this.items, other.items, function(a, b) {
-          return a + b;
-        }));
-      }
-    )
-    /**
-     * Combine the contents of sessions
-     *
-     * @param sessions the set of sessions to combine together
-     * @returns a new session representing the difference between a and b
-     */
-  }, {
-    key: "toFile",
-    value: (
-      /**
-       * Export this session to a file in the data/ directory. Conventionally this file should end in ".json"
-       *
-       * @param filename The file into which to export
-       */
-      function(filename) {
-        var val = {
-          meat: this.meat,
-          items: Object.fromEntries(this.items)
-        };
-        (0, import_kolmafia18.bufferToFile)(JSON.stringify(val), Session2.getFilepath(filename));
-      }
-    )
-    /**
-     * Import a session from a file in the data/ directory. Conventionally the file should end in ".json"
-     *
-     * @param filename The file from which to import
-     * @returns the session represented by the file
-     */
-  }], [{
-    key: "diff",
-    value: function(a, b) {
-      return a.diff(b);
-    }
-  }, {
-    key: "add",
-    value: function() {
-      for (var _len = arguments.length, sessions = new Array(_len), _key = 0; _key < _len; _key++)
-        sessions[_key] = arguments[_key];
-      return sessions.reduce(function(previousSession, currentSession) {
-        return previousSession.add(currentSession);
-      });
-    }
-  }, {
-    key: "getFilepath",
-    value: function(filename) {
-      return filename.endsWith(".json") ? filename : "snapshots/".concat((0, import_kolmafia18.myName)(), "/").concat((0, import_kolmafia18.todayToString)(), "_").concat(filename, ".json");
-    }
-  }, {
-    key: "fromFile",
-    value: function(filename) {
-      var fileValue = (0, import_kolmafia18.fileToBuffer)(Session2.getFilepath(filename));
-      if (fileValue.length > 0) {
-        var val = JSON.parse(fileValue), parsedItems = Object.entries(val.items).map(function(_ref3) {
-          var _ref4 = _slicedToArray8(_ref3, 2), itemStr = _ref4[0], quantity = _ref4[1];
-          return [(0, import_kolmafia18.toItem)(itemStr), quantity];
-        });
-        return new Session2(val.meat, new Map(parsedItems));
-      } else
-        return new Session2(0, /* @__PURE__ */ new Map());
-    }
-  }, {
-    key: "current",
-    value: function() {
-      return new Session2(sum([import_kolmafia18.mySessionMeat, import_kolmafia18.myClosetMeat, import_kolmafia18.myStorageMeat], function(f) {
-        return f();
-      }), mySessionItemsWrapper());
-    }
-  }]), Session2;
-}();
-
 // node_modules/grimoire-kolmafia/dist/combat.js
 function _inherits4(subClass, superClass) {
   if (typeof superClass != "function" && superClass !== null)
@@ -10024,24 +9698,24 @@ function _getPrototypeOf3(o) {
     return o2.__proto__ || Object.getPrototypeOf(o2);
   }, _getPrototypeOf3(o);
 }
-function _toConsumableArray7(arr) {
-  return _arrayWithoutHoles7(arr) || _iterableToArray7(arr) || _unsupportedIterableToArray12(arr) || _nonIterableSpread7();
+function _toConsumableArray6(arr) {
+  return _arrayWithoutHoles6(arr) || _iterableToArray6(arr) || _unsupportedIterableToArray11(arr) || _nonIterableSpread6();
 }
-function _nonIterableSpread7() {
+function _nonIterableSpread6() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _iterableToArray7(iter) {
+function _iterableToArray6(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles7(arr) {
+function _arrayWithoutHoles6(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray12(arr);
+    return _arrayLikeToArray11(arr);
 }
-function _createForOfIteratorHelper8(o, allowArrayLike) {
+function _createForOfIteratorHelper7(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray12(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray11(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -10070,41 +9744,41 @@ function _createForOfIteratorHelper8(o, allowArrayLike) {
     }
   } };
 }
-function _unsupportedIterableToArray12(o, minLen) {
+function _unsupportedIterableToArray11(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray12(o, minLen);
+      return _arrayLikeToArray11(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray12(o, minLen);
+      return _arrayLikeToArray11(o, minLen);
   }
 }
-function _arrayLikeToArray12(arr, len) {
+function _arrayLikeToArray11(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-function _classCallCheck10(instance, Constructor) {
+function _classCallCheck9(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
-function _defineProperties10(target, props) {
+function _defineProperties9(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey10(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey9(descriptor.key), descriptor);
   }
 }
-function _createClass10(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties10(Constructor.prototype, protoProps), staticProps && _defineProperties10(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass9(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties9(Constructor.prototype, protoProps), staticProps && _defineProperties9(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _toPropertyKey10(arg) {
-  var key = _toPrimitive10(arg, "string");
+function _toPropertyKey9(arg) {
+  var key = _toPrimitive9(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive10(input, hint) {
+function _toPrimitive9(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -10118,17 +9792,17 @@ function _toPrimitive10(input, hint) {
 }
 var CombatStrategy = /* @__PURE__ */ function() {
   function CombatStrategy2() {
-    _classCallCheck10(this, CombatStrategy2), this.macros = /* @__PURE__ */ new Map(), this.autoattacks = /* @__PURE__ */ new Map(), this.actions = /* @__PURE__ */ new Map(), this.ccs_entries = /* @__PURE__ */ new Map();
+    _classCallCheck9(this, CombatStrategy2), this.macros = /* @__PURE__ */ new Map(), this.autoattacks = /* @__PURE__ */ new Map(), this.actions = /* @__PURE__ */ new Map(), this.ccs_entries = /* @__PURE__ */ new Map();
   }
-  return _createClass10(CombatStrategy2, [{
+  return _createClass9(CombatStrategy2, [{
     key: "macro",
     value: function(_macro, monsters, prepend) {
       var _a, _b;
       if (monsters === void 0)
         this.default_macro === void 0 && (this.default_macro = []), prepend ? this.default_macro.unshift(_macro) : this.default_macro.push(_macro);
       else {
-        monsters instanceof import_kolmafia19.Monster && (monsters = [monsters]);
-        var _iterator2 = _createForOfIteratorHelper8(monsters), _step2;
+        monsters instanceof import_kolmafia18.Monster && (monsters = [monsters]);
+        var _iterator2 = _createForOfIteratorHelper7(monsters), _step2;
         try {
           for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
             var monster = _step2.value;
@@ -10160,8 +9834,8 @@ var CombatStrategy = /* @__PURE__ */ function() {
       if (monsters === void 0)
         this.default_autoattack === void 0 && (this.default_autoattack = []), prepend ? this.default_autoattack.unshift(macro) : this.default_autoattack.push(macro);
       else {
-        monsters instanceof import_kolmafia19.Monster && (monsters = [monsters]);
-        var _iterator2 = _createForOfIteratorHelper8(monsters), _step2;
+        monsters instanceof import_kolmafia18.Monster && (monsters = [monsters]);
+        var _iterator2 = _createForOfIteratorHelper7(monsters), _step2;
         try {
           for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
             var monster = _step2.value;
@@ -10201,10 +9875,10 @@ var CombatStrategy = /* @__PURE__ */ function() {
     value: function(_action, monsters) {
       if (monsters === void 0)
         this.default_action = _action;
-      else if (monsters instanceof import_kolmafia19.Monster)
+      else if (monsters instanceof import_kolmafia18.Monster)
         this.actions.set(monsters, _action);
       else {
-        var _iterator3 = _createForOfIteratorHelper8(monsters), _step3;
+        var _iterator3 = _createForOfIteratorHelper7(monsters), _step3;
         try {
           for (_iterator3.s(); !(_step3 = _iterator3.n()).done; ) {
             var monster = _step3.value;
@@ -10235,8 +9909,8 @@ var CombatStrategy = /* @__PURE__ */ function() {
     key: "ccs",
     value: function(entry, monsters, prepend) {
       var _a, _b;
-      monsters instanceof import_kolmafia19.Monster && (monsters = [monsters]);
-      var _iterator4 = _createForOfIteratorHelper8(monsters), _step4;
+      monsters instanceof import_kolmafia18.Monster && (monsters = [monsters]);
+      var _iterator4 = _createForOfIteratorHelper7(monsters), _step4;
       try {
         for (_iterator4.s(); !(_step4 = _iterator4.n()).done; ) {
           var monster = _step4.value;
@@ -10293,24 +9967,24 @@ var CombatStrategy = /* @__PURE__ */ function() {
     key: "clone",
     value: function() {
       var result = new CombatStrategy2();
-      this.starting_macro && (result.starting_macro = _toConsumableArray7(this.starting_macro)), this.default_macro && (result.default_macro = _toConsumableArray7(this.default_macro));
-      var _iterator5 = _createForOfIteratorHelper8(this.macros), _step5;
+      this.starting_macro && (result.starting_macro = _toConsumableArray6(this.starting_macro)), this.default_macro && (result.default_macro = _toConsumableArray6(this.default_macro));
+      var _iterator5 = _createForOfIteratorHelper7(this.macros), _step5;
       try {
         for (_iterator5.s(); !(_step5 = _iterator5.n()).done; ) {
           var pair = _step5.value;
-          result.macros.set(pair[0], _toConsumableArray7(pair[1]));
+          result.macros.set(pair[0], _toConsumableArray6(pair[1]));
         }
       } catch (err) {
         _iterator5.e(err);
       } finally {
         _iterator5.f();
       }
-      this.default_autoattack && (result.default_autoattack = _toConsumableArray7(this.default_autoattack));
-      var _iterator6 = _createForOfIteratorHelper8(this.autoattacks), _step6;
+      this.default_autoattack && (result.default_autoattack = _toConsumableArray6(this.default_autoattack));
+      var _iterator6 = _createForOfIteratorHelper7(this.autoattacks), _step6;
       try {
         for (_iterator6.s(); !(_step6 = _iterator6.n()).done; ) {
           var _pair = _step6.value;
-          result.autoattacks.set(_pair[0], _toConsumableArray7(_pair[1]));
+          result.autoattacks.set(_pair[0], _toConsumableArray6(_pair[1]));
         }
       } catch (err) {
         _iterator6.e(err);
@@ -10318,7 +9992,7 @@ var CombatStrategy = /* @__PURE__ */ function() {
         _iterator6.f();
       }
       result.default_action = this.default_action;
-      var _iterator7 = _createForOfIteratorHelper8(this.actions), _step7;
+      var _iterator7 = _createForOfIteratorHelper7(this.actions), _step7;
       try {
         for (_iterator7.s(); !(_step7 = _iterator7.n()).done; ) {
           var _pair2 = _step7.value;
@@ -10329,11 +10003,11 @@ var CombatStrategy = /* @__PURE__ */ function() {
       } finally {
         _iterator7.f();
       }
-      var _iterator8 = _createForOfIteratorHelper8(this.ccs_entries), _step8;
+      var _iterator8 = _createForOfIteratorHelper7(this.ccs_entries), _step8;
       try {
         for (_iterator8.s(); !(_step8 = _iterator8.n()).done; ) {
           var _pair3 = _step8.value;
-          result.ccs_entries.set(_pair3[0], _toConsumableArray7(_pair3[1]));
+          result.ccs_entries.set(_pair3[0], _toConsumableArray6(_pair3[1]));
         }
       } catch (err) {
         _iterator8.e(err);
@@ -10354,12 +10028,12 @@ var CombatStrategy = /* @__PURE__ */ function() {
     key: "compile",
     value: function(resources, defaults, location) {
       var _a, _b, result = new Macro();
-      this.starting_macro && result.step.apply(result, _toConsumableArray7(this.starting_macro.map(undelay)));
+      this.starting_macro && result.step.apply(result, _toConsumableArray6(this.starting_macro.map(undelay)));
       var monster_macros = new CompressedMacro();
       this.macros.forEach(function(value2, key) {
         var _Macro;
-        monster_macros.add(key, (_Macro = new Macro()).step.apply(_Macro, _toConsumableArray7(value2.map(undelay))));
-      }), result.step(monster_macros.compile()), this.default_macro && result.step.apply(result, _toConsumableArray7(this.default_macro.map(undelay)));
+        monster_macros.add(key, (_Macro = new Macro()).step.apply(_Macro, _toConsumableArray6(value2.map(undelay))));
+      }), result.step(monster_macros.compile()), this.default_macro && result.step.apply(result, _toConsumableArray6(this.default_macro.map(undelay)));
       var monster_actions = new CompressedMacro();
       if (this.actions.forEach(function(action, key) {
         var _a2, _b2, macro2 = (_a2 = resources.getMacro(action)) !== null && _a2 !== void 0 ? _a2 : (_b2 = defaults == null ? void 0 : defaults[action]) === null || _b2 === void 0 ? void 0 : _b2.call(defaults, key);
@@ -10381,8 +10055,8 @@ var CombatStrategy = /* @__PURE__ */ function() {
       var result = new Macro(), monster_macros = new CompressedMacro();
       return this.autoattacks.forEach(function(value2, key) {
         var _Macro2;
-        monster_macros.add(key, (_Macro2 = new Macro()).step.apply(_Macro2, _toConsumableArray7(value2.map(undelay))));
-      }), result.step(monster_macros.compile()), this.default_autoattack && result.step.apply(result, _toConsumableArray7(this.default_autoattack.map(undelay))), result;
+        monster_macros.add(key, (_Macro2 = new Macro()).step.apply(_Macro2, _toConsumableArray6(value2.map(undelay))));
+      }), result.step(monster_macros.compile()), this.default_autoattack && result.step.apply(result, _toConsumableArray6(this.default_autoattack.map(undelay))), result;
     }
     /**
      * Compile the CCS entries of this combat strategy into a single array.
@@ -10392,11 +10066,11 @@ var CombatStrategy = /* @__PURE__ */ function() {
   }, {
     key: "compileCcs",
     value: function() {
-      var result = [], _iterator9 = _createForOfIteratorHelper8(this.ccs_entries), _step9;
+      var result = [], _iterator9 = _createForOfIteratorHelper7(this.ccs_entries), _step9;
       try {
         for (_iterator9.s(); !(_step9 = _iterator9.n()).done; ) {
           var ccs_entry = _step9.value;
-          result.push.apply(result, ["[".concat(ccs_entry[0].name, "]")].concat(_toConsumableArray7(ccs_entry[1])));
+          result.push.apply(result, ["[".concat(ccs_entry[0].name, "]")].concat(_toConsumableArray6(ccs_entry[1])));
         }
       } catch (err) {
         _iterator9.e(err);
@@ -10426,10 +10100,10 @@ var CombatStrategy = /* @__PURE__ */ function() {
         _inherits4(CombatStrategyWithActions2, _this);
         var _super = _createSuper3(CombatStrategyWithActions2);
         function CombatStrategyWithActions2() {
-          return _classCallCheck10(this, CombatStrategyWithActions2), _super.apply(this, arguments);
+          return _classCallCheck9(this, CombatStrategyWithActions2), _super.apply(this, arguments);
         }
-        return _createClass10(CombatStrategyWithActions2);
-      }(this), proto = CombatStrategyWithActions.prototype, _iterator10 = _createForOfIteratorHelper8(actions), _step10;
+        return _createClass9(CombatStrategyWithActions2);
+      }(this), proto = CombatStrategyWithActions.prototype, _iterator10 = _createForOfIteratorHelper7(actions), _step10;
       try {
         var _loop = function() {
           var action = _step10.value;
@@ -10449,9 +10123,9 @@ var CombatStrategy = /* @__PURE__ */ function() {
   }]), CombatStrategy2;
 }(), CompressedMacro = /* @__PURE__ */ function() {
   function CompressedMacro2() {
-    _classCallCheck10(this, CompressedMacro2), this.components = /* @__PURE__ */ new Map();
+    _classCallCheck9(this, CompressedMacro2), this.components = /* @__PURE__ */ new Map();
   }
-  return _createClass10(CompressedMacro2, [{
+  return _createClass9(CompressedMacro2, [{
     key: "add",
     value: function(monster, macro) {
       var _a, macro_text = macro.toString();
@@ -10474,9 +10148,9 @@ var CombatStrategy = /* @__PURE__ */ function() {
   }]), CompressedMacro2;
 }(), CombatResources = /* @__PURE__ */ function() {
   function CombatResources2() {
-    _classCallCheck10(this, CombatResources2), this.resources = /* @__PURE__ */ new Map();
+    _classCallCheck9(this, CombatResources2), this.resources = /* @__PURE__ */ new Map();
   }
-  return _createClass10(CombatResources2, [{
+  return _createClass9(CombatResources2, [{
     key: "provide",
     value: function(action, resource) {
       resource !== void 0 && this.resources.set(action, resource);
@@ -10506,19 +10180,19 @@ var CombatStrategy = /* @__PURE__ */ function() {
     value: function(action) {
       var resource = this.resources.get(action);
       if (resource !== void 0)
-        return resource.do instanceof import_kolmafia19.Item ? new Macro().item(resource.do) : resource.do instanceof import_kolmafia19.Skill ? new Macro().skill(resource.do) : undelay(resource.do);
+        return resource.do instanceof import_kolmafia18.Item ? new Macro().item(resource.do) : resource.do instanceof import_kolmafia18.Skill ? new Macro().skill(resource.do) : undelay(resource.do);
     }
   }]), CombatResources2;
 }();
 
 // node_modules/grimoire-kolmafia/dist/engine.js
 init_kolmafia_polyfill();
-var import_kolmafia21 = require("kolmafia");
+var import_kolmafia20 = require("kolmafia");
 
 // node_modules/grimoire-kolmafia/dist/outfit.js
 init_kolmafia_polyfill();
-var import_kolmafia20 = require("kolmafia");
-var _templateObject60, _templateObject220, _templateObject318, _templateObject416, _templateObject511, _templateObject67, _templateObject77, _templateObject87, _templateObject98, _templateObject107, _templateObject117, _templateObject127, _templateObject137, _templateObject146, _templateObject156, _templateObject166, _templateObject176, _templateObject186, _templateObject196, _templateObject206, _templateObject2111, _templateObject226, _templateObject236, _templateObject246, _templateObject256, _templateObject266, _templateObject276, _templateObject285, _templateObject295, _templateObject305, _templateObject319, _templateObject325, _templateObject335, _templateObject344, _templateObject353, _templateObject363, _templateObject373, _templateObject383, _templateObject393, _templateObject403, _templateObject417, _templateObject423, _templateObject433, _templateObject443, _templateObject453, _templateObject463, _templateObject473, _templateObject483, _templateObject493, _templateObject503, _templateObject513, _templateObject523, _templateObject533, _templateObject542, _templateObject552, _templateObject562, _templateObject572, _templateObject582, _templateObject592, _templateObject602, _templateObject61, _templateObject622, _templateObject632, _templateObject642, _templateObject652, _templateObject662, _templateObject672;
+var import_kolmafia19 = require("kolmafia");
+var _templateObject59, _templateObject219, _templateObject316, _templateObject415, _templateObject510, _templateObject66, _templateObject76, _templateObject86, _templateObject97, _templateObject106, _templateObject116, _templateObject126, _templateObject136, _templateObject145, _templateObject155, _templateObject165, _templateObject175, _templateObject185, _templateObject195, _templateObject205, _templateObject2110, _templateObject225, _templateObject235, _templateObject245, _templateObject255, _templateObject265, _templateObject275, _templateObject284, _templateObject294, _templateObject304, _templateObject317, _templateObject324, _templateObject334, _templateObject344, _templateObject353, _templateObject363, _templateObject373, _templateObject383, _templateObject393, _templateObject403, _templateObject416, _templateObject423, _templateObject433, _templateObject443, _templateObject453, _templateObject463, _templateObject473, _templateObject483, _templateObject493, _templateObject503, _templateObject513, _templateObject523, _templateObject533, _templateObject542, _templateObject552, _templateObject562, _templateObject572, _templateObject582, _templateObject592, _templateObject60, _templateObject61, _templateObject622, _templateObject632, _templateObject642, _templateObject652, _templateObject662, _templateObject67;
 function ownKeys4(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
@@ -10533,23 +10207,23 @@ function _objectSpread4(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys4(Object(source), !0).forEach(function(key) {
-      _defineProperty9(target, key, source[key]);
+      _defineProperty8(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys4(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _defineProperty9(obj, key, value2) {
-  return key = _toPropertyKey11(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
+function _defineProperty8(obj, key, value2) {
+  return key = _toPropertyKey10(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
 }
-function _slicedToArray9(arr, i) {
-  return _arrayWithHoles9(arr) || _iterableToArrayLimit9(arr, i) || _unsupportedIterableToArray13(arr, i) || _nonIterableRest9();
+function _slicedToArray8(arr, i) {
+  return _arrayWithHoles8(arr) || _iterableToArrayLimit8(arr, i) || _unsupportedIterableToArray12(arr, i) || _nonIterableRest8();
 }
-function _nonIterableRest9() {
+function _nonIterableRest8() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _iterableToArrayLimit9(arr, i) {
+function _iterableToArrayLimit8(arr, i) {
   var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
   if (_i != null) {
     var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
@@ -10575,14 +10249,14 @@ function _iterableToArrayLimit9(arr, i) {
     return _arr;
   }
 }
-function _arrayWithHoles9(arr) {
+function _arrayWithHoles8(arr) {
   if (Array.isArray(arr))
     return arr;
 }
-function _createForOfIteratorHelper9(o, allowArrayLike) {
+function _createForOfIteratorHelper8(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray13(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray12(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -10611,58 +10285,58 @@ function _createForOfIteratorHelper9(o, allowArrayLike) {
     }
   } };
 }
-function _taggedTemplateLiteral10(strings, raw) {
+function _taggedTemplateLiteral9(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-function _toConsumableArray8(arr) {
-  return _arrayWithoutHoles8(arr) || _iterableToArray8(arr) || _unsupportedIterableToArray13(arr) || _nonIterableSpread8();
+function _toConsumableArray7(arr) {
+  return _arrayWithoutHoles7(arr) || _iterableToArray7(arr) || _unsupportedIterableToArray12(arr) || _nonIterableSpread7();
 }
-function _nonIterableSpread8() {
+function _nonIterableSpread7() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray13(o, minLen) {
+function _unsupportedIterableToArray12(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray13(o, minLen);
+      return _arrayLikeToArray12(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray13(o, minLen);
+      return _arrayLikeToArray12(o, minLen);
   }
 }
-function _iterableToArray8(iter) {
+function _iterableToArray7(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles8(arr) {
+function _arrayWithoutHoles7(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray13(arr);
+    return _arrayLikeToArray12(arr);
 }
-function _arrayLikeToArray13(arr, len) {
+function _arrayLikeToArray12(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-function _classCallCheck11(instance, Constructor) {
+function _classCallCheck10(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
-function _defineProperties11(target, props) {
+function _defineProperties10(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey11(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey10(descriptor.key), descriptor);
   }
 }
-function _createClass11(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties11(Constructor.prototype, protoProps), staticProps && _defineProperties11(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass10(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties10(Constructor.prototype, protoProps), staticProps && _defineProperties10(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _toPropertyKey11(arg) {
-  var key = _toPrimitive11(arg, "string");
+function _toPropertyKey10(arg) {
+  var key = _toPrimitive10(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive11(input, hint) {
+function _toPrimitive10(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -10678,19 +10352,19 @@ var FORCE_REFRESH_REQUIREMENT = new Requirement([], {
   forceUpdate: !0
 }), outfitSlots = ["hat", "back", "weapon", "offhand", "shirt", "pants", "acc1", "acc2", "acc3", "famequip"];
 var weaponHands = function(i) {
-  return i ? (0, import_kolmafia20.weaponHands)(i) : 0;
+  return i ? (0, import_kolmafia19.weaponHands)(i) : 0;
 }, modeableCommands2 = ["backupcamera", "umbrella", "snowsuit", "edpiece", "retrocape", "parka"], Outfit = /* @__PURE__ */ function() {
   function Outfit2() {
-    _classCallCheck11(this, Outfit2), this.equips = /* @__PURE__ */ new Map(), this.riders = /* @__PURE__ */ new Map(), this.modes = {}, this.skipDefaults = !1, this.modifier = [], this.avoid = [], this.bonuses = /* @__PURE__ */ new Map(), this.postActions = [], this.preActions = [];
+    _classCallCheck10(this, Outfit2), this.equips = /* @__PURE__ */ new Map(), this.riders = /* @__PURE__ */ new Map(), this.modes = {}, this.skipDefaults = !1, this.modifier = [], this.avoid = [], this.bonuses = /* @__PURE__ */ new Map(), this.postActions = [], this.preActions = [];
   }
-  return _createClass11(Outfit2, [{
+  return _createClass10(Outfit2, [{
     key: "equippedAmount",
     value: (
       /**
        * Check how many of an item is equipped on the outfit.
        */
       function(item4) {
-        return _toConsumableArray8(this.equips.values()).filter(function(i) {
+        return _toConsumableArray7(this.equips.values()).filter(function(i) {
           return i === item4;
         }).length;
       }
@@ -10699,7 +10373,7 @@ var weaponHands = function(i) {
     key: "isAvailable",
     value: function(item4) {
       var _a;
-      return !(!((_a = this.avoid) === null || _a === void 0) && _a.includes(item4) || !have(item4, this.equippedAmount(item4) + 1) || (0, import_kolmafia20.booleanModifier)(item4, "Single Equip") && this.equippedAmount(item4) > 0);
+      return !(!((_a = this.avoid) === null || _a === void 0) && _a.includes(item4) || !have(item4, this.equippedAmount(item4) + 1) || (0, import_kolmafia19.booleanModifier)(item4, "Single Equip") && this.equippedAmount(item4) > 0);
     }
     /**
      * Check whether an item is equipped on the outfit, optionally in a specific slot.
@@ -10717,27 +10391,27 @@ var weaponHands = function(i) {
   }, {
     key: "equipNonAccessory",
     value: function(item4, slot) {
-      if ($slots(_templateObject60 || (_templateObject60 = _taggedTemplateLiteral10(["acc1, acc2, acc3"]))).includes((0, import_kolmafia20.toSlot)(item4)) || slot !== void 0 && slot !== (0, import_kolmafia20.toSlot)(item4) || this.equips.has((0, import_kolmafia20.toSlot)(item4)))
+      if ($slots(_templateObject59 || (_templateObject59 = _taggedTemplateLiteral9(["acc1, acc2, acc3"]))).includes((0, import_kolmafia19.toSlot)(item4)) || slot !== void 0 && slot !== (0, import_kolmafia19.toSlot)(item4) || this.equips.has((0, import_kolmafia19.toSlot)(item4)))
         return !1;
-      switch ((0, import_kolmafia20.toSlot)(item4)) {
-        case $slot(_templateObject220 || (_templateObject220 = _taggedTemplateLiteral10(["off-hand"]))):
-          if (this.equips.has($slot(_templateObject318 || (_templateObject318 = _taggedTemplateLiteral10(["weapon"])))) && weaponHands(this.equips.get($slot(_templateObject416 || (_templateObject416 = _taggedTemplateLiteral10(["weapon"]))))) !== 1)
+      switch ((0, import_kolmafia19.toSlot)(item4)) {
+        case $slot(_templateObject219 || (_templateObject219 = _taggedTemplateLiteral9(["off-hand"]))):
+          if (this.equips.has($slot(_templateObject316 || (_templateObject316 = _taggedTemplateLiteral9(["weapon"])))) && weaponHands(this.equips.get($slot(_templateObject415 || (_templateObject415 = _taggedTemplateLiteral9(["weapon"]))))) !== 1)
             return !1;
           break;
-        case $slot(_templateObject511 || (_templateObject511 = _taggedTemplateLiteral10(["familiar"]))):
-          if (this.familiar !== void 0 && !(0, import_kolmafia20.canEquip)(this.familiar, item4))
+        case $slot(_templateObject510 || (_templateObject510 = _taggedTemplateLiteral9(["familiar"]))):
+          if (this.familiar !== void 0 && !(0, import_kolmafia19.canEquip)(this.familiar, item4))
             return !1;
       }
-      return (0, import_kolmafia20.toSlot)(item4) !== $slot(_templateObject67 || (_templateObject67 = _taggedTemplateLiteral10(["familiar"]))) && !(0, import_kolmafia20.canEquip)(item4) ? !1 : (this.equips.set((0, import_kolmafia20.toSlot)(item4), item4), !0);
+      return (0, import_kolmafia19.toSlot)(item4) !== $slot(_templateObject66 || (_templateObject66 = _taggedTemplateLiteral9(["familiar"]))) && !(0, import_kolmafia19.canEquip)(item4) ? !1 : (this.equips.set((0, import_kolmafia19.toSlot)(item4), item4), !0);
     }
   }, {
     key: "equipAccessory",
     value: function(item4, slot) {
       var _this = this;
-      if (![void 0].concat(_toConsumableArray8($slots(_templateObject77 || (_templateObject77 = _taggedTemplateLiteral10(["acc1, acc2, acc3"]))))).includes(slot) || (0, import_kolmafia20.toSlot)(item4) !== $slot(_templateObject87 || (_templateObject87 = _taggedTemplateLiteral10(["acc1"]))) || !(0, import_kolmafia20.canEquip)(item4))
+      if (![void 0].concat(_toConsumableArray7($slots(_templateObject76 || (_templateObject76 = _taggedTemplateLiteral9(["acc1, acc2, acc3"]))))).includes(slot) || (0, import_kolmafia19.toSlot)(item4) !== $slot(_templateObject86 || (_templateObject86 = _taggedTemplateLiteral9(["acc1"]))) || !(0, import_kolmafia19.canEquip)(item4))
         return !1;
       if (slot === void 0) {
-        var empty = $slots(_templateObject98 || (_templateObject98 = _taggedTemplateLiteral10(["acc1, acc2, acc3"]))).find(function(s) {
+        var empty = $slots(_templateObject97 || (_templateObject97 = _taggedTemplateLiteral9(["acc1, acc2, acc3"]))).find(function(s) {
           return !_this.equips.has(s);
         });
         if (empty === void 0)
@@ -10753,16 +10427,16 @@ var weaponHands = function(i) {
   }, {
     key: "equipUsingDualWield",
     value: function(item4, slot) {
-      return ![void 0, $slot(_templateObject107 || (_templateObject107 = _taggedTemplateLiteral10(["off-hand"])))].includes(slot) || (0, import_kolmafia20.toSlot)(item4) !== $slot(_templateObject117 || (_templateObject117 = _taggedTemplateLiteral10(["weapon"]))) || this.equips.has($slot(_templateObject127 || (_templateObject127 = _taggedTemplateLiteral10(["weapon"])))) && weaponHands(this.equips.get($slot(_templateObject137 || (_templateObject137 = _taggedTemplateLiteral10(["weapon"]))))) !== 1 || this.equips.has($slot(_templateObject146 || (_templateObject146 = _taggedTemplateLiteral10(["off-hand"])))) || !have($skill(_templateObject156 || (_templateObject156 = _taggedTemplateLiteral10(["Double-Fisted Skull Smashing"])))) || weaponHands(item4) !== 1 || !(0, import_kolmafia20.canEquip)(item4) ? !1 : (this.equips.set($slot(_templateObject166 || (_templateObject166 = _taggedTemplateLiteral10(["off-hand"]))), item4), !0);
+      return ![void 0, $slot(_templateObject106 || (_templateObject106 = _taggedTemplateLiteral9(["off-hand"])))].includes(slot) || (0, import_kolmafia19.toSlot)(item4) !== $slot(_templateObject116 || (_templateObject116 = _taggedTemplateLiteral9(["weapon"]))) || this.equips.has($slot(_templateObject126 || (_templateObject126 = _taggedTemplateLiteral9(["weapon"])))) && weaponHands(this.equips.get($slot(_templateObject136 || (_templateObject136 = _taggedTemplateLiteral9(["weapon"]))))) !== 1 || this.equips.has($slot(_templateObject145 || (_templateObject145 = _taggedTemplateLiteral9(["off-hand"])))) || !have($skill(_templateObject155 || (_templateObject155 = _taggedTemplateLiteral9(["Double-Fisted Skull Smashing"])))) || weaponHands(item4) !== 1 || !(0, import_kolmafia19.canEquip)(item4) ? !1 : (this.equips.set($slot(_templateObject165 || (_templateObject165 = _taggedTemplateLiteral9(["off-hand"]))), item4), !0);
     }
   }, {
     key: "getHoldingFamiliar",
     value: function(item4) {
-      switch ((0, import_kolmafia20.toSlot)(item4)) {
-        case $slot(_templateObject176 || (_templateObject176 = _taggedTemplateLiteral10(["weapon"]))):
-          return $familiar(_templateObject186 || (_templateObject186 = _taggedTemplateLiteral10(["Disembodied Hand"])));
-        case $slot(_templateObject196 || (_templateObject196 = _taggedTemplateLiteral10(["off-hand"]))):
-          return $familiar(_templateObject206 || (_templateObject206 = _taggedTemplateLiteral10(["Left-Hand Man"])));
+      switch ((0, import_kolmafia19.toSlot)(item4)) {
+        case $slot(_templateObject175 || (_templateObject175 = _taggedTemplateLiteral9(["weapon"]))):
+          return $familiar(_templateObject185 || (_templateObject185 = _taggedTemplateLiteral9(["Disembodied Hand"])));
+        case $slot(_templateObject195 || (_templateObject195 = _taggedTemplateLiteral9(["off-hand"]))):
+          return $familiar(_templateObject205 || (_templateObject205 = _taggedTemplateLiteral9(["Left-Hand Man"])));
         default:
           return;
       }
@@ -10828,10 +10502,10 @@ var weaponHands = function(i) {
   }, {
     key: "applyBonuses",
     value: function(items, reducer) {
-      var _iterator2 = _createForOfIteratorHelper9(items), _step2;
+      var _iterator2 = _createForOfIteratorHelper8(items), _step2;
       try {
         for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
-          var _step$value = _slicedToArray9(_step2.value, 2), item4 = _step$value[0], value2 = _step$value[1];
+          var _step$value = _slicedToArray8(_step2.value, 2), item4 = _step$value[0], value2 = _step$value[1];
           this.applyBonus(item4, value2, reducer);
         }
       } catch (err) {
@@ -10867,10 +10541,10 @@ var weaponHands = function(i) {
   }, {
     key: "equipUsingFamiliar",
     value: function(item4, slot) {
-      if (![void 0, $slot(_templateObject2111 || (_templateObject2111 = _taggedTemplateLiteral10(["familiar"])))].includes(slot) || this.equips.has($slot(_templateObject226 || (_templateObject226 = _taggedTemplateLiteral10(["familiar"])))) || (0, import_kolmafia20.booleanModifier)(item4, "Single Equip"))
+      if (![void 0, $slot(_templateObject2110 || (_templateObject2110 = _taggedTemplateLiteral9(["familiar"])))].includes(slot) || this.equips.has($slot(_templateObject225 || (_templateObject225 = _taggedTemplateLiteral9(["familiar"])))) || (0, import_kolmafia19.booleanModifier)(item4, "Single Equip"))
         return !1;
-      var familiar3 = this.getHoldingFamiliar(item4);
-      return familiar3 === void 0 || !this.equip(familiar3) ? !1 : (this.equips.set($slot(_templateObject236 || (_templateObject236 = _taggedTemplateLiteral10(["familiar"]))), item4), !0);
+      var familiar2 = this.getHoldingFamiliar(item4);
+      return familiar2 === void 0 || !this.equip(familiar2) ? !1 : (this.equips.set($slot(_templateObject235 || (_templateObject235 = _taggedTemplateLiteral9(["familiar"]))), item4), !0);
     }
   }, {
     key: "equipItem",
@@ -10879,22 +10553,22 @@ var weaponHands = function(i) {
     }
   }, {
     key: "equipFamiliar",
-    value: function(familiar3) {
-      if (familiar3 === this.familiar)
+    value: function(familiar2) {
+      if (familiar2 === this.familiar)
         return !0;
-      if (this.familiar !== void 0 || familiar3 !== $familiar.none && (!have(familiar3) || Array.from(this.riders.values()).includes(familiar3)))
+      if (this.familiar !== void 0 || familiar2 !== $familiar.none && (!have(familiar2) || Array.from(this.riders.values()).includes(familiar2)))
         return !1;
-      var item4 = this.equips.get($slot(_templateObject246 || (_templateObject246 = _taggedTemplateLiteral10(["familiar"]))));
-      return item4 !== void 0 && item4 !== $item.none && !(0, import_kolmafia20.canEquip)(familiar3, item4) ? !1 : (this.familiar = familiar3, !0);
+      var item4 = this.equips.get($slot(_templateObject245 || (_templateObject245 = _taggedTemplateLiteral9(["familiar"]))));
+      return item4 !== void 0 && item4 !== $item.none && !(0, import_kolmafia19.canEquip)(familiar2, item4) ? !1 : (this.familiar = familiar2, !0);
     }
   }, {
     key: "equipSpec",
     value: function(spec) {
       for (var _this$avoid, _a, _b, _c, _d, _e, _f, succeeded = !0, _i2 = 0, _outfitSlots2 = outfitSlots; _i2 < _outfitSlots2.length; _i2++) {
-        var slotName = _outfitSlots2[_i2], slot = (_a = (/* @__PURE__ */ new Map([["famequip", $slot(_templateObject256 || (_templateObject256 = _taggedTemplateLiteral10(["familiar"])))], ["offhand", $slot(_templateObject266 || (_templateObject266 = _taggedTemplateLiteral10(["off-hand"])))]])).get(slotName)) !== null && _a !== void 0 ? _a : (0, import_kolmafia20.toSlot)(slotName), itemOrItems = spec[slotName];
+        var slotName = _outfitSlots2[_i2], slot = (_a = (/* @__PURE__ */ new Map([["famequip", $slot(_templateObject255 || (_templateObject255 = _taggedTemplateLiteral9(["familiar"])))], ["offhand", $slot(_templateObject265 || (_templateObject265 = _taggedTemplateLiteral9(["off-hand"])))]])).get(slotName)) !== null && _a !== void 0 ? _a : (0, import_kolmafia19.toSlot)(slotName), itemOrItems = spec[slotName];
         itemOrItems !== void 0 && !this.equip(itemOrItems, slot) && (succeeded = !1);
       }
-      var _iterator2 = _createForOfIteratorHelper9((_b = spec == null ? void 0 : spec.equip) !== null && _b !== void 0 ? _b : []), _step2;
+      var _iterator2 = _createForOfIteratorHelper8((_b = spec == null ? void 0 : spec.equip) !== null && _b !== void 0 ? _b : []), _step2;
       try {
         for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
           var item4 = _step2.value;
@@ -10905,11 +10579,11 @@ var weaponHands = function(i) {
       } finally {
         _iterator2.f();
       }
-      if ((spec == null ? void 0 : spec.familiar) !== void 0 && (this.equip(spec.familiar) || (succeeded = !1)), (_this$avoid = this.avoid).push.apply(_this$avoid, _toConsumableArray8((_c = spec == null ? void 0 : spec.avoid) !== null && _c !== void 0 ? _c : [])), this.skipDefaults = this.skipDefaults || ((_d = spec.skipDefaults) !== null && _d !== void 0 ? _d : !1), spec.modifier) {
+      if ((spec == null ? void 0 : spec.familiar) !== void 0 && (this.equip(spec.familiar) || (succeeded = !1)), (_this$avoid = this.avoid).push.apply(_this$avoid, _toConsumableArray7((_c = spec == null ? void 0 : spec.avoid) !== null && _c !== void 0 ? _c : [])), this.skipDefaults = this.skipDefaults || ((_d = spec.skipDefaults) !== null && _d !== void 0 ? _d : !1), spec.modifier) {
         var _this$modifier;
-        Array.isArray(spec.modifier) ? (_this$modifier = this.modifier).push.apply(_this$modifier, _toConsumableArray8(spec.modifier)) : this.modifier.push(spec.modifier);
+        Array.isArray(spec.modifier) ? (_this$modifier = this.modifier).push.apply(_this$modifier, _toConsumableArray7(spec.modifier)) : this.modifier.push(spec.modifier);
       }
-      return spec.modes && (this.setModes(spec.modes) || (succeeded = !1)), spec.riders && (spec.riders["buddy-bjorn"] && !this.bjornify(spec.riders["buddy-bjorn"]) && (succeeded = !1), spec.riders["crown-of-thrones"] && !this.enthrone(spec.riders["crown-of-thrones"]) && (succeeded = !1)), spec.bonuses && this.addBonuses(spec.bonuses), this.beforeDress.apply(this, _toConsumableArray8((_e = spec.beforeDress) !== null && _e !== void 0 ? _e : [])), this.afterDress.apply(this, _toConsumableArray8((_f = spec.afterDress) !== null && _f !== void 0 ? _f : [])), succeeded;
+      return spec.modes && (this.setModes(spec.modes) || (succeeded = !1)), spec.riders && (spec.riders["buddy-bjorn"] && !this.bjornify(spec.riders["buddy-bjorn"]) && (succeeded = !1), spec.riders["crown-of-thrones"] && !this.enthrone(spec.riders["crown-of-thrones"]) && (succeeded = !1)), spec.bonuses && this.addBonuses(spec.bonuses), this.beforeDress.apply(this, _toConsumableArray7((_e = spec.beforeDress) !== null && _e !== void 0 ? _e : [])), this.afterDress.apply(this, _toConsumableArray7((_f = spec.afterDress) !== null && _f !== void 0 ? _f : [])), succeeded;
     }
     /**
      * Equip the first thing that can be equipped to the outfit.
@@ -10951,7 +10625,7 @@ var weaponHands = function(i) {
       var _this = this;
       return Array.isArray(thing) ? slot !== void 0 ? this.equipFirst(thing, slot) : thing.every(function(val) {
         return _this.equip(val);
-      }) : thing instanceof import_kolmafia20.Item ? this.equipItem(thing, slot) : thing instanceof import_kolmafia20.Familiar ? this.equipFamiliar(thing) : thing instanceof Outfit2 ? this.equipSpec(thing.spec()) : this.equipSpec(thing);
+      }) : thing instanceof import_kolmafia19.Item ? this.equipItem(thing, slot) : thing instanceof import_kolmafia19.Familiar ? this.equipFamiliar(thing) : thing instanceof Outfit2 ? this.equipSpec(thing.spec()) : this.equipSpec(thing);
     }
   }, {
     key: "bjornify",
@@ -10967,16 +10641,16 @@ var weaponHands = function(i) {
        */
       function(target) {
         var _this = this;
-        var current = this.riders.get($slot(_templateObject276 || (_templateObject276 = _taggedTemplateLiteral10(["buddy-bjorn"]))));
+        var current = this.riders.get($slot(_templateObject275 || (_templateObject275 = _taggedTemplateLiteral9(["buddy-bjorn"]))));
         if (current)
           return !!(Array.isArray(target) ? target.includes(current) : current === target);
         if (Array.isArray(target)) {
           var fam = target.find(function(f) {
-            return have(f) && _this.familiar !== f && _this.riders.get($slot(_templateObject285 || (_templateObject285 = _taggedTemplateLiteral10(["crown-of-thrones"])))) !== f;
+            return have(f) && _this.familiar !== f && _this.riders.get($slot(_templateObject284 || (_templateObject284 = _taggedTemplateLiteral9(["crown-of-thrones"])))) !== f;
           });
-          return fam ? (this.riders.set($slot(_templateObject295 || (_templateObject295 = _taggedTemplateLiteral10(["buddy-bjorn"]))), fam), !0) : !1;
+          return fam ? (this.riders.set($slot(_templateObject294 || (_templateObject294 = _taggedTemplateLiteral9(["buddy-bjorn"]))), fam), !0) : !1;
         } else
-          return have(target) && this.familiar !== target && !Array.from(this.riders.values()).includes(target) ? (this.riders.set($slot(_templateObject305 || (_templateObject305 = _taggedTemplateLiteral10(["buddy-bjorn"]))), target), !0) : !1;
+          return have(target) && this.familiar !== target && !Array.from(this.riders.values()).includes(target) ? (this.riders.set($slot(_templateObject304 || (_templateObject304 = _taggedTemplateLiteral9(["buddy-bjorn"]))), target), !0) : !1;
       }
     )
     /**
@@ -10992,16 +10666,16 @@ var weaponHands = function(i) {
     key: "enthrone",
     value: function(target) {
       var _this = this;
-      var current = this.riders.get($slot(_templateObject319 || (_templateObject319 = _taggedTemplateLiteral10(["crown-of-thrones"]))));
+      var current = this.riders.get($slot(_templateObject317 || (_templateObject317 = _taggedTemplateLiteral9(["crown-of-thrones"]))));
       if (current)
         return !!(Array.isArray(target) ? target.includes(current) : current === target);
       if (Array.isArray(target)) {
         var fam = target.find(function(f) {
-          return have(f) && _this.familiar !== f && _this.riders.get($slot(_templateObject325 || (_templateObject325 = _taggedTemplateLiteral10(["buddy-bjorn"])))) !== f;
+          return have(f) && _this.familiar !== f && _this.riders.get($slot(_templateObject324 || (_templateObject324 = _taggedTemplateLiteral9(["buddy-bjorn"])))) !== f;
         });
-        return fam ? (this.riders.set($slot(_templateObject335 || (_templateObject335 = _taggedTemplateLiteral10(["crown-of-thrones"]))), fam), !0) : !1;
+        return fam ? (this.riders.set($slot(_templateObject334 || (_templateObject334 = _taggedTemplateLiteral9(["crown-of-thrones"]))), fam), !0) : !1;
       } else
-        return have(target) && this.familiar !== target && !Array.from(this.riders.values()).includes(target) ? (this.riders.set($slot(_templateObject344 || (_templateObject344 = _taggedTemplateLiteral10(["crown-of-thrones"]))), target), !0) : !1;
+        return have(target) && this.familiar !== target && !Array.from(this.riders.values()).includes(target) ? (this.riders.set($slot(_templateObject344 || (_templateObject344 = _taggedTemplateLiteral9(["crown-of-thrones"]))), target), !0) : !1;
     }
     /**
      * Set the provided modes for items that may be equipped in the outfit.
@@ -11075,42 +10749,42 @@ var weaponHands = function(i) {
     key: "_dress",
     value: function(refreshed) {
       var _this = this;
-      this.familiar && (0, import_kolmafia20.useFamiliar)(this.familiar);
-      var targetEquipment = Array.from(this.equips.values()), usedSlots = /* @__PURE__ */ new Set(), nonaccessorySlots = $slots(_templateObject353 || (_templateObject353 = _taggedTemplateLiteral10(["weapon, off-hand, hat, back, shirt, pants, familiar"]))), bjorn = this.riders.get($slot(_templateObject363 || (_templateObject363 = _taggedTemplateLiteral10(["buddy-bjorn"]))));
-      bjorn && (this.equips.get($slot(_templateObject373 || (_templateObject373 = _taggedTemplateLiteral10(["back"])))) === $item(_templateObject383 || (_templateObject383 = _taggedTemplateLiteral10(["Buddy Bjorn"]))) || this.getBonus($item(_templateObject393 || (_templateObject393 = _taggedTemplateLiteral10(["Buddy Bjorn"]))))) && (usedSlots.add($slot(_templateObject403 || (_templateObject403 = _taggedTemplateLiteral10(["buddy-bjorn"])))), usedSlots.add($slot(_templateObject417 || (_templateObject417 = _taggedTemplateLiteral10(["crown-of-thrones"])))));
-      var crown = this.riders.get($slot(_templateObject423 || (_templateObject423 = _taggedTemplateLiteral10(["crown-of-thrones"]))));
-      crown && (this.equips.get($slot(_templateObject433 || (_templateObject433 = _taggedTemplateLiteral10(["hat"])))) === $item(_templateObject443 || (_templateObject443 = _taggedTemplateLiteral10(["Crown of Thrones"]))) || this.getBonus($item(_templateObject453 || (_templateObject453 = _taggedTemplateLiteral10(["Crown of Thrones"]))))) && (usedSlots.add($slot(_templateObject463 || (_templateObject463 = _taggedTemplateLiteral10(["buddy-bjorn"])))), usedSlots.add($slot(_templateObject473 || (_templateObject473 = _taggedTemplateLiteral10(["crown-of-thrones"])))));
-      var _iterator3 = _createForOfIteratorHelper9(nonaccessorySlots), _step3;
+      this.familiar && (0, import_kolmafia19.useFamiliar)(this.familiar);
+      var targetEquipment = Array.from(this.equips.values()), usedSlots = /* @__PURE__ */ new Set(), nonaccessorySlots = $slots(_templateObject353 || (_templateObject353 = _taggedTemplateLiteral9(["weapon, off-hand, hat, back, shirt, pants, familiar"]))), bjorn = this.riders.get($slot(_templateObject363 || (_templateObject363 = _taggedTemplateLiteral9(["buddy-bjorn"]))));
+      bjorn && (this.equips.get($slot(_templateObject373 || (_templateObject373 = _taggedTemplateLiteral9(["back"])))) === $item(_templateObject383 || (_templateObject383 = _taggedTemplateLiteral9(["Buddy Bjorn"]))) || this.getBonus($item(_templateObject393 || (_templateObject393 = _taggedTemplateLiteral9(["Buddy Bjorn"]))))) && (usedSlots.add($slot(_templateObject403 || (_templateObject403 = _taggedTemplateLiteral9(["buddy-bjorn"])))), usedSlots.add($slot(_templateObject416 || (_templateObject416 = _taggedTemplateLiteral9(["crown-of-thrones"])))));
+      var crown = this.riders.get($slot(_templateObject423 || (_templateObject423 = _taggedTemplateLiteral9(["crown-of-thrones"]))));
+      crown && (this.equips.get($slot(_templateObject433 || (_templateObject433 = _taggedTemplateLiteral9(["hat"])))) === $item(_templateObject443 || (_templateObject443 = _taggedTemplateLiteral9(["Crown of Thrones"]))) || this.getBonus($item(_templateObject453 || (_templateObject453 = _taggedTemplateLiteral9(["Crown of Thrones"]))))) && (usedSlots.add($slot(_templateObject463 || (_templateObject463 = _taggedTemplateLiteral9(["buddy-bjorn"])))), usedSlots.add($slot(_templateObject473 || (_templateObject473 = _taggedTemplateLiteral9(["crown-of-thrones"])))));
+      var _iterator3 = _createForOfIteratorHelper8(nonaccessorySlots), _step3;
       try {
         for (_iterator3.s(); !(_step3 = _iterator3.n()).done; ) {
           var slot = _step3.value;
-          (targetEquipment.includes((0, import_kolmafia20.equippedItem)(slot)) && this.equips.get(slot) !== (0, import_kolmafia20.equippedItem)(slot) || this.avoid.includes((0, import_kolmafia20.equippedItem)(slot)) || slot === $slot(_templateObject552 || (_templateObject552 = _taggedTemplateLiteral10(["weapon"]))) && weaponHands((0, import_kolmafia20.equippedItem)(slot)) !== 1 && this.equips.has($slot(_templateObject562 || (_templateObject562 = _taggedTemplateLiteral10(["offhand"])))) && !this.equips.has($slot(_templateObject572 || (_templateObject572 = _taggedTemplateLiteral10(["weapon"]))))) && (0, import_kolmafia20.equip)(slot, $item.none);
+          (targetEquipment.includes((0, import_kolmafia19.equippedItem)(slot)) && this.equips.get(slot) !== (0, import_kolmafia19.equippedItem)(slot) || this.avoid.includes((0, import_kolmafia19.equippedItem)(slot)) || slot === $slot(_templateObject552 || (_templateObject552 = _taggedTemplateLiteral9(["weapon"]))) && weaponHands((0, import_kolmafia19.equippedItem)(slot)) !== 1 && this.equips.has($slot(_templateObject562 || (_templateObject562 = _taggedTemplateLiteral9(["offhand"])))) && !this.equips.has($slot(_templateObject572 || (_templateObject572 = _taggedTemplateLiteral9(["weapon"]))))) && (0, import_kolmafia19.equip)(slot, $item.none);
         }
       } catch (err) {
         _iterator3.e(err);
       } finally {
         _iterator3.f();
       }
-      var _iterator4 = _createForOfIteratorHelper9(nonaccessorySlots), _step4;
+      var _iterator4 = _createForOfIteratorHelper8(nonaccessorySlots), _step4;
       try {
         for (_iterator4.s(); !(_step4 = _iterator4.n()).done; ) {
           var _slot = _step4.value, equipment = this.equips.get(_slot);
-          equipment && ((0, import_kolmafia20.equip)(_slot, equipment), usedSlots.add(_slot));
+          equipment && ((0, import_kolmafia19.equip)(_slot, equipment), usedSlots.add(_slot));
         }
       } catch (err) {
         _iterator4.e(err);
       } finally {
         _iterator4.f();
       }
-      var accessorySlots = $slots(_templateObject483 || (_templateObject483 = _taggedTemplateLiteral10(["acc1, acc2, acc3"]))), accessoryEquips = accessorySlots.map(function(slot2) {
+      var accessorySlots = $slots(_templateObject483 || (_templateObject483 = _taggedTemplateLiteral9(["acc1, acc2, acc3"]))), accessoryEquips = accessorySlots.map(function(slot2) {
         return _this.equips.get(slot2);
       }).filter(function(item4) {
         return item4 !== void 0;
-      }), missingAccessories = [], _iterator5 = _createForOfIteratorHelper9(accessoryEquips), _step5;
+      }), missingAccessories = [], _iterator5 = _createForOfIteratorHelper8(accessoryEquips), _step5;
       try {
         var _loop = function() {
           var accessory2 = _step5.value, alreadyEquipped = accessorySlots.find(function(slot2) {
-            return !usedSlots.has(slot2) && (0, import_kolmafia20.equippedItem)(slot2) === accessory2;
+            return !usedSlots.has(slot2) && (0, import_kolmafia19.equippedItem)(slot2) === accessory2;
           });
           alreadyEquipped ? usedSlots.add(alreadyEquipped) : missingAccessories.push(accessory2);
         };
@@ -11127,12 +10801,12 @@ var weaponHands = function(i) {
         });
         if (unusedSlot === void 0)
           throw "No accessory slots remaining";
-        (0, import_kolmafia20.equip)(unusedSlot, accessory), usedSlots.add(unusedSlot);
+        (0, import_kolmafia19.equip)(unusedSlot, accessory), usedSlots.add(unusedSlot);
       }
       var modes = convertToLibramModes(this.modes);
       if (this.modifier.length > 0) {
         var allRequirements = [new Requirement(this.modifier, {
-          preventSlot: _toConsumableArray8(usedSlots),
+          preventSlot: _toConsumableArray7(usedSlots),
           preventEquip: this.avoid,
           modes: modes,
           bonusEquip: this.bonuses
@@ -11140,18 +10814,18 @@ var weaponHands = function(i) {
         if (refreshed && allRequirements.push(FORCE_REFRESH_REQUIREMENT), !Requirement.merge(allRequirements).maximize()) {
           if (refreshed)
             throw new Error("Failed to maximize properly!");
-          (0, import_kolmafia20.cliExecute)("refresh inventory"), this._dress(!0);
+          (0, import_kolmafia19.cliExecute)("refresh inventory"), this._dress(!0);
           return;
         }
-        (0, import_kolmafia20.logprint)("Maximize: ".concat(this.modifier));
+        (0, import_kolmafia19.logprint)("Maximize: ".concat(this.modifier));
       }
-      if (applyModes(modes), bjorn && (0, import_kolmafia20.haveEquipped)($item(_templateObject493 || (_templateObject493 = _taggedTemplateLiteral10(["Buddy Bjorn"])))) && ((0, import_kolmafia20.myEnthronedFamiliar)() === bjorn && (0, import_kolmafia20.enthroneFamiliar)($familiar.none), (0, import_kolmafia20.myBjornedFamiliar)() !== bjorn && (0, import_kolmafia20.bjornifyFamiliar)(bjorn)), crown && (0, import_kolmafia20.haveEquipped)($item(_templateObject503 || (_templateObject503 = _taggedTemplateLiteral10(["Crown of Thrones"])))) && ((0, import_kolmafia20.myBjornedFamiliar)() === crown && (0, import_kolmafia20.bjornifyFamiliar)($familiar.none), (0, import_kolmafia20.myEnthronedFamiliar)() !== crown && (0, import_kolmafia20.enthroneFamiliar)(crown)), this.familiar !== void 0 && (0, import_kolmafia20.myFamiliar)() !== this.familiar)
+      if (applyModes(modes), bjorn && (0, import_kolmafia19.haveEquipped)($item(_templateObject493 || (_templateObject493 = _taggedTemplateLiteral9(["Buddy Bjorn"])))) && ((0, import_kolmafia19.myEnthronedFamiliar)() === bjorn && (0, import_kolmafia19.enthroneFamiliar)($familiar.none), (0, import_kolmafia19.myBjornedFamiliar)() !== bjorn && (0, import_kolmafia19.bjornifyFamiliar)(bjorn)), crown && (0, import_kolmafia19.haveEquipped)($item(_templateObject503 || (_templateObject503 = _taggedTemplateLiteral9(["Crown of Thrones"])))) && ((0, import_kolmafia19.myBjornedFamiliar)() === crown && (0, import_kolmafia19.bjornifyFamiliar)($familiar.none), (0, import_kolmafia19.myEnthronedFamiliar)() !== crown && (0, import_kolmafia19.enthroneFamiliar)(crown)), this.familiar !== void 0 && (0, import_kolmafia19.myFamiliar)() !== this.familiar)
         throw "Failed to fully dress (expected: familiar ".concat(this.familiar, ")");
-      var _iterator6 = _createForOfIteratorHelper9(nonaccessorySlots), _step6;
+      var _iterator6 = _createForOfIteratorHelper8(nonaccessorySlots), _step6;
       try {
         for (_iterator6.s(); !(_step6 = _iterator6.n()).done; ) {
           var _slot2 = _step6.value;
-          if (this.equips.has(_slot2) && (0, import_kolmafia20.equippedItem)(_slot2) !== this.equips.get(_slot2))
+          if (this.equips.has(_slot2) && (0, import_kolmafia19.equippedItem)(_slot2) !== this.equips.get(_slot2))
             throw "Failed to fully dress (expected: ".concat(_slot2, " ").concat(this.equips.get(_slot2), ")");
         }
       } catch (err) {
@@ -11159,11 +10833,11 @@ var weaponHands = function(i) {
       } finally {
         _iterator6.f();
       }
-      var _iterator7 = _createForOfIteratorHelper9(accessoryEquips), _step7;
+      var _iterator7 = _createForOfIteratorHelper8(accessoryEquips), _step7;
       try {
         var _loop2 = function() {
           var accessory2 = _step7.value;
-          if ((0, import_kolmafia20.equippedAmount)(accessory2) < accessoryEquips.filter(function(acc) {
+          if ((0, import_kolmafia19.equippedAmount)(accessory2) < accessoryEquips.filter(function(acc) {
             return acc === accessory2;
           }).length)
             throw "Failed to fully dress (expected: acc ".concat(accessory2, ")");
@@ -11175,16 +10849,16 @@ var weaponHands = function(i) {
       } finally {
         _iterator7.f();
       }
-      for (var _i5 = 0, _arr2 = [[$slot(_templateObject513 || (_templateObject513 = _taggedTemplateLiteral10(["buddy-bjorn"]))), $item(_templateObject523 || (_templateObject523 = _taggedTemplateLiteral10(["Buddy Bjorn"]))), import_kolmafia20.myBjornedFamiliar], [$slot(_templateObject533 || (_templateObject533 = _taggedTemplateLiteral10(["crown-of-thrones"]))), $item(_templateObject542 || (_templateObject542 = _taggedTemplateLiteral10(["Crown of Thrones"]))), import_kolmafia20.myEnthronedFamiliar]]; _i5 < _arr2.length; _i5++) {
-        var _arr2$_i = _slicedToArray9(_arr2[_i5], 3), rider = _arr2$_i[0], throne = _arr2$_i[1], checkingFunction = _arr2$_i[2], wanted = this.riders.get(rider);
-        if (_toConsumableArray8(this.equips.values()).includes(throne) && wanted && checkingFunction() !== wanted)
+      for (var _i5 = 0, _arr2 = [[$slot(_templateObject513 || (_templateObject513 = _taggedTemplateLiteral9(["buddy-bjorn"]))), $item(_templateObject523 || (_templateObject523 = _taggedTemplateLiteral9(["Buddy Bjorn"]))), import_kolmafia19.myBjornedFamiliar], [$slot(_templateObject533 || (_templateObject533 = _taggedTemplateLiteral9(["crown-of-thrones"]))), $item(_templateObject542 || (_templateObject542 = _taggedTemplateLiteral9(["Crown of Thrones"]))), import_kolmafia19.myEnthronedFamiliar]]; _i5 < _arr2.length; _i5++) {
+        var _arr2$_i = _slicedToArray8(_arr2[_i5], 3), rider = _arr2$_i[0], throne = _arr2$_i[1], checkingFunction = _arr2$_i[2], wanted = this.riders.get(rider);
+        if (_toConsumableArray7(this.equips.values()).includes(throne) && wanted && checkingFunction() !== wanted)
           throw "Failed to fully dress: (expected ".concat(rider, " ").concat(wanted, ")");
       }
     }
   }, {
     key: "dress",
     value: function() {
-      var _iterator8 = _createForOfIteratorHelper9(this.preActions), _step8;
+      var _iterator8 = _createForOfIteratorHelper8(this.preActions), _step8;
       try {
         for (_iterator8.s(); !(_step8 = _iterator8.n()).done; ) {
           var action = _step8.value;
@@ -11196,7 +10870,7 @@ var weaponHands = function(i) {
         _iterator8.f();
       }
       this._dress(!1);
-      var _iterator9 = _createForOfIteratorHelper9(this.postActions), _step9;
+      var _iterator9 = _createForOfIteratorHelper8(this.postActions), _step9;
       try {
         for (_iterator9.s(); !(_step9 = _iterator9.n()).done; ) {
           var _action = _step9.value;
@@ -11215,7 +10889,7 @@ var weaponHands = function(i) {
     key: "clone",
     value: function() {
       var result = new Outfit2();
-      return result.equips = new Map(this.equips), result.skipDefaults = this.skipDefaults, result.familiar = this.familiar, result.modifier = _toConsumableArray8(this.modifier), result.avoid = _toConsumableArray8(this.avoid), result.modes = _objectSpread4({}, this.modes), result.riders = new Map(this.riders), result.bonuses = new Map(this.bonuses), result.beforeDress.apply(result, _toConsumableArray8(this.preActions)), result.afterDress.apply(result, _toConsumableArray8(this.postActions)), result;
+      return result.equips = new Map(this.equips), result.skipDefaults = this.skipDefaults, result.familiar = this.familiar, result.modifier = _toConsumableArray7(this.modifier), result.avoid = _toConsumableArray7(this.avoid), result.modes = _objectSpread4({}, this.modes), result.riders = new Map(this.riders), result.bonuses = new Map(this.bonuses), result.beforeDress.apply(result, _toConsumableArray7(this.preActions)), result.afterDress.apply(result, _toConsumableArray7(this.postActions)), result;
     }
     /**
      * Build an OutfitSpec identical to this outfit.
@@ -11224,34 +10898,34 @@ var weaponHands = function(i) {
     key: "spec",
     value: function() {
       var _a, result = {
-        modifier: _toConsumableArray8(this.modifier),
-        avoid: _toConsumableArray8(this.avoid),
+        modifier: _toConsumableArray7(this.modifier),
+        avoid: _toConsumableArray7(this.avoid),
         skipDefaults: this.skipDefaults,
         modes: _objectSpread4({}, this.modes),
         bonuses: new Map(this.bonuses)
       };
       this.familiar && (result.familiar = this.familiar);
       for (var _i6 = 0, _outfitSlots2 = outfitSlots; _i6 < _outfitSlots2.length; _i6++) {
-        var slotName = _outfitSlots2[_i6], entry = this.equips.get((_a = (/* @__PURE__ */ new Map([["famequip", $slot(_templateObject582 || (_templateObject582 = _taggedTemplateLiteral10(["familiar"])))], ["offhand", $slot(_templateObject592 || (_templateObject592 = _taggedTemplateLiteral10(["off-hand"])))]])).get(slotName)) !== null && _a !== void 0 ? _a : (0, import_kolmafia20.toSlot)(slotName));
+        var slotName = _outfitSlots2[_i6], entry = this.equips.get((_a = (/* @__PURE__ */ new Map([["famequip", $slot(_templateObject582 || (_templateObject582 = _taggedTemplateLiteral9(["familiar"])))], ["offhand", $slot(_templateObject592 || (_templateObject592 = _taggedTemplateLiteral9(["off-hand"])))]])).get(slotName)) !== null && _a !== void 0 ? _a : (0, import_kolmafia19.toSlot)(slotName));
         entry && (result[slotName] = entry);
       }
-      var riders = {}, buddyRider = this.riders.get($slot(_templateObject602 || (_templateObject602 = _taggedTemplateLiteral10(["buddy-bjorn"]))));
+      var riders = {}, buddyRider = this.riders.get($slot(_templateObject60 || (_templateObject60 = _taggedTemplateLiteral9(["buddy-bjorn"]))));
       buddyRider !== void 0 && (riders["buddy-bjorn"] = buddyRider);
-      var throneRider = this.riders.get($slot(_templateObject61 || (_templateObject61 = _taggedTemplateLiteral10(["crown-of-thrones"]))));
+      var throneRider = this.riders.get($slot(_templateObject61 || (_templateObject61 = _taggedTemplateLiteral9(["crown-of-thrones"]))));
       return throneRider !== void 0 && (riders["crown-of-thrones"] = throneRider), (buddyRider !== void 0 || throneRider !== void 0) && (result.riders = riders), this.preActions.length && (result.beforeDress = this.preActions), this.postActions.length && (result.afterDress = this.postActions), result;
     }
   }], [{
     key: "current",
     value: function() {
-      var _a, outfit2 = new Outfit2(), familiar3 = (0, import_kolmafia20.myFamiliar)();
-      if (outfit2.equip(familiar3))
-        throw "Failed to create outfit from current state (expected: familiar ".concat(familiar3, ")");
+      var _a, outfit2 = new Outfit2(), familiar2 = (0, import_kolmafia19.myFamiliar)();
+      if (outfit2.equip(familiar2))
+        throw "Failed to create outfit from current state (expected: familiar ".concat(familiar2, ")");
       for (var _i7 = 0, _outfitSlots3 = outfitSlots; _i7 < _outfitSlots3.length; _i7++) {
-        var slotName = _outfitSlots3[_i7], slot = (_a = (/* @__PURE__ */ new Map([["famequip", $slot(_templateObject622 || (_templateObject622 = _taggedTemplateLiteral10(["familiar"])))], ["offhand", $slot(_templateObject632 || (_templateObject632 = _taggedTemplateLiteral10(["off-hand"])))]])).get(slotName)) !== null && _a !== void 0 ? _a : (0, import_kolmafia20.toSlot)(slotName), item4 = (0, import_kolmafia20.equippedItem)(slot);
+        var slotName = _outfitSlots3[_i7], slot = (_a = (/* @__PURE__ */ new Map([["famequip", $slot(_templateObject622 || (_templateObject622 = _taggedTemplateLiteral9(["familiar"])))], ["offhand", $slot(_templateObject632 || (_templateObject632 = _taggedTemplateLiteral9(["off-hand"])))]])).get(slotName)) !== null && _a !== void 0 ? _a : (0, import_kolmafia19.toSlot)(slotName), item4 = (0, import_kolmafia19.equippedItem)(slot);
         if (!outfit2.equip(item4, slot))
           throw "Failed to create outfit from current state (expected: ".concat(slot, " ").concat(item4, ")");
       }
-      return (0, import_kolmafia20.haveEquipped)($item(_templateObject642 || (_templateObject642 = _taggedTemplateLiteral10(["Crown of Thrones"])))) && outfit2.riders.set($slot(_templateObject652 || (_templateObject652 = _taggedTemplateLiteral10(["crown-of-thrones"]))), (0, import_kolmafia20.myEnthronedFamiliar)()), (0, import_kolmafia20.haveEquipped)($item(_templateObject662 || (_templateObject662 = _taggedTemplateLiteral10(["Buddy Bjorn"])))) && outfit2.riders.set($slot(_templateObject672 || (_templateObject672 = _taggedTemplateLiteral10(["buddy-bjorn"]))), (0, import_kolmafia20.myBjornedFamiliar)()), outfit2.setModes(getCurrentModes2()), outfit2;
+      return (0, import_kolmafia19.haveEquipped)($item(_templateObject642 || (_templateObject642 = _taggedTemplateLiteral9(["Crown of Thrones"])))) && outfit2.riders.set($slot(_templateObject652 || (_templateObject652 = _taggedTemplateLiteral9(["crown-of-thrones"]))), (0, import_kolmafia19.myEnthronedFamiliar)()), (0, import_kolmafia19.haveEquipped)($item(_templateObject662 || (_templateObject662 = _taggedTemplateLiteral9(["Buddy Bjorn"])))) && outfit2.riders.set($slot(_templateObject67 || (_templateObject67 = _taggedTemplateLiteral9(["buddy-bjorn"]))), (0, import_kolmafia19.myBjornedFamiliar)()), outfit2.setModes(getCurrentModes2()), outfit2;
     }
   }, {
     key: "from",
@@ -11260,8 +10934,8 @@ var weaponHands = function(i) {
       if (spec instanceof Requirement) {
         var result = {};
         result.modifier = spec.maximizeParameters, !((_a = spec.maximizeOptions.forceEquip) === null || _a === void 0) && _a.length && (result.equip = spec.maximizeOptions.forceEquip), result.avoid = spec.maximizeOptions.preventEquip, result.bonuses = spec.maximizeOptions.bonusEquip, spec.maximizeOptions.modes && (result.modes = convertFromLibramModes(spec.maximizeOptions.modes));
-        var cleanedResult = Object.fromEntries(_toConsumableArray8(Object.entries(result)).filter(function(_ref) {
-          var _ref2 = _slicedToArray9(_ref, 2), v = _ref2[1];
+        var cleanedResult = Object.fromEntries(_toConsumableArray7(Object.entries(result)).filter(function(_ref) {
+          var _ref2 = _slicedToArray8(_ref, 2), v = _ref2[1];
           return v !== void 0;
         }));
         return Outfit2.from(cleanedResult);
@@ -11310,30 +10984,30 @@ function getMode(property, options) {
 
 // node_modules/grimoire-kolmafia/dist/engine.js
 var _templateObject68;
-function _taggedTemplateLiteral11(strings, raw) {
+function _taggedTemplateLiteral10(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-function _toConsumableArray9(arr) {
-  return _arrayWithoutHoles9(arr) || _iterableToArray9(arr) || _unsupportedIterableToArray14(arr) || _nonIterableSpread9();
+function _toConsumableArray8(arr) {
+  return _arrayWithoutHoles8(arr) || _iterableToArray8(arr) || _unsupportedIterableToArray13(arr) || _nonIterableSpread8();
 }
-function _nonIterableSpread9() {
+function _nonIterableSpread8() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _iterableToArray9(iter) {
+function _iterableToArray8(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles9(arr) {
+function _arrayWithoutHoles8(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray14(arr);
+    return _arrayLikeToArray13(arr);
 }
-function _slicedToArray10(arr, i) {
-  return _arrayWithHoles10(arr) || _iterableToArrayLimit10(arr, i) || _unsupportedIterableToArray14(arr, i) || _nonIterableRest10();
+function _slicedToArray9(arr, i) {
+  return _arrayWithHoles9(arr) || _iterableToArrayLimit9(arr, i) || _unsupportedIterableToArray13(arr, i) || _nonIterableRest9();
 }
-function _nonIterableRest10() {
+function _nonIterableRest9() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _iterableToArrayLimit10(arr, i) {
+function _iterableToArrayLimit9(arr, i) {
   var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
   if (_i != null) {
     var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
@@ -11359,14 +11033,14 @@ function _iterableToArrayLimit10(arr, i) {
     return _arr;
   }
 }
-function _arrayWithHoles10(arr) {
+function _arrayWithHoles9(arr) {
   if (Array.isArray(arr))
     return arr;
 }
-function _createForOfIteratorHelper10(o, allowArrayLike) {
+function _createForOfIteratorHelper9(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray14(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray13(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -11395,18 +11069,18 @@ function _createForOfIteratorHelper10(o, allowArrayLike) {
     }
   } };
 }
-function _unsupportedIterableToArray14(o, minLen) {
+function _unsupportedIterableToArray13(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray14(o, minLen);
+      return _arrayLikeToArray13(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray14(o, minLen);
+      return _arrayLikeToArray13(o, minLen);
   }
 }
-function _arrayLikeToArray14(arr, len) {
+function _arrayLikeToArray13(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -11426,30 +11100,30 @@ function _objectSpread5(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys5(Object(source), !0).forEach(function(key) {
-      _defineProperty10(target, key, source[key]);
+      _defineProperty9(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys5(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _defineProperty10(obj, key, value2) {
-  return key = _toPropertyKey12(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
+function _defineProperty9(obj, key, value2) {
+  return key = _toPropertyKey11(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
 }
-function _defineProperties12(target, props) {
+function _defineProperties11(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey12(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey11(descriptor.key), descriptor);
   }
 }
-function _createClass12(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties12(Constructor.prototype, protoProps), staticProps && _defineProperties12(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass11(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties11(Constructor.prototype, protoProps), staticProps && _defineProperties11(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _toPropertyKey12(arg) {
-  var key = _toPrimitive12(arg, "string");
+function _toPropertyKey11(arg) {
+  var key = _toPrimitive11(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive12(input, hint) {
+function _toPrimitive11(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -11461,17 +11135,17 @@ function _toPrimitive12(input, hint) {
   }
   return (hint === "string" ? String : Number)(input);
 }
-function _classCallCheck12(instance, Constructor) {
+function _classCallCheck11(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
 var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
   function Engine3(tasks, options) {
     var _this = this;
-    _classCallCheck12(this, Engine3), this.attempts = {}, this.propertyManager = new PropertiesManager(), this.tasks_by_name = /* @__PURE__ */ new Map(), this.cachedCcsContents = "", this.options = options != null ? options : {}, this.tasks = tasks.map(function(task2) {
+    _classCallCheck11(this, Engine3), this.attempts = {}, this.propertyManager = new PropertiesManager(), this.tasks_by_name = /* @__PURE__ */ new Map(), this.cachedCcsContents = "", this.options = options != null ? options : {}, this.tasks = tasks.map(function(task2) {
       return _objectSpread5(_objectSpread5({}, _this.options.default_task_options), task2);
     });
-    var _iterator2 = _createForOfIteratorHelper10(this.tasks), _step2;
+    var _iterator2 = _createForOfIteratorHelper9(this.tasks), _step2;
     try {
       for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
         var task = _step2.value;
@@ -11484,7 +11158,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
     }
     this.initPropertiesManager(this.propertyManager);
   }
-  return _createClass12(Engine3, [{
+  return _createClass11(Engine3, [{
     key: "getNextTask",
     value: function() {
       var _this = this;
@@ -11513,7 +11187,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
   }, {
     key: "destruct",
     value: function() {
-      this.propertyManager.resetAll(), (0, import_kolmafia21.setAutoAttack)(0);
+      this.propertyManager.resetAll(), (0, import_kolmafia20.setAutoAttack)(0);
     }
     /**
      * Check if the given task is available at this moment.
@@ -11528,7 +11202,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
       var _a, _b;
       if (((_a = task.limit) === null || _a === void 0 ? void 0 : _a.skip) !== void 0 && this.attempts[task.name] >= task.limit.skip)
         return !1;
-      var _iterator2 = _createForOfIteratorHelper10((_b = task.after) !== null && _b !== void 0 ? _b : []), _step2;
+      var _iterator2 = _createForOfIteratorHelper9((_b = task.after) !== null && _b !== void 0 ? _b : []), _step2;
       try {
         for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
           var after = _step2.value, after_task = this.tasks_by_name.get(after);
@@ -11553,12 +11227,12 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
     key: "execute",
     value: function(task) {
       var _a, _b, _c, _d, _e;
-      (0, import_kolmafia21.print)(""), (0, import_kolmafia21.print)("Executing ".concat(task.name), "blue");
+      (0, import_kolmafia20.print)(""), (0, import_kolmafia20.print)("Executing ".concat(task.name), "blue");
       var postcondition = (_b = (_a = task.limit) === null || _a === void 0 ? void 0 : _a.guard) === null || _b === void 0 ? void 0 : _b.call(_a);
       this.acquireItems(task), this.acquireEffects(task);
       var task_combat = (_d = (_c = task.combat) === null || _c === void 0 ? void 0 : _c.clone()) !== null && _d !== void 0 ? _d : new CombatStrategy(), outfit2 = this.createOutfit(task), task_resources = new CombatResources();
       this.customize(task, outfit2, task_combat, task_resources), this.dress(task, outfit2), this.setCombat(task, task_combat, task_resources), this.setChoices(task, this.propertyManager);
-      var _iterator3 = _createForOfIteratorHelper10(task_resources.all()), _step3;
+      var _iterator3 = _createForOfIteratorHelper9(task_resources.all()), _step3;
       try {
         for (_iterator3.s(); !(_step3 = _iterator3.n()).done; ) {
           var resource = _step3.value;
@@ -11580,11 +11254,11 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
   }, {
     key: "acquireItems",
     value: function(task) {
-      var _a, acquire = undelay(task.acquire), _iterator4 = _createForOfIteratorHelper10(acquire || []), _step4;
+      var _a, acquire = undelay(task.acquire), _iterator4 = _createForOfIteratorHelper9(acquire || []), _step4;
       try {
         for (_iterator4.s(); !(_step4 = _iterator4.n()).done; ) {
-          var to_get = _step4.value, num_needed = (_a = to_get.num) !== null && _a !== void 0 ? _a : 1, num_have = (0, import_kolmafia21.itemAmount)(to_get.item) + (0, import_kolmafia21.equippedAmount)(to_get.item);
-          if (!(num_needed <= num_have) && !(to_get.useful !== void 0 && !to_get.useful()) && (to_get.get ? to_get.get() : to_get.price !== void 0 ? (0, import_kolmafia21.buy)(to_get.item, num_needed - num_have, to_get.price) : Object.keys((0, import_kolmafia21.getRelated)(to_get.item, "fold")).length > 0 ? (0, import_kolmafia21.cliExecute)("fold ".concat(to_get.item)) : (0, import_kolmafia21.retrieveItem)(to_get.item, num_needed), (0, import_kolmafia21.itemAmount)(to_get.item) + (0, import_kolmafia21.equippedAmount)(to_get.item) < num_needed && !to_get.optional))
+          var to_get = _step4.value, num_needed = (_a = to_get.num) !== null && _a !== void 0 ? _a : 1, num_have = (0, import_kolmafia20.itemAmount)(to_get.item) + (0, import_kolmafia20.equippedAmount)(to_get.item);
+          if (!(num_needed <= num_have) && !(to_get.useful !== void 0 && !to_get.useful()) && (to_get.get ? to_get.get() : to_get.price !== void 0 ? (0, import_kolmafia20.buy)(to_get.item, num_needed - num_have, to_get.price) : Object.keys((0, import_kolmafia20.getRelated)(to_get.item, "fold")).length > 0 ? (0, import_kolmafia20.cliExecute)("fold ".concat(to_get.item)) : (0, import_kolmafia20.retrieveItem)(to_get.item, num_needed), (0, import_kolmafia20.itemAmount)(to_get.item) + (0, import_kolmafia20.equippedAmount)(to_get.item) < num_needed && !to_get.optional))
             throw "Task ".concat(task.name, " was unable to acquire ").concat(num_needed, " ").concat(to_get.item);
         }
       } catch (err) {
@@ -11605,8 +11279,8 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
       });
       if (songs.length > maxSongs())
         throw "Too many AT songs";
-      for (var extraSongs = Object.keys((0, import_kolmafia21.myEffects)()).map(function(effectName) {
-        return (0, import_kolmafia21.toEffect)(effectName);
+      for (var extraSongs = Object.keys((0, import_kolmafia20.myEffects)()).map(function(effectName) {
+        return (0, import_kolmafia20.toEffect)(effectName);
       }).filter(function(effect2) {
         return isSong(effect2) && !songs.includes(effect2);
       }); songs.length + extraSongs.length > maxSongs(); ) {
@@ -11615,7 +11289,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
           break;
         uneffect(toRemove);
       }
-      var _iterator5 = _createForOfIteratorHelper10(effects), _step5;
+      var _iterator5 = _createForOfIteratorHelper9(effects), _step5;
       try {
         for (_iterator5.s(); !(_step5 = _iterator5.n()).done; ) {
           var effect = _step5.value;
@@ -11650,7 +11324,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
   }, {
     key: "dress",
     value: function(task, outfit2) {
-      task.do instanceof import_kolmafia21.Location && (0, import_kolmafia21.setLocation)(task.do), outfit2.dress();
+      task.do instanceof import_kolmafia20.Location && (0, import_kolmafia20.setLocation)(task.do), outfit2.dress();
     }
     /* eslint-disable @typescript-eslint/no-unused-vars */
     /**
@@ -11679,7 +11353,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
     key: "setChoices",
     value: function(task, manager) {
       for (var _a, _i = 0, _Object$entries = Object.entries((_a = task.choices) !== null && _a !== void 0 ? _a : {}); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _slicedToArray10(_Object$entries[_i], 2), key = _Object$entries$_i[0], func = _Object$entries$_i[1];
+        var _Object$entries$_i = _slicedToArray9(_Object$entries[_i], 2), key = _Object$entries$_i[0], func = _Object$entries$_i[1];
         func !== void 0 && manager.setChoice(parseInt(key), undelay(func));
       }
     }
@@ -11692,13 +11366,13 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
   }, {
     key: "setCombat",
     value: function(task, task_combat, task_resources) {
-      var _a, macro = task_combat.compile(task_resources, (_a = this.options) === null || _a === void 0 ? void 0 : _a.combat_defaults, task.do instanceof import_kolmafia21.Location ? task.do : void 0);
+      var _a, macro = task_combat.compile(task_resources, (_a = this.options) === null || _a === void 0 ? void 0 : _a.combat_defaults, task.do instanceof import_kolmafia20.Location ? task.do : void 0);
       if (macro.save(), !this.options.ccs) {
-        var otherCCSEntries = task_combat.compileCcs(), ccsContents = ["[default]", '"'.concat(macro.toString(), '"')].concat(_toConsumableArray9(otherCCSEntries)).join("\n");
-        (0, import_kolmafia21.logprint)("CCS: ".concat(ccsContents.replace("\n", "\\n "))), ccsContents !== this.cachedCcsContents && ((0, import_kolmafia21.writeCcs)(ccsContents, grimoireCCS), (0, import_kolmafia21.cliExecute)("ccs ".concat(grimoireCCS)), this.cachedCcsContents = ccsContents);
+        var otherCCSEntries = task_combat.compileCcs(), ccsContents = ["[default]", '"'.concat(macro.toString(), '"')].concat(_toConsumableArray8(otherCCSEntries)).join("\n");
+        (0, import_kolmafia20.logprint)("CCS: ".concat(ccsContents.replace("\n", "\\n "))), ccsContents !== this.cachedCcsContents && ((0, import_kolmafia20.writeCcs)(ccsContents, grimoireCCS), (0, import_kolmafia20.cliExecute)("ccs ".concat(grimoireCCS)), this.cachedCcsContents = ccsContents);
       }
       var autoattack = task_combat.compileAutoattack();
-      autoattack.toString().length > 1 ? ((0, import_kolmafia21.logprint)("Autoattack macro: ".concat(autoattack.toString())), autoattack.setAutoAttack()) : (0, import_kolmafia21.setAutoAttack)(0);
+      autoattack.toString().length > 1 ? ((0, import_kolmafia20.logprint)("Autoattack macro: ".concat(autoattack.toString())), autoattack.setAutoAttack()) : (0, import_kolmafia20.setAutoAttack)(0);
     }
     /**
      * Do any task-specific preparation.
@@ -11718,9 +11392,9 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
     key: "do",
     value: function(task) {
       var result = typeof task.do == "function" ? task.do() : task.do;
-      for (result instanceof import_kolmafia21.Location && (0, import_kolmafia21.adv1)(result, -1, ""), (0, import_kolmafia21.runCombat)(); (0, import_kolmafia21.inMultiFight)(); )
-        (0, import_kolmafia21.runCombat)();
-      (0, import_kolmafia21.choiceFollowsFight)() && (0, import_kolmafia21.runChoice)(-1);
+      for (result instanceof import_kolmafia20.Location && (0, import_kolmafia20.adv1)(result, -1, ""), (0, import_kolmafia20.runCombat)(); (0, import_kolmafia20.inMultiFight)(); )
+        (0, import_kolmafia20.runCombat)();
+      (0, import_kolmafia20.choiceFollowsFight)() && (0, import_kolmafia20.runChoice)(-1);
     }
     /**
      * Check if the task.do should be immediately repeated without any prep.
@@ -11736,7 +11410,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
   }, {
     key: "shouldRepeatAdv",
     value: function(task) {
-      return task.do instanceof import_kolmafia21.Location && lastEncounterWasWanderingNC();
+      return task.do instanceof import_kolmafia20.Location && lastEncounterWasWanderingNC();
     }
     /**
      * Do any task-specific wrapup activities.
@@ -11773,7 +11447,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
             throw "Task ".concat(task.name, " did not complete within ").concat(task.limit.tries, " attempts. Please check what went wrong.").concat(failureMessage);
           if (task.limit.soft && this.attempts[task.name] >= task.limit.soft)
             throw "Task ".concat(task.name, " did not complete within ").concat(task.limit.soft, " attempts. Please check what went wrong (you may just be unlucky).").concat(failureMessage);
-          if (task.limit.turns && task.do instanceof import_kolmafia21.Location && task.do.turnsSpent >= task.limit.turns)
+          if (task.limit.turns && task.do instanceof import_kolmafia20.Location && task.do.turnsSpent >= task.limit.turns)
             throw "Task ".concat(task.name, " did not complete within ").concat(task.limit.turns, " turns. Please check what went wrong.").concat(failureMessage);
           if (task.limit.unready && (!((_a = task.ready) === null || _a === void 0) && _a.call(task)))
             throw "Task ".concat(task.name, " is still ready, but it should not be. Please check what went wrong.").concat(failureMessage);
@@ -11797,7 +11471,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
     key: "initPropertiesManager",
     value: function(manager) {
       var _a;
-      manager.set(this.getDefaultSettings()), this.options.ccs !== "" && (this.options.ccs === void 0 && (0, import_kolmafia21.readCcs)(grimoireCCS) === "" && (0, import_kolmafia21.writeCcs)("[ default ]\nabort", grimoireCCS), manager.set({
+      manager.set(this.getDefaultSettings()), this.options.ccs !== "" && (this.options.ccs === void 0 && (0, import_kolmafia20.readCcs)(grimoireCCS) === "" && (0, import_kolmafia20.writeCcs)("[ default ]\nabort", grimoireCCS), manager.set({
         customCombatScript: (_a = this.options.ccs) !== null && _a !== void 0 ? _a : grimoireCCS
       }));
     }
@@ -11805,7 +11479,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
 }();
 Engine.defaultSettings = {
   logPreferenceChange: !0,
-  logPreferenceChangeFilter: _toConsumableArray9(new Set([].concat(_toConsumableArray9(get("logPreferenceChangeFilter").split(",")), ["libram_savedMacro", "maximizerMRUList", "testudinalTeachings", "_lastCombatStarted"]))).sort().filter(function(a) {
+  logPreferenceChangeFilter: _toConsumableArray8(new Set([].concat(_toConsumableArray8(get("logPreferenceChangeFilter").split(",")), ["libram_savedMacro", "maximizerMRUList", "testudinalTeachings", "_lastCombatStarted"]))).sort().filter(function(a) {
     return a;
   }).join(","),
   battleAction: "custom combat script",
@@ -11832,7 +11506,7 @@ Engine.defaultSettings = {
   libramSkillsSoftcore: "none"
 };
 function maxSongs() {
-  return have($skill(_templateObject68 || (_templateObject68 = _taggedTemplateLiteral11(["Mariachi Memory"])))) ? 4 : 3;
+  return have($skill(_templateObject68 || (_templateObject68 = _taggedTemplateLiteral10(["Mariachi Memory"])))) ? 4 : 3;
 }
 var wanderingNCs = /* @__PURE__ */ new Set([
   // Halloweener dog noncombats
@@ -11918,21 +11592,21 @@ function _objectSpread6(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys6(Object(source), !0).forEach(function(key) {
-      _defineProperty11(target, key, source[key]);
+      _defineProperty10(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys6(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _defineProperty11(obj, key, value2) {
-  return key = _toPropertyKey13(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
+function _defineProperty10(obj, key, value2) {
+  return key = _toPropertyKey12(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
 }
-function _toPropertyKey13(arg) {
-  var key = _toPrimitive13(arg, "string");
+function _toPropertyKey12(arg) {
+  var key = _toPrimitive12(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive13(input, hint) {
+function _toPrimitive12(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -11944,10 +11618,10 @@ function _toPrimitive13(input, hint) {
   }
   return (hint === "string" ? String : Number)(input);
 }
-function _createForOfIteratorHelper11(o, allowArrayLike) {
+function _createForOfIteratorHelper10(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray15(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray14(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -11976,28 +11650,28 @@ function _createForOfIteratorHelper11(o, allowArrayLike) {
     }
   } };
 }
-function _unsupportedIterableToArray15(o, minLen) {
+function _unsupportedIterableToArray14(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray15(o, minLen);
+      return _arrayLikeToArray14(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray15(o, minLen);
+      return _arrayLikeToArray14(o, minLen);
   }
 }
-function _arrayLikeToArray15(arr, len) {
+function _arrayLikeToArray14(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
 function getTasks(quests) {
-  var implicitAfter = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1, _a, _b, result = [], _iterator2 = _createForOfIteratorHelper11(quests), _step2;
+  var implicitAfter = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1, _a, _b, result = [], _iterator2 = _createForOfIteratorHelper10(quests), _step2;
   try {
     var _loop = function() {
-      var quest = _step2.value, questCompleted = quest.completed, _iterator3 = _createForOfIteratorHelper11(quest.tasks), _step3;
+      var quest = _step2.value, questCompleted = quest.completed, _iterator3 = _createForOfIteratorHelper10(quest.tasks), _step3;
       try {
         var _loop22 = function() {
           var task2 = _step3.value, renamedTask = _objectSpread6({}, task2);
@@ -12031,7 +11705,7 @@ function getTasks(quests) {
     names.add(task.name);
   }
   for (var _i2 = 0, _result2 = result; _i2 < _result2.length; _i2++) {
-    var _task = _result2[_i2], _iterator22 = _createForOfIteratorHelper11((_b = _task.after) !== null && _b !== void 0 ? _b : []), _step22;
+    var _task = _result2[_i2], _iterator22 = _createForOfIteratorHelper10((_b = _task.after) !== null && _b !== void 0 ? _b : []), _step22;
     try {
       for (_iterator22.s(); !(_step22 = _iterator22.n()).done; ) {
         var after = _step22.value;
@@ -12052,24 +11726,24 @@ init_kolmafia_polyfill();
 
 // node_modules/grimoire-kolmafia/dist/limit.js
 init_kolmafia_polyfill();
-function _classCallCheck13(instance, Constructor) {
+function _classCallCheck12(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
-function _defineProperties13(target, props) {
+function _defineProperties12(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey14(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey13(descriptor.key), descriptor);
   }
 }
-function _createClass13(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties13(Constructor.prototype, protoProps), staticProps && _defineProperties13(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass12(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties12(Constructor.prototype, protoProps), staticProps && _defineProperties12(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _toPropertyKey14(arg) {
-  var key = _toPrimitive14(arg, "string");
+function _toPropertyKey13(arg) {
+  var key = _toPrimitive13(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive14(input, hint) {
+function _toPrimitive13(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -12083,9 +11757,9 @@ function _toPrimitive14(input, hint) {
 }
 var Guards = /* @__PURE__ */ function() {
   function Guards2() {
-    _classCallCheck13(this, Guards2);
+    _classCallCheck12(this, Guards2);
   }
-  return _createClass13(Guards2, null, [{
+  return _createClass12(Guards2, null, [{
     key: "create",
     value: (
       /**
@@ -12132,11 +11806,11 @@ var Guards = /* @__PURE__ */ function() {
 }();
 
 // src/index.ts
-var import_kolmafia56 = require("kolmafia");
+var import_kolmafia49 = require("kolmafia");
 
 // src/lib/cognac.ts
 init_kolmafia_polyfill();
-var import_kolmafia22 = require("kolmafia");
+var import_kolmafia21 = require("kolmafia");
 
 // src/prefs/properties.ts
 var properties_exports = {};
@@ -12147,14 +11821,11 @@ __export(properties_exports, {
   CLAN: function() {
     return CLAN;
   },
-  COGNACS: function() {
-    return COGNACS;
+  CLUB_POPULARITY: function() {
+    return CLUB_POPULARITY;
   },
   CURRENT_PLAYERS: function() {
     return CURRENT_PLAYERS;
-  },
-  DIVES: function() {
-    return DIVES;
   },
   FREE_RUN: function() {
     return FREE_RUN;
@@ -12165,17 +11836,8 @@ __export(properties_exports, {
   LAST_STENCH_CHECK: function() {
     return LAST_STENCH_CHECK;
   },
-  LIFETIME_COGNACS: function() {
-    return LIFETIME_COGNACS;
-  },
-  LIFETIME_DIVES: function() {
-    return LIFETIME_DIVES;
-  },
   LIFETIME_TURNS_SPENT: function() {
     return LIFETIME_TURNS_SPENT;
-  },
-  REFUSES_UNTIL_COMPOST: function() {
-    return REFUSES_UNTIL_COMPOST;
   },
   RESULTS_DAY: function() {
     return RESULTS_DAY;
@@ -12188,41 +11850,28 @@ __export(properties_exports, {
   }
 });
 init_kolmafia_polyfill();
-var SCRIPT_PREFIX = "cognac", prefix = function(prop) {
+var SCRIPT_PREFIX = "moustache", prefix = function(prop) {
   return "".concat(SCRIPT_PREFIX, "_").concat(prop);
 }, daily = function(prop) {
   return "_".concat(prefix(prop));
-}, CLAN = prefix("clan"), ASDON = prefix("useAsdon"), SKIP_GARBO = prefix("skipGarbo"), FREE_RUN = prefix("freeRun"), REFUSES_UNTIL_COMPOST = prefix("choice216"), RESULTS_DAY = prefix("resultsDay"), COGNACS = prefix("bottlesFoundToday"), DIVES = prefix("divesToday"), TURNS_SPENT = prefix("turnsSpentToday"), LIFETIME_COGNACS = prefix("bottlesLifetime"), LIFETIME_DIVES = prefix("divesLifetime"), LIFETIME_TURNS_SPENT = prefix("turnsLifetime"), HEAP_ATTEMPTS = daily("heapAttempts"), LAST_STENCH_CHECK = daily("heapAttemptsAtLastStenchCheck"), CURRENT_PLAYERS = daily("currentPlayers");
+}, CLAN = prefix("clan"), ASDON = prefix("useAsdon"), SKIP_GARBO = prefix("skipGarbo"), FREE_RUN = prefix("freeRun"), RESULTS_DAY = prefix("resultsDay"), TURNS_SPENT = prefix("turnsSpentToday"), LIFETIME_TURNS_SPENT = prefix("turnsLifetime"), CLUB_POPULARITY = prefix("clubPopularity"), HEAP_ATTEMPTS = daily("heapAttempts"), LAST_STENCH_CHECK = daily("heapAttemptsAtLastStenchCheck"), CURRENT_PLAYERS = daily("currentPlayers");
 
 // src/lib/cognac.ts
-var _templateObject69;
-function _taggedTemplateLiteral12(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var initialSession = Session.current(), initialTurns = (0, import_kolmafia22.totalTurnsPlayed)();
+var initialTurns = (0, import_kolmafia21.totalTurnsPlayed)();
 function save() {
-  var _sessionDiff$items$ge, sessionDiff = Session.current().diff(initialSession), cognacs = (_sessionDiff$items$ge = sessionDiff.items.get($item(_templateObject69 || (_templateObject69 = _taggedTemplateLiteral12(["Ralph IX cognac"]))))) !== null && _sessionDiff$items$ge !== void 0 ? _sessionDiff$items$ge : 0;
-  _set(COGNACS, get(COGNACS, 0) + cognacs), _set(TURNS_SPENT, get(TURNS_SPENT, 0) + (0, import_kolmafia22.totalTurnsPlayed)() - initialTurns), _set(LIFETIME_COGNACS, get(LIFETIME_COGNACS, 0) + cognacs), _set(LIFETIME_TURNS_SPENT, get(LIFETIME_TURNS_SPENT, 0) + (0, import_kolmafia22.totalTurnsPlayed)() - initialTurns);
+  _set(TURNS_SPENT, get(TURNS_SPENT, 0) + (0, import_kolmafia21.totalTurnsPlayed)() - initialTurns), _set(LIFETIME_TURNS_SPENT, get(LIFETIME_TURNS_SPENT, 0) + (0, import_kolmafia21.totalTurnsPlayed)() - initialTurns);
 }
 function printSession() {
-  (0, import_kolmafia22.print)("Cognac summary:"), (0, import_kolmafia22.print)("");
-  var cognacs = get(COGNACS, 0);
-  cognacs > 0 ? (0, import_kolmafia22.print)("You found ".concat(cognacs, " bottle").concat(cognacs !== 1 ? "s" : "", " of cognac today!"), "green") : (0, import_kolmafia22.print)("Haven't found any bottles of cognac yet today. :(", "red");
-  var dives = get(DIVES, 0), s = dives === 1 ? "" : "s";
-  (0, import_kolmafia22.print)("You dove for treasure ".concat(dives, " time").concat(s, " today!")), (0, import_kolmafia22.print)("You've spent ".concat(get(TURNS_SPENT), " turns diving today!"));
+  (0, import_kolmafia21.print)("Moustache summary:"), (0, import_kolmafia21.print)(""), (0, import_kolmafia21.print)("You've spent ".concat(get(TURNS_SPENT), " turns moustache-hunting today!"));
 }
 function printLifetime() {
-  (0, import_kolmafia22.print)(""), (0, import_kolmafia22.print)("Cognac lifetime summary:"), (0, import_kolmafia22.print)("");
-  var cognacs = get(LIFETIME_COGNACS, 0);
-  (0, import_kolmafia22.print)("You found ".concat(cognacs, " bottle").concat(cognacs !== 1 ? "s" : "", " of cognac!"), "green");
-  var dives = get(LIFETIME_DIVES, 0), s = dives === 1 ? "" : "s";
-  (0, import_kolmafia22.print)("You dove for treasure ".concat(dives, " time").concat(s, "!"), "green"), (0, import_kolmafia22.print)("You've spent ".concat(get(LIFETIME_TURNS_SPENT, 0), " turns diving!"), "green");
+  (0, import_kolmafia21.print)(""), (0, import_kolmafia21.print)("Moustache lifetime summary:"), (0, import_kolmafia21.print)(""), (0, import_kolmafia21.print)("You've spent ".concat(get(LIFETIME_TURNS_SPENT, 0), " turns moustache-hunting!"), "green");
 }
 
 // src/lib/engine.ts
 init_kolmafia_polyfill();
-var import_kolmafia23 = require("kolmafia");
-var _templateObject70, _templateObject221;
+var import_kolmafia22 = require("kolmafia");
+var _templateObject69, _templateObject220;
 function ownKeys7(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
@@ -12237,28 +11886,28 @@ function _objectSpread7(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys7(Object(source), !0).forEach(function(key) {
-      _defineProperty12(target, key, source[key]);
+      _defineProperty11(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys7(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _taggedTemplateLiteral13(strings, raw) {
+function _taggedTemplateLiteral11(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-function _classCallCheck14(instance, Constructor) {
+function _classCallCheck13(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
-function _defineProperties14(target, props) {
+function _defineProperties13(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey15(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey14(descriptor.key), descriptor);
   }
 }
-function _createClass14(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties14(Constructor.prototype, protoProps), staticProps && _defineProperties14(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass13(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties13(Constructor.prototype, protoProps), staticProps && _defineProperties13(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
 function _get() {
   return typeof Reflect < "u" && Reflect.get ? _get = Reflect.get.bind() : _get = function(target, property, receiver) {
@@ -12325,14 +11974,14 @@ function _getPrototypeOf4(o) {
     return o2.__proto__ || Object.getPrototypeOf(o2);
   }, _getPrototypeOf4(o);
 }
-function _defineProperty12(obj, key, value2) {
-  return key = _toPropertyKey15(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
+function _defineProperty11(obj, key, value2) {
+  return key = _toPropertyKey14(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
 }
-function _toPropertyKey15(arg) {
-  var key = _toPrimitive15(arg, "string");
+function _toPropertyKey14(arg) {
+  var key = _toPrimitive14(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive15(input, hint) {
+function _toPrimitive14(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -12348,18 +11997,18 @@ var Engine2 = /* @__PURE__ */ function(_BaseEngine) {
   _inherits5(Engine3, _BaseEngine);
   var _super = _createSuper4(Engine3);
   function Engine3(tasks) {
-    return _classCallCheck14(this, Engine3), _super.call(this, tasks);
+    return _classCallCheck13(this, Engine3), _super.call(this, tasks);
   }
-  return _createClass14(Engine3, [{
+  return _createClass13(Engine3, [{
     key: "execute",
     value: function(task) {
-      if (_get(_getPrototypeOf4(Engine3.prototype), "execute", this).call(this, task), get("lastEncounter") !== "Poetic Justice" && (0, import_kolmafia23.haveEffect)($effect(_templateObject70 || (_templateObject70 = _taggedTemplateLiteral13(["Beaten Up"])))))
+      if (_get(_getPrototypeOf4(Engine3.prototype), "execute", this).call(this, task), get("lastEncounter") !== "Poetic Justice" && (0, import_kolmafia22.haveEffect)($effect(_templateObject69 || (_templateObject69 = _taggedTemplateLiteral11(["Beaten Up"])))))
         throw "Combat lost";
-      uneffect($effect(_templateObject221 || (_templateObject221 = _taggedTemplateLiteral13(["Beaten Up"]))));
+      uneffect($effect(_templateObject220 || (_templateObject220 = _taggedTemplateLiteral11(["Beaten Up"]))));
     }
   }]), Engine3;
 }(Engine);
-_defineProperty12(Engine2, "defaultSettings", _objectSpread7(_objectSpread7({}, Engine.defaultSettings), {}, {
+_defineProperty11(Engine2, "defaultSettings", _objectSpread7(_objectSpread7({}, Engine.defaultSettings), {}, {
   choiceAdventureScript: "scripts/cognac/choice.ash",
   hpAutoRecovery: "0.5",
   hpAutoRecoveryTarget: "1.0",
@@ -12375,281 +12024,283 @@ _defineProperty12(Engine2, "defaultSettings", _objectSpread7(_objectSpread7({}, 
   afterAdventureScript: get("afterAdventureScript", "")
 }));
 
-// src/lib/gossip.ts
-init_kolmafia_polyfill();
-var import_kolmafia25 = require("kolmafia");
-
-// src/lib/whiteboard.ts
-init_kolmafia_polyfill();
-var import_kolmafia24 = require("kolmafia");
-function write(content) {
-  return (0, import_kolmafia24.visitUrl)("clan_basement.php?action=whitewrite&whiteboard=".concat(JSON.stringify(content), "&pwd"), !0, !1);
-}
-function read() {
-  var rawContent = (0, import_kolmafia24.visitUrl)("clan_basement.php?fromabove=1", !1), contentMatch = rawContent.match(/textarea maxlength=5000 name=whiteboard[^>]+>([^<]+)</);
-  if (!contentMatch)
-    return {};
-  var match = contentMatch[1].replace(/ ?&quot;/g, '"').replace(/\n/g, "");
-  try {
-    return JSON.parse(match);
-  } catch (_unused) {
-    if (match.trim() === "")
-      return {};
-    throw "WARNING: Whiteboard contains non-JSON content. Remove it if you want to continue.";
-  }
-}
-
-// src/lib/gossip.ts
-function _classCallCheck15(instance, Constructor) {
-  if (!(instance instanceof Constructor))
-    throw new TypeError("Cannot call a class as a function");
-}
-function _defineProperties15(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey16(descriptor.key), descriptor);
-  }
-}
-function _createClass15(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties15(Constructor.prototype, protoProps), staticProps && _defineProperties15(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
-}
-function _defineProperty13(obj, key, value2) {
-  return key = _toPropertyKey16(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
-}
-function _toPropertyKey16(arg) {
-  var key = _toPrimitive16(arg, "string");
-  return typeof key == "symbol" ? key : String(key);
-}
-function _toPrimitive16(input, hint) {
-  if (typeof input != "object" || input === null)
-    return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== void 0) {
-    var res = prim.call(input, hint || "default");
-    if (typeof res != "object")
-      return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-var BASE_STENCH_REQUIRED = 8, Gossip = /* @__PURE__ */ function() {
-  function Gossip2() {
-    _classCallCheck15(this, Gossip2), _defineProperty13(this, "players", []), _defineProperty13(this, "requestingCompost", []), _defineProperty13(this, "stench", 0), _defineProperty13(this, "diveStart", 0), _defineProperty13(this, "gameday", 0), _defineProperty13(this, "mutex", "");
-  }
-  return _createClass15(Gossip2, [{
-    key: "init",
-    value: function() {
-      this.updateGossip(), this.startDay();
-    }
-  }, {
-    key: "startDay",
-    value: function() {
-      this.claimMutex(0), this.gameday !== (0, import_kolmafia25.gamedayToInt)() && (this.diveStart = (0, import_kolmafia25.gametimeToInt)(), this.gameday = (0, import_kolmafia25.gamedayToInt)()), this.write();
-    }
-    // If callback evaluates to true, the reason we were fetching
-    // the mutex has already been fulfilled.
-  }, {
-    key: "claimMutex",
-    value: function(retries, callback) {
-      if (sleep(waitTime(retries)), this.updateGossip(), callback && callback())
-        return !1;
-      if (retries > 50)
-        throw "Could not claim whiteboard mutex";
-      return this.mutex === (0, import_kolmafia25.myName)() ? !0 : (this.mutex === "" && (this.mutex = (0, import_kolmafia25.myName)(), write(this.asRawJSON()), sleep(50), this.claimMutex(retries + 1)), this.claimMutex(retries + 1));
-    }
-  }, {
-    key: "asRawJSON",
-    value: function() {
-      return {
-        players: this.players,
-        stench: this.stench,
-        diveStart: this.diveStart,
-        mutex: this.mutex,
-        gameday: this.gameday,
-        requestingCompost: this.requestingCompost
-      };
-    }
-  }, {
-    key: "updateGossip",
-    value: function() {
-      var gossip2 = read();
-      this.players = gossip2.players || [], this.requestingCompost = gossip2.requestingCompost || [], this.stench = gossip2.stench || 0, this.mutex = gossip2.mutex || "", this.diveStart = gossip2.diveStart || 0, this.gameday = gossip2.gameday || 0, _set(CURRENT_PLAYERS, this.players.length);
-    }
-  }, {
-    key: "write",
-    value: function() {
-      this.mutex = "", write(this.asRawJSON());
-    }
-  }, {
-    key: "registered",
-    value: function() {
-      return this.players.some(function(player) {
-        return player === "".concat((0, import_kolmafia25.myName)());
-      });
-    }
-  }, {
-    key: "register",
-    value: function() {
-      this.claimMutex(0), this.players.push("".concat((0, import_kolmafia25.myName)())), this.gameday !== (0, import_kolmafia25.gamedayToInt)() && (this.diveStart = (0, import_kolmafia25.gametimeToInt)(), this.gameday = (0, import_kolmafia25.gamedayToInt)()), this.write(), this.updateGossip();
-    }
-  }, {
-    key: "setStench",
-    value: function(stenchLevel) {
-      this.claimMutex(0), this.stench = stenchLevel, this.write(), this.updateGossip();
-    }
-  }, {
-    key: "incrementStench",
-    value: function() {
-      this.claimMutex(0), this.stench++, this.write(), this.updateGossip();
-    }
-  }, {
-    key: "resetStench",
-    value: function() {
-      var _this = this;
-      var applyUpdate = this.claimMutex(0, function() {
-        return (0, import_kolmafia25.gametimeToInt)() < _this.diveStart;
-      });
-      applyUpdate && (this.stench = 0, this.diveStart = (0, import_kolmafia25.gametimeToInt)() + 1e3 * (60 + 5 * this.players.length), this.requestingCompost = [], this.players = [], this.write(), this.updateGossip());
-    }
-  }, {
-    key: "requestCompost",
-    value: function() {
-      this.claimMutex(0), this.willCompost() || this.requestingCompost.push((0, import_kolmafia25.myName)()), this.write(), this.updateGossip();
-    }
-  }, {
-    key: "willCompost",
-    value: function() {
-      return this.requestingCompost.some(function(player) {
-        return player === "".concat((0, import_kolmafia25.myName)());
-      });
-    }
-  }, {
-    key: "getWaitTime",
-    value: function() {
-      var msDelta = this.diveStart - (0, import_kolmafia25.gametimeToInt)();
-      return msDelta < 0 ? 0 : msDelta / 1e3 + 1;
-    }
-  }, {
-    key: "readyToDive",
-    value: function() {
-      return this.stench >= BASE_STENCH_REQUIRED + this.players.length + this.requestingCompost.length;
-    }
-  }, {
-    key: "destroy",
-    value: function() {
-      this.claimMutex(0), this.mutex = "", this.players = this.players.filter(function(player) {
-        return player !== (0, import_kolmafia25.myName)();
-      }), write(this.asRawJSON());
-    }
-  }]), Gossip2;
-}();
-function waitTime(retries) {
-  return Math.min(Math.pow(2, retries) + Math.round(Math.random() * 10), 400);
-}
-function sleep(ms) {
-  for (var start = (/* @__PURE__ */ new Date()).getTime(), end = start + ms; (/* @__PURE__ */ new Date()).getTime() < end; )
-    ;
-}
-
 // src/prefs/prefs.ts
 init_kolmafia_polyfill();
-var import_kolmafia26 = require("kolmafia");
+var import_kolmafia23 = require("kolmafia");
 function showPreferences() {
-  (0, import_kolmafia26.print)("Preferences for cognac", "blue"), (0, import_kolmafia26.print)(""), Object.values(properties_exports).map(prettyPrint);
+  (0, import_kolmafia23.print)("Preferences for moustacherider", "blue"), (0, import_kolmafia23.print)(""), Object.values(properties_exports).map(prettyPrint);
 }
 function prettyPrint(prop) {
   var propVal = get(prop), color = "black";
-  propVal || (color = "gray"), (0, import_kolmafia26.print)("".concat(prop, ": ").concat(propVal), color);
+  propVal || (color = "gray"), (0, import_kolmafia23.print)("".concat(prop, ": ").concat(propVal), color);
 }
 function resetDailyPreference(trackingPreference) {
-  var today = (0, import_kolmafia26.todayToString)();
+  var today = (0, import_kolmafia23.todayToString)();
   return get(trackingPreference, "") !== today ? (_set(trackingPreference, today), !0) : !1;
 }
 function maybeResetDailyPreferences() {
-  resetDailyPreference(RESULTS_DAY) && (_set(TURNS_SPENT, 0), _set(COGNACS, 0), _set(DIVES, 0));
-}
-function checkGarbo() {
-  get(SKIP_GARBO) || parseInt(get("garboEmbezzlerCount")) > 0 || (0, import_kolmafia26.userConfirm)("You have not yet run garbo. Are you sure you wish to proceed?") || (0, import_kolmafia26.abort)("Go bonk those embezzlers real good.");
+  resetDailyPreference(RESULTS_DAY) && _set(TURNS_SPENT, 0);
 }
 function checkClan() {
   if (!get(CLAN))
-    throw "Please set cognac clan pref. See `cognac config`";
+    throw "Please set moustacherider clan pref. See `moustacherider config`";
 }
 
-// src/quests/cognac/cognac.ts
+// src/quests/prologue/prologue.ts
 init_kolmafia_polyfill();
-var import_kolmafia37 = require("kolmafia");
+
+// src/quests/prologue/tasks/asdon.ts
+init_kolmafia_polyfill();
+var import_kolmafia24 = require("kolmafia");
+var _templateObject70, _templateObject221, _templateObject318, _templateObject417;
+function _taggedTemplateLiteral12(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var installAsdon = {
+  name: "Install Asdon",
+  completed: function() {
+    return get("_workshedItemUsed") || AsdonInstalled();
+  },
+  do: function() {
+    AsdonMartin_exports.installed() || !have($item(_templateObject70 || (_templateObject70 = _taggedTemplateLiteral12(["Asdon Martin keyfob"])))) || get(ASDON) && (0, import_kolmafia24.use)($item(_templateObject221 || (_templateObject221 = _taggedTemplateLiteral12(["Asdon Martin keyfob"]))));
+  }
+}, fuelAsdon = {
+  name: "Fuel Asdon",
+  ready: function() {
+    return (0, import_kolmafia24.getFuel)() < 50;
+  },
+  completed: function() {
+    return !AsdonMartin_exports.installed() || have($item(_templateObject318 || (_templateObject318 = _taggedTemplateLiteral12(["Asdon Martin keyfob"]))));
+  },
+  do: function() {
+    AsdonMartin_exports.fillTo(50);
+  }
+};
+function AsdonInstalled() {
+  return !get(ASDON) || AsdonMartin_exports.installed() ? !0 : !have($item(_templateObject417 || (_templateObject417 = _taggedTemplateLiteral12(["Asdon Martin keyfob"]))));
+}
+
+// src/quests/prologue/tasks/autumnaton.ts
+init_kolmafia_polyfill();
+var _templateObject71, _templateObject226;
+function _taggedTemplateLiteral13(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var deployFalle = {
+  name: "Deploy fall-e",
+  completed: function() {
+    return !AutumnAton_exports.available();
+  },
+  do: function() {
+    AutumnAton_exports.sendTo($location(_templateObject71 || (_templateObject71 = _taggedTemplateLiteral13(["The Haunted Conservatory"])))) || AutumnAton_exports.sendTo($location(_templateObject226 || (_templateObject226 = _taggedTemplateLiteral13(["The Haunted Pantry"]))));
+  }
+};
+
+// src/quests/prologue/tasks/latte.ts
+init_kolmafia_polyfill();
+var import_kolmafia25 = require("kolmafia");
+var _templateObject77;
+function _taggedTemplateLiteral14(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+function currentlyHasInk() {
+  var ingredients = get("latteIngredients").toLowerCase().split(",");
+  return ingredients.includes("ink") || ingredients.includes("inky");
+}
+var latteRefreshed = !1, refreshLatte = {
+  name: "Refresh Latte",
+  completed: function() {
+    return latteRefreshed;
+  },
+  do: function() {
+    (0, import_kolmafia25.visitUrl)("main.php?latte=1"), latteRefreshed = !0;
+  }
+}, refillLatte = {
+  name: "Refill Latte",
+  ready: function() {
+    return have($item(_templateObject77 || (_templateObject77 = _taggedTemplateLiteral14(["latte lovers member's mug"]))));
+  },
+  completed: function() {
+    return currentlyHasInk() || LatteLoversMembersMug_exports.refillsRemaining() === 0 ? !0 : LatteLoversMembersMug_exports.ingredientsUnlocked().includes("ink") ? !1 : !get("_latteBanishUsed") || get("_latteRefillsUsed") >= 2;
+  },
+  do: function() {
+    var preferred = ["ink", "rawhide", "cajun", "carrot", "cinnamon", "pumpkin", "vanilla"], unlocked = LatteLoversMembersMug_exports.ingredientsUnlocked(), plan = preferred.filter(function(ingredient) {
+      return unlocked.includes(ingredient);
+    });
+    LatteLoversMembersMug_exports.fill(plan[0], plan[1], plan[2]);
+  }
+};
+
+// src/quests/prologue/tasks/pantsgiving.ts
+init_kolmafia_polyfill();
+var import_kolmafia26 = require("kolmafia");
+var _templateObject78, _templateObject227;
+function _taggedTemplateLiteral15(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var lastPantsgivingFullness = get("_pantsgivingFullness"), pantsgiving = {
+  name: "Pantsgiving",
+  completed: function() {
+    return get("_pantsgivingFullness") <= lastPantsgivingFullness;
+  },
+  do: function() {
+    (0, import_kolmafia26.retrieveItem)($item(_templateObject78 || (_templateObject78 = _taggedTemplateLiteral15(["Special Seasoning"])))), (0, import_kolmafia26.eat)($item(_templateObject227 || (_templateObject227 = _taggedTemplateLiteral15(["meteoreo"])))), lastPantsgivingFullness = get("_pantsgivingFullness");
+  }
+};
+
+// src/quests/prologue/tasks/sourceterminal.ts
+init_kolmafia_polyfill();
+var _templateObject79, _templateObject228;
+function _taggedTemplateLiteral16(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var setExtract = {
+  name: "Set Extract",
+  completed: function() {
+    return !SourceTerminal_exports.have() || SourceTerminal_exports.getSkills().some(function(s) {
+      return s === $skill(_templateObject79 || (_templateObject79 = _taggedTemplateLiteral16(["Extract"])));
+    });
+  },
+  do: function() {
+    SourceTerminal_exports.educate($skill(_templateObject228 || (_templateObject228 = _taggedTemplateLiteral16(["Extract"]))));
+  }
+};
+
+// src/quests/prologue/prologue.ts
+var Prologue = {
+  name: "Prologue",
+  tasks: [installAsdon, fuelAsdon, deployFalle, refreshLatte, refillLatte, setExtract, pantsgiving]
+};
+
+// src/quests/sewers/sewers.ts
+init_kolmafia_polyfill();
+var import_kolmafia36 = require("kolmafia");
 
 // src/quests/shared/asdon.ts
 init_kolmafia_polyfill();
-var _templateObject71, _templateObject227;
-function _taggedTemplateLiteral14(strings, raw) {
+var _templateObject80, _templateObject229;
+function _taggedTemplateLiteral17(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var DriveStealthily = {
   name: "Drive Stealthily",
   completed: function() {
-    return !AsdonMartin_exports.installed() || have($effect(_templateObject71 || (_templateObject71 = _taggedTemplateLiteral14(["Driving Stealthily"]))));
+    return !AsdonMartin_exports.installed() || have($effect(_templateObject80 || (_templateObject80 = _taggedTemplateLiteral17(["Driving Stealthily"]))));
   },
   do: function() {
-    AsdonMartin_exports.drive($effect(_templateObject227 || (_templateObject227 = _taggedTemplateLiteral14(["Driving Stealthily"]))));
+    AsdonMartin_exports.drive($effect(_templateObject229 || (_templateObject229 = _taggedTemplateLiteral17(["Driving Stealthily"]))));
   }
 };
 
-// src/quests/cognac/tasks/heap.ts
+// src/quests/sewers/tasks/acquire.ts
 init_kolmafia_polyfill();
-var import_kolmafia34 = require("kolmafia");
+var import_kolmafia27 = require("kolmafia");
+var _templateObject81, _templateObject230, _templateObject319, _templateObject418, _templateObject511, _templateObject610, _templateObject710, _templateObject87, _templateObject98, _templateObject107, _templateObject117, _templateObject127;
+function _taggedTemplateLiteral18(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var skipDumplings = !1, skipOozo = !1, skipOiliness = !1, skipGatorskin = !1, AcquireTasks = [{
+  name: "Mmm, dumpling",
+  completed: function() {
+    return have($item(_templateObject81 || (_templateObject81 = _taggedTemplateLiteral18(["unfortunate dumplings"])))) || skipDumplings;
+  },
+  do: function() {
+    (0, import_kolmafia27.buy)($item(_templateObject230 || (_templateObject230 = _taggedTemplateLiteral18(["unfortunate dumplings"]))), 1, 2e4), skipDumplings = !have($item(_templateObject319 || (_templateObject319 = _taggedTemplateLiteral18(["unfortunate dumplings"]))));
+  }
+}, {
+  name: "Mmm, oozo",
+  completed: function() {
+    return have($item(_templateObject418 || (_templateObject418 = _taggedTemplateLiteral18(["bottle of Ooze-O"])))) || skipOozo;
+  },
+  do: function() {
+    (0, import_kolmafia27.buy)($item(_templateObject511 || (_templateObject511 = _taggedTemplateLiteral18(["bottle of Ooze-O"]))), 1, 2e4), skipOozo = !have($item(_templateObject610 || (_templateObject610 = _taggedTemplateLiteral18(["bottle of Ooze-O"]))));
+  }
+}, {
+  name: "Get oil of oiliness",
+  completed: function() {
+    return have($item(_templateObject710 || (_templateObject710 = _taggedTemplateLiteral18(["oil of oiliness"])))) || skipOiliness;
+  },
+  do: function() {
+    (0, import_kolmafia27.buy)($item(_templateObject87 || (_templateObject87 = _taggedTemplateLiteral18(["oil of oiliness"]))), 1, 1e4), skipOiliness = !have($item(_templateObject98 || (_templateObject98 = _taggedTemplateLiteral18(["oil of oiliness"]))));
+  }
+}, {
+  name: "Get gatorkskin umbrella",
+  completed: function() {
+    return have($item(_templateObject107 || (_templateObject107 = _taggedTemplateLiteral18(["gatorskin umbrella"])))) || skipGatorskin;
+  },
+  do: function() {
+    (0, import_kolmafia27.buy)($item(_templateObject117 || (_templateObject117 = _taggedTemplateLiteral18(["gatorskin umbrella"]))), 1, 1e4), skipGatorskin = !have($item(_templateObject127 || (_templateObject127 = _taggedTemplateLiteral18(["gatorskin umbrella"]))));
+  }
+}];
+
+// src/quests/sewers/tasks/cage.ts
+init_kolmafia_polyfill();
+var import_kolmafia28 = require("kolmafia");
+var cagebait = "ASSBot", caged = !1, cage = function() {
+  (0, import_kolmafia28.chatPrivate)(cagebait, "cage ".concat(get(CLAN))), (0, import_kolmafia28.wait)(60);
+}, CageTasks = [{
+  name: "Catch ASSBot",
+  completed: function() {
+    return caged;
+  },
+  do: function() {
+    caged = !0, cage();
+  }
+}];
+
+// src/quests/sewers/tasks/explore.ts
+init_kolmafia_polyfill();
 
 // src/lib/combat.ts
 init_kolmafia_polyfill();
-var import_kolmafia29 = require("kolmafia");
+var import_kolmafia31 = require("kolmafia");
 
 // src/lib/freeRun.ts
 init_kolmafia_polyfill();
-var import_kolmafia28 = require("kolmafia");
+var import_kolmafia30 = require("kolmafia");
 
 // src/lib/drunk.ts
 init_kolmafia_polyfill();
-var import_kolmafia27 = require("kolmafia");
+var import_kolmafia29 = require("kolmafia");
 function drunk() {
-  return (0, import_kolmafia27.myInebriety)() > (0, import_kolmafia27.inebrietyLimit)();
+  return (0, import_kolmafia29.myInebriety)() > (0, import_kolmafia29.inebrietyLimit)();
 }
 
 // src/lib/freeRun.ts
-var _templateObject78, _templateObject228, _templateObject320, _templateObject418, _templateObject514, _templateObject610;
-function _taggedTemplateLiteral15(strings, raw) {
+var _templateObject88, _templateObject231, _templateObject320, _templateObject419, _templateObject514, _templateObject611;
+function _taggedTemplateLiteral19(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 function freeRunItemAvailable() {
-  return (0, import_kolmafia28.itemAmount)($item(_templateObject78 || (_templateObject78 = _taggedTemplateLiteral15(["Louder Than Bomb"])))) + (0, import_kolmafia28.itemAmount)($item(_templateObject228 || (_templateObject228 = _taggedTemplateLiteral15(["divine champagne popper"])))) + (0, import_kolmafia28.itemAmount)($item(_templateObject320 || (_templateObject320 = _taggedTemplateLiteral15(["tennis ball"])))) > 0 || (0, import_kolmafia28.itemAmount)($item(_templateObject418 || (_templateObject418 = _taggedTemplateLiteral15(["green smoke bomb"])))) > 3 || (0, import_kolmafia28.itemAmount)($item(_templateObject514 || (_templateObject514 = _taggedTemplateLiteral15(["tattered scrap of paper"])))) > 10 || (0, import_kolmafia28.itemAmount)($item(_templateObject610 || (_templateObject610 = _taggedTemplateLiteral15(["GOTO"])))) > 20;
+  return (0, import_kolmafia30.itemAmount)($item(_templateObject88 || (_templateObject88 = _taggedTemplateLiteral19(["Louder Than Bomb"])))) + (0, import_kolmafia30.itemAmount)($item(_templateObject231 || (_templateObject231 = _taggedTemplateLiteral19(["divine champagne popper"])))) + (0, import_kolmafia30.itemAmount)($item(_templateObject320 || (_templateObject320 = _taggedTemplateLiteral19(["tennis ball"])))) > 0 || (0, import_kolmafia30.itemAmount)($item(_templateObject419 || (_templateObject419 = _taggedTemplateLiteral19(["green smoke bomb"])))) > 3 || (0, import_kolmafia30.itemAmount)($item(_templateObject514 || (_templateObject514 = _taggedTemplateLiteral19(["tattered scrap of paper"])))) > 10 || (0, import_kolmafia30.itemAmount)($item(_templateObject611 || (_templateObject611 = _taggedTemplateLiteral19(["GOTO"])))) > 20;
 }
 function shouldUseFreeRunItem() {
   return !drunk() && get(FREE_RUN, !1);
 }
 
 // src/lib/combat.ts
-var _templateObject79, _templateObject229, _templateObject321, _templateObject419, _templateObject515, _templateObject611, _templateObject710, _templateObject88, _templateObject99, _templateObject108, _templateObject118, _templateObject128, _templateObject138, _templateObject147, _templateObject157, _templateObject167, _templateObject177, _templateObject187, _templateObject197, _templateObject207, _templateObject2112, _templateObject2210, _templateObject237, _templateObject247, _templateObject257, _templateObject267, _templateObject277, _templateObject286, _templateObject296, _templateObject306, _templateObject3110, _templateObject326, _templateObject336, _templateObject345, _templateObject354, _templateObject364, _templateObject374;
-function _taggedTemplateLiteral16(strings, raw) {
+var _templateObject89, _templateObject236, _templateObject321, _templateObject420, _templateObject515, _templateObject612, _templateObject711, _templateObject810, _templateObject99, _templateObject108, _templateObject118, _templateObject128, _templateObject137, _templateObject146, _templateObject156, _templateObject166, _templateObject176, _templateObject186, _templateObject196, _templateObject206, _templateObject2111, _templateObject2210, _templateObject237, _templateObject246, _templateObject256, _templateObject266, _templateObject276, _templateObject285, _templateObject295, _templateObject305, _templateObject3110, _templateObject325, _templateObject335, _templateObject345, _templateObject354, _templateObject364, _templateObject374;
+function _taggedTemplateLiteral20(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-function _classCallCheck16(instance, Constructor) {
+function _classCallCheck14(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
-function _defineProperties16(target, props) {
+function _defineProperties14(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey17(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey15(descriptor.key), descriptor);
   }
 }
-function _createClass16(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties16(Constructor.prototype, protoProps), staticProps && _defineProperties16(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass14(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties14(Constructor.prototype, protoProps), staticProps && _defineProperties14(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _toPropertyKey17(arg) {
-  var key = _toPrimitive17(arg, "string");
+function _toPropertyKey15(arg) {
+  var key = _toPrimitive15(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive17(input, hint) {
+function _toPrimitive15(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -12713,14 +12364,14 @@ function _getPrototypeOf5(o) {
   }, _getPrototypeOf5(o);
 }
 var drunk2 = function() {
-  return (0, import_kolmafia29.myInebriety)() > (0, import_kolmafia29.inebrietyLimit)();
+  return (0, import_kolmafia31.myInebriety)() > (0, import_kolmafia31.inebrietyLimit)();
 }, Macro2 = /* @__PURE__ */ function(_LibramMacro) {
   _inherits6(Macro3, _LibramMacro);
   var _super = _createSuper5(Macro3);
   function Macro3() {
-    return _classCallCheck16(this, Macro3), _super.apply(this, arguments);
+    return _classCallCheck14(this, Macro3), _super.apply(this, arguments);
   }
-  return _createClass16(Macro3, [{
+  return _createClass14(Macro3, [{
     key: "pickpocket",
     value: function() {
       return this.step("pickpocket");
@@ -12728,22 +12379,22 @@ var drunk2 = function() {
   }, {
     key: "tryItemsTogether",
     value: function(itemOrItems) {
-      return have($skill(_templateObject79 || (_templateObject79 = _taggedTemplateLiteral16(["Ambidextrous Funkslinging"])))) ? this.tryItem(itemOrItems) : Array.isArray(itemOrItems) ? this.tryItem(itemOrItems[0]).tryItem(itemOrItems[1]) : this.tryItem(itemOrItems);
+      return have($skill(_templateObject89 || (_templateObject89 = _taggedTemplateLiteral20(["Ambidextrous Funkslinging"])))) ? this.tryItem(itemOrItems) : Array.isArray(itemOrItems) ? this.tryItem(itemOrItems[0]).tryItem(itemOrItems[1]) : this.tryItem(itemOrItems);
     }
   }, {
     key: "itemWhileHave",
     value: function(item4) {
-      return this.externalIf((0, import_kolmafia29.itemAmount)(item4) % 2 === 1 && (0, import_kolmafia29.itemAmount)(item4) < 60, Macro3.item(item4)).while_("hascombatitem ".concat(item4), Macro3.tryItemsTogether([item4, item4]));
+      return this.externalIf((0, import_kolmafia31.itemAmount)(item4) % 2 === 1 && (0, import_kolmafia31.itemAmount)(item4) < 60, Macro3.item(item4)).while_("hascombatitem ".concat(item4), Macro3.tryItemsTogether([item4, item4]));
     }
   }, {
     key: "maybeFreeRunItems",
     value: function() {
-      return this.externalIf(shouldUseFreeRunItem(), Macro3.tryItemsTogether([$item(_templateObject229 || (_templateObject229 = _taggedTemplateLiteral16(["Louder Than Bomb"]))), $item(_templateObject321 || (_templateObject321 = _taggedTemplateLiteral16(["tennis ball"])))]).tryItem($item(_templateObject419 || (_templateObject419 = _taggedTemplateLiteral16(["divine champagne popper"])))).itemWhileHave($item(_templateObject515 || (_templateObject515 = _taggedTemplateLiteral16(["green smoke bomb"])))).itemWhileHave($item(_templateObject611 || (_templateObject611 = _taggedTemplateLiteral16(["tattered scrap of paper"])))).itemWhileHave($item(_templateObject710 || (_templateObject710 = _taggedTemplateLiteral16(["GOTO"])))));
+      return this.externalIf(shouldUseFreeRunItem(), Macro3.tryItemsTogether([$item(_templateObject236 || (_templateObject236 = _taggedTemplateLiteral20(["Louder Than Bomb"]))), $item(_templateObject321 || (_templateObject321 = _taggedTemplateLiteral20(["tennis ball"])))]).tryItem($item(_templateObject420 || (_templateObject420 = _taggedTemplateLiteral20(["divine champagne popper"])))).itemWhileHave($item(_templateObject515 || (_templateObject515 = _taggedTemplateLiteral20(["green smoke bomb"])))).itemWhileHave($item(_templateObject612 || (_templateObject612 = _taggedTemplateLiteral20(["tattered scrap of paper"])))).itemWhileHave($item(_templateObject711 || (_templateObject711 = _taggedTemplateLiteral20(["GOTO"])))));
     }
   }, {
     key: "tryDelevelStun",
     value: function() {
-      return this.trySkill($skill(_templateObject88 || (_templateObject88 = _taggedTemplateLiteral16(["Curse of Weaksauce"])))).trySkill($skill(_templateObject99 || (_templateObject99 = _taggedTemplateLiteral16(["Micrometeorite"])))).tryItemsTogether([$item(_templateObject108 || (_templateObject108 = _taggedTemplateLiteral16(["Time-Spinner"]))), $item(_templateObject118 || (_templateObject118 = _taggedTemplateLiteral16(["HOA citation pad"])))]).tryItemsTogether([$item(_templateObject128 || (_templateObject128 = _taggedTemplateLiteral16(["Rain-Doh blue balls"]))), $item(_templateObject138 || (_templateObject138 = _taggedTemplateLiteral16(["Rain-Doh indigo cup"])))]).tryItemsTogether([$item(_templateObject147 || (_templateObject147 = _taggedTemplateLiteral16(["train whistle"]))), $item(_templateObject157 || (_templateObject157 = _taggedTemplateLiteral16(["little red book"])))]).if_($monster(_templateObject167 || (_templateObject167 = _taggedTemplateLiteral16(["Normal hobo"]))), Macro3.tryItem($item(_templateObject177 || (_templateObject177 = _taggedTemplateLiteral16(["El Vibrato restraints"]))))).if_($monster(_templateObject187 || (_templateObject187 = _taggedTemplateLiteral16(["Stench hobo"]))), Macro3.tryItem($item(_templateObject197 || (_templateObject197 = _taggedTemplateLiteral16(["El Vibrato restraints"]))))).if_($monster(_templateObject207 || (_templateObject207 = _taggedTemplateLiteral16(["Sleaze hobo"]))), Macro3.tryItem($item(_templateObject2112 || (_templateObject2112 = _taggedTemplateLiteral16(["El Vibrato restraints"])))));
+      return this.trySkill($skill(_templateObject810 || (_templateObject810 = _taggedTemplateLiteral20(["Curse of Weaksauce"])))).trySkill($skill(_templateObject99 || (_templateObject99 = _taggedTemplateLiteral20(["Micrometeorite"])))).tryItemsTogether([$item(_templateObject108 || (_templateObject108 = _taggedTemplateLiteral20(["Time-Spinner"]))), $item(_templateObject118 || (_templateObject118 = _taggedTemplateLiteral20(["HOA citation pad"])))]).tryItemsTogether([$item(_templateObject128 || (_templateObject128 = _taggedTemplateLiteral20(["Rain-Doh blue balls"]))), $item(_templateObject137 || (_templateObject137 = _taggedTemplateLiteral20(["Rain-Doh indigo cup"])))]).tryItemsTogether([$item(_templateObject146 || (_templateObject146 = _taggedTemplateLiteral20(["train whistle"]))), $item(_templateObject156 || (_templateObject156 = _taggedTemplateLiteral20(["little red book"])))]).if_($monster(_templateObject166 || (_templateObject166 = _taggedTemplateLiteral20(["Normal hobo"]))), Macro3.tryItem($item(_templateObject176 || (_templateObject176 = _taggedTemplateLiteral20(["El Vibrato restraints"]))))).if_($monster(_templateObject186 || (_templateObject186 = _taggedTemplateLiteral20(["Stench hobo"]))), Macro3.tryItem($item(_templateObject196 || (_templateObject196 = _taggedTemplateLiteral20(["El Vibrato restraints"]))))).if_($monster(_templateObject206 || (_templateObject206 = _taggedTemplateLiteral20(["Sleaze hobo"]))), Macro3.tryItem($item(_templateObject2111 || (_templateObject2111 = _taggedTemplateLiteral20(["El Vibrato restraints"])))));
     }
   }, {
     key: "tryFreeRun",
@@ -12751,28 +12402,28 @@ var drunk2 = function() {
       return this.externalIf(
         !drunk2(),
         // Only delevel if we have a chance of dying, to speed up combat
-        Macro3.tryItemsTogether([$item(_templateObject2210 || (_templateObject2210 = _taggedTemplateLiteral16(["Rain-Doh blue balls"]))), $item(_templateObject237 || (_templateObject237 = _taggedTemplateLiteral16(["Rain-Doh indigo cup"])))]).trySkill($skill(_templateObject247 || (_templateObject247 = _taggedTemplateLiteral16(["Extract"])))).tryItem($item(_templateObject257 || (_templateObject257 = _taggedTemplateLiteral16(["porquoise-handled sixgun"])))).trySkill($skill(_templateObject267 || (_templateObject267 = _taggedTemplateLiteral16(["Bowl a Curveball"])))).trySkill($skill(_templateObject277 || (_templateObject277 = _taggedTemplateLiteral16(["Asdon Martin: Spring-Loaded Front Bumper"])))).maybeFreeRunItems()
+        Macro3.tryItemsTogether([$item(_templateObject2210 || (_templateObject2210 = _taggedTemplateLiteral20(["Rain-Doh blue balls"]))), $item(_templateObject237 || (_templateObject237 = _taggedTemplateLiteral20(["Rain-Doh indigo cup"])))]).trySkill($skill(_templateObject246 || (_templateObject246 = _taggedTemplateLiteral20(["Extract"])))).tryItem($item(_templateObject256 || (_templateObject256 = _taggedTemplateLiteral20(["porquoise-handled sixgun"])))).trySkill($skill(_templateObject266 || (_templateObject266 = _taggedTemplateLiteral20(["Bowl a Curveball"])))).trySkill($skill(_templateObject276 || (_templateObject276 = _taggedTemplateLiteral20(["Asdon Martin: Spring-Loaded Front Bumper"])))).maybeFreeRunItems()
       ).runaway().repeat();
     }
   }, {
     key: "trySingAlong",
     value: function() {
-      return !SongBoom_exports.have() || SongBoom_exports.song() !== "Total Eclipse of Your Meat" ? this : this.trySkill($skill(_templateObject286 || (_templateObject286 = _taggedTemplateLiteral16(["Sing Along"]))));
+      return !SongBoom_exports.have() || SongBoom_exports.song() !== "Total Eclipse of Your Meat" ? this : this.trySkill($skill(_templateObject285 || (_templateObject285 = _taggedTemplateLiteral20(["Sing Along"]))));
     }
   }, {
     key: "stasis",
     value: function() {
-      return this.externalIf(!drunk2(), Macro3.trySkill($skill(_templateObject296 || (_templateObject296 = _taggedTemplateLiteral16(["Curse of Weaksauce"])))).trySkill($skill(_templateObject306 || (_templateObject306 = _taggedTemplateLiteral16(["Micrometeorite"])))).tryItemsTogether([$item(_templateObject3110 || (_templateObject3110 = _taggedTemplateLiteral16(["Time-Spinner"]))), $item(_templateObject326 || (_templateObject326 = _taggedTemplateLiteral16(["HOA citation pad"])))]).trySkill($skill(_templateObject336 || (_templateObject336 = _taggedTemplateLiteral16(["Extract"])))));
+      return this.externalIf(!drunk2(), Macro3.trySkill($skill(_templateObject295 || (_templateObject295 = _taggedTemplateLiteral20(["Curse of Weaksauce"])))).trySkill($skill(_templateObject305 || (_templateObject305 = _taggedTemplateLiteral20(["Micrometeorite"])))).tryItemsTogether([$item(_templateObject3110 || (_templateObject3110 = _taggedTemplateLiteral20(["Time-Spinner"]))), $item(_templateObject325 || (_templateObject325 = _taggedTemplateLiteral20(["HOA citation pad"])))]).trySkill($skill(_templateObject335 || (_templateObject335 = _taggedTemplateLiteral20(["Extract"])))));
     }
   }, {
     key: "attackKill",
     value: function() {
-      return this.stasis().tryItem($item(_templateObject345 || (_templateObject345 = _taggedTemplateLiteral16(["porquoise-handled sixgun"])))).trySingAlong().attack().repeat();
+      return this.stasis().tryItem($item(_templateObject345 || (_templateObject345 = _taggedTemplateLiteral20(["porquoise-handled sixgun"])))).trySingAlong().attack().repeat();
     }
   }, {
     key: "mortarShell",
     value: function() {
-      return this.stasis().tryItem($item(_templateObject354 || (_templateObject354 = _taggedTemplateLiteral16(["porquoise-handled sixgun"])))).trySingAlong().trySkill($skill(_templateObject364 || (_templateObject364 = _taggedTemplateLiteral16(["Stuffed Mortar Shell"])))).tryItem($item(_templateObject374 || (_templateObject374 = _taggedTemplateLiteral16(["seal tooth"])))).attack().repeat();
+      return this.stasis().tryItem($item(_templateObject354 || (_templateObject354 = _taggedTemplateLiteral20(["porquoise-handled sixgun"])))).trySingAlong().trySkill($skill(_templateObject364 || (_templateObject364 = _taggedTemplateLiteral20(["Stuffed Mortar Shell"])))).tryItem($item(_templateObject374 || (_templateObject374 = _taggedTemplateLiteral20(["seal tooth"])))).attack().repeat();
     }
   }], [{
     key: "pickpocket",
@@ -12829,122 +12480,94 @@ var drunk2 = function() {
 
 // src/lib/effects.ts
 init_kolmafia_polyfill();
-var import_kolmafia31 = require("kolmafia");
+var import_kolmafia33 = require("kolmafia");
 
 // src/lib/familiar.ts
 init_kolmafia_polyfill();
-var import_kolmafia30 = require("kolmafia");
-var _templateObject80, _templateObject230, _templateObject327, _templateObject420, _templateObject516, _templateObject612, _templateObject711, _templateObject89, _templateObject910, _templateObject109, _templateObject119, _templateObject129, _templateObject139, _templateObject148, _templateObject158, _templateObject168, _templateObject178, _templateObject188, _templateObject198, _templateObject208, _templateObject2113, _templateObject2211, _templateObject238, _templateObject248, _templateObject258;
-function _taggedTemplateLiteral17(strings, raw) {
+var import_kolmafia32 = require("kolmafia");
+var _templateObject90, _templateObject238, _templateObject326, _templateObject421, _templateObject516, _templateObject613, _templateObject712, _templateObject811, _templateObject910, _templateObject109, _templateObject119, _templateObject129, _templateObject138, _templateObject147, _templateObject157, _templateObject167, _templateObject177, _templateObject187, _templateObject197, _templateObject207, _templateObject2112, _templateObject2211, _templateObject239, _templateObject247, _templateObject257;
+function _taggedTemplateLiteral21(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 function selectBestFamiliar() {
-  if ((0, import_kolmafia30.myFamiliar)() === $familiar(_templateObject80 || (_templateObject80 = _taggedTemplateLiteral17(["Stooper"]))) && (0, import_kolmafia30.myInebriety)() === (0, import_kolmafia30.inebrietyLimit)() || (0, import_kolmafia30.myInebriety)() === (0, import_kolmafia30.inebrietyLimit)() + 1)
-    return $familiar(_templateObject230 || (_templateObject230 = _taggedTemplateLiteral17(["Stooper"])));
+  if ((0, import_kolmafia32.myFamiliar)() === $familiar(_templateObject90 || (_templateObject90 = _taggedTemplateLiteral21(["Stooper"]))) && (0, import_kolmafia32.myInebriety)() === (0, import_kolmafia32.inebrietyLimit)() || (0, import_kolmafia32.myInebriety)() === (0, import_kolmafia32.inebrietyLimit)() + 1)
+    return $familiar(_templateObject238 || (_templateObject238 = _taggedTemplateLiteral21(["Stooper"])));
   var availableBanderboots = freeRunsFamiliar();
-  return availableBanderboots !== $familiar(_templateObject327 || (_templateObject327 = _taggedTemplateLiteral17(["none"]))) ? availableBanderboots : noncombatFamiliar();
+  return availableBanderboots !== $familiar(_templateObject326 || (_templateObject326 = _taggedTemplateLiteral21(["none"]))) ? availableBanderboots : noncombatFamiliar();
 }
 function noncombatFamiliar() {
-  return have($familiar(_templateObject420 || (_templateObject420 = _taggedTemplateLiteral17(["Left-Hand Man"])))) && (have($item(_templateObject516 || (_templateObject516 = _taggedTemplateLiteral17(["rusted-out shootin' iron"])))) || have($item(_templateObject612 || (_templateObject612 = _taggedTemplateLiteral17(["iFlail"]))))) && have($item(_templateObject711 || (_templateObject711 = _taggedTemplateLiteral17(["unbreakable umbrella"])))) ? $familiar(_templateObject89 || (_templateObject89 = _taggedTemplateLiteral17(["Left-Hand Man"]))) : have($familiar(_templateObject910 || (_templateObject910 = _taggedTemplateLiteral17(["Disembodied Hand"])))) && (have($item(_templateObject109 || (_templateObject109 = _taggedTemplateLiteral17(["fish hatchet"])))) || have($item(_templateObject119 || (_templateObject119 = _taggedTemplateLiteral17(["bass clarinet"])))) || have($item(_templateObject129 || (_templateObject129 = _taggedTemplateLiteral17(["rusted-out shootin' iron"])))) || have($item(_templateObject139 || (_templateObject139 = _taggedTemplateLiteral17(["iFlail"]))))) ? $familiar(_templateObject148 || (_templateObject148 = _taggedTemplateLiteral17(["Disembodied Hand"]))) : have($familiar(_templateObject158 || (_templateObject158 = _taggedTemplateLiteral17(["Disgeist"])))) ? $familiar(_templateObject168 || (_templateObject168 = _taggedTemplateLiteral17(["Disgeist"]))) : $familiar(_templateObject178 || (_templateObject178 = _taggedTemplateLiteral17(["none"])));
+  return have($familiar(_templateObject421 || (_templateObject421 = _taggedTemplateLiteral21(["Left-Hand Man"])))) && (have($item(_templateObject516 || (_templateObject516 = _taggedTemplateLiteral21(["rusted-out shootin' iron"])))) || have($item(_templateObject613 || (_templateObject613 = _taggedTemplateLiteral21(["iFlail"]))))) && have($item(_templateObject712 || (_templateObject712 = _taggedTemplateLiteral21(["unbreakable umbrella"])))) ? $familiar(_templateObject811 || (_templateObject811 = _taggedTemplateLiteral21(["Left-Hand Man"]))) : have($familiar(_templateObject910 || (_templateObject910 = _taggedTemplateLiteral21(["Disembodied Hand"])))) && (have($item(_templateObject109 || (_templateObject109 = _taggedTemplateLiteral21(["fish hatchet"])))) || have($item(_templateObject119 || (_templateObject119 = _taggedTemplateLiteral21(["bass clarinet"])))) || have($item(_templateObject129 || (_templateObject129 = _taggedTemplateLiteral21(["rusted-out shootin' iron"])))) || have($item(_templateObject138 || (_templateObject138 = _taggedTemplateLiteral21(["iFlail"]))))) ? $familiar(_templateObject147 || (_templateObject147 = _taggedTemplateLiteral21(["Disembodied Hand"]))) : have($familiar(_templateObject157 || (_templateObject157 = _taggedTemplateLiteral21(["Disgeist"])))) ? $familiar(_templateObject167 || (_templateObject167 = _taggedTemplateLiteral21(["Disgeist"]))) : $familiar(_templateObject177 || (_templateObject177 = _taggedTemplateLiteral21(["none"])));
 }
 function freeRunsFamiliar() {
   var pickRunsFamiliar = function() {
-    return have($familiar(_templateObject188 || (_templateObject188 = _taggedTemplateLiteral17(["Pair of Stomping Boots"])))) ? $familiar(_templateObject198 || (_templateObject198 = _taggedTemplateLiteral17(["Pair of Stomping Boots"]))) : have($familiar(_templateObject208 || (_templateObject208 = _taggedTemplateLiteral17(["Frumious Bandersnatch"])))) ? $familiar(_templateObject2113 || (_templateObject2113 = _taggedTemplateLiteral17(["Frumious Bandersnatch"]))) : $familiar(_templateObject2211 || (_templateObject2211 = _taggedTemplateLiteral17(["none"])));
+    return have($familiar(_templateObject187 || (_templateObject187 = _taggedTemplateLiteral21(["Pair of Stomping Boots"])))) ? $familiar(_templateObject197 || (_templateObject197 = _taggedTemplateLiteral21(["Pair of Stomping Boots"]))) : have($familiar(_templateObject207 || (_templateObject207 = _taggedTemplateLiteral21(["Frumious Bandersnatch"])))) ? $familiar(_templateObject2112 || (_templateObject2112 = _taggedTemplateLiteral21(["Frumious Bandersnatch"]))) : $familiar(_templateObject2211 || (_templateObject2211 = _taggedTemplateLiteral21(["none"])));
   }, chosenFam = pickRunsFamiliar();
-  if (chosenFam === $familiar(_templateObject238 || (_templateObject238 = _taggedTemplateLiteral17(["none"]))))
-    return $familiar(_templateObject248 || (_templateObject248 = _taggedTemplateLiteral17(["none"])));
-  var baseWeight = (0, import_kolmafia30.familiarWeight)(chosenFam), bonus_weight = (0, import_kolmafia30.numericModifier)("Familiar Weight"), familiar_total_runs = Math.floor((baseWeight + bonus_weight) / 5), available_runs = Math.max(familiar_total_runs - get("_banderRunaways", 0), 0);
-  return available_runs === 0 ? $familiar(_templateObject258 || (_templateObject258 = _taggedTemplateLiteral17(["none"]))) : chosenFam;
+  if (chosenFam === $familiar(_templateObject239 || (_templateObject239 = _taggedTemplateLiteral21(["none"]))))
+    return $familiar(_templateObject247 || (_templateObject247 = _taggedTemplateLiteral21(["none"])));
+  var baseWeight = (0, import_kolmafia32.familiarWeight)(chosenFam), bonus_weight = (0, import_kolmafia32.numericModifier)("Familiar Weight"), familiar_total_runs = Math.floor((baseWeight + bonus_weight) / 5), available_runs = Math.max(familiar_total_runs - get("_banderRunaways", 0), 0);
+  return available_runs === 0 ? $familiar(_templateObject257 || (_templateObject257 = _taggedTemplateLiteral21(["none"]))) : chosenFam;
 }
 
 // src/lib/effects.ts
-var _templateObject81, _templateObject231, _templateObject328, _templateObject421, _templateObject517, _templateObject613, _templateObject712, _templateObject810, _templateObject911;
-function _taggedTemplateLiteral18(strings, raw) {
+var _templateObject91, _templateObject240, _templateObject327, _templateObject424, _templateObject517, _templateObject614, _templateObject713, _templateObject812;
+var _templateObject1010;
+function _taggedTemplateLiteral22(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 function filterHave(effects) {
   return effects.filter(function(effect) {
-    return have((0, import_kolmafia31.toSkill)(effect));
+    return have((0, import_kolmafia33.toSkill)(effect));
   });
 }
 function basicEffects() {
-  var buffs = [$effect(_templateObject81 || (_templateObject81 = _taggedTemplateLiteral18(["Leash of Linguini"]))), $effect(_templateObject231 || (_templateObject231 = _taggedTemplateLiteral18(["Empathy"]))), $effect(_templateObject328 || (_templateObject328 = _taggedTemplateLiteral18(["Blood Bond"]))), $effect(_templateObject421 || (_templateObject421 = _taggedTemplateLiteral18(["Springy Fusilli"]))), $effect(_templateObject517 || (_templateObject517 = _taggedTemplateLiteral18(["Cletus's Canticle of Celerity"])))];
-  return selectBestFamiliar() === $familiar(_templateObject613 || (_templateObject613 = _taggedTemplateLiteral18(["Frumious Bandersnatch"]))) && buffs.push($effect(_templateObject712 || (_templateObject712 = _taggedTemplateLiteral18(["Ode to Booze"])))), filterHave(buffs);
+  var buffs = [$effect(_templateObject91 || (_templateObject91 = _taggedTemplateLiteral22(["Leash of Linguini"]))), $effect(_templateObject240 || (_templateObject240 = _taggedTemplateLiteral22(["Empathy"]))), $effect(_templateObject327 || (_templateObject327 = _taggedTemplateLiteral22(["Blood Bond"]))), $effect(_templateObject424 || (_templateObject424 = _taggedTemplateLiteral22(["Springy Fusilli"]))), $effect(_templateObject517 || (_templateObject517 = _taggedTemplateLiteral22(["Cletus's Canticle of Celerity"])))];
+  return selectBestFamiliar() === $familiar(_templateObject614 || (_templateObject614 = _taggedTemplateLiteral22(["Frumious Bandersnatch"]))) && buffs.push($effect(_templateObject713 || (_templateObject713 = _taggedTemplateLiteral22(["Ode to Booze"])))), filterHave(buffs);
 }
 function noncombatEffects() {
-  return filterHave($effects(_templateObject810 || (_templateObject810 = _taggedTemplateLiteral18(["The Sonata of Sneakiness, Smooth Movements"]))));
+  return filterHave($effects(_templateObject812 || (_templateObject812 = _taggedTemplateLiteral22(["The Sonata of Sneakiness, Smooth Movements"]))));
 }
 function resistanceEffects() {
-  return filterHave($effects(_templateObject911 || (_templateObject911 = _taggedTemplateLiteral18(["Elemental Saucesphere, Astral Shell"]))));
+  return filterHave($effects(_templateObject1010 || (_templateObject1010 = _taggedTemplateLiteral22(["Elemental Saucesphere, Astral Shell"]))));
 }
 
 // src/lib/equipment.ts
 init_kolmafia_polyfill();
-var import_kolmafia32 = require("kolmafia");
-var _templateObject90, _templateObject239, _templateObject329, _templateObject424, _templateObject518, _templateObject614, _templateObject713, _templateObject811, _templateObject912, _templateObject1010, _templateObject1110;
-function _taggedTemplateLiteral19(strings, raw) {
+var import_kolmafia34 = require("kolmafia");
+var _templateObject100, _templateObject241, _templateObject328, _templateObject425, _templateObject518, _templateObject615, _templateObject714, _templateObject813, _templateObject911, _templateObject1011, _templateObject1110;
+function _taggedTemplateLiteral23(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 function appendWineglass(equips) {
-  if (!have($item(_templateObject90 || (_templateObject90 = _taggedTemplateLiteral19(["Drunkula's wineglass"])))))
+  if (!have($item(_templateObject100 || (_templateObject100 = _taggedTemplateLiteral23(["Drunkula's wineglass"])))))
     throw "You are overdrunk, but don't have a wineglass!";
-  equips.push($item(_templateObject239 || (_templateObject239 = _taggedTemplateLiteral19(["Drunkula's wineglass"]))));
+  equips.push($item(_templateObject241 || (_templateObject241 = _taggedTemplateLiteral23(["Drunkula's wineglass"]))));
 }
 function getEquipment(equips) {
   var equipment = equips.filter(function(it) {
     return have(it);
   });
-  return (0, import_kolmafia32.myInebriety)() > (0, import_kolmafia32.inebrietyLimit)() && appendWineglass(equipment), equipment;
+  return (0, import_kolmafia34.myInebriety)() > (0, import_kolmafia34.inebrietyLimit)() && appendWineglass(equipment), equipment;
 }
 function getDefaultEquipment() {
-  var defaultEquipment2 = [$item(_templateObject329 || (_templateObject329 = _taggedTemplateLiteral19(["June cleaver"]))), $item(_templateObject424 || (_templateObject424 = _taggedTemplateLiteral19(["tiny stillsuit"])))];
-  freeRunItemAvailable() && shouldUseFreeRunItem() || (defaultEquipment2.push($item(_templateObject518 || (_templateObject518 = _taggedTemplateLiteral19(["mafia thumb ring"])))), have($item(_templateObject614 || (_templateObject614 = _taggedTemplateLiteral19(["Greatest American Pants"])))) ? defaultEquipment2.push($item(_templateObject713 || (_templateObject713 = _taggedTemplateLiteral19(["Greatest American Pants"])))) : have($item(_templateObject811 || (_templateObject811 = _taggedTemplateLiteral19(["navel ring of navel gazing"])))) && defaultEquipment2.push($item(_templateObject912 || (_templateObject912 = _taggedTemplateLiteral19(["navel ring of navel gazing"])))));
+  var defaultEquipment2 = [$item(_templateObject328 || (_templateObject328 = _taggedTemplateLiteral23(["June cleaver"]))), $item(_templateObject425 || (_templateObject425 = _taggedTemplateLiteral23(["tiny stillsuit"])))];
+  freeRunItemAvailable() && shouldUseFreeRunItem() || (defaultEquipment2.push($item(_templateObject518 || (_templateObject518 = _taggedTemplateLiteral23(["mafia thumb ring"])))), have($item(_templateObject615 || (_templateObject615 = _taggedTemplateLiteral23(["Greatest American Pants"])))) ? defaultEquipment2.push($item(_templateObject714 || (_templateObject714 = _taggedTemplateLiteral23(["Greatest American Pants"])))) : have($item(_templateObject813 || (_templateObject813 = _taggedTemplateLiteral23(["navel ring of navel gazing"])))) && defaultEquipment2.push($item(_templateObject911 || (_templateObject911 = _taggedTemplateLiteral23(["navel ring of navel gazing"])))));
   var pants = defaultEquipment2.find(function(item4) {
-    return (0, import_kolmafia32.toSlot)(item4) === $slot(_templateObject1010 || (_templateObject1010 = _taggedTemplateLiteral19(["pants"])));
+    return (0, import_kolmafia34.toSlot)(item4) === $slot(_templateObject1011 || (_templateObject1011 = _taggedTemplateLiteral23(["pants"])));
   });
-  return (!pants || !have(pants)) && get("_pantsgivingCount") < 500 && defaultEquipment2.push($item(_templateObject1110 || (_templateObject1110 = _taggedTemplateLiteral19(["Pantsgiving"])))), getEquipment(defaultEquipment2);
-}
-
-// src/lib/modifiers.ts
-init_kolmafia_polyfill();
-var _templateObject91, _templateObject240, _templateObject330, _templateObject425;
-function _taggedTemplateLiteral20(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-function getModString() {
-  var fam = selectBestFamiliar();
-  function getModWeight(fam2) {
-    var w = "0.02";
-    switch (fam2) {
-      case $familiar(_templateObject91 || (_templateObject91 = _taggedTemplateLiteral20(["Frumious Bandersnatch"]))):
-        w = "0.25";
-        break;
-      case $familiar(_templateObject240 || (_templateObject240 = _taggedTemplateLiteral20(["Pair of Stomping Boots"]))):
-        w = "0.25";
-        break;
-      case $familiar(_templateObject330 || (_templateObject330 = _taggedTemplateLiteral20(["Left-Hand Man"]))):
-        w = "0.00";
-        break;
-      case $familiar(_templateObject425 || (_templateObject425 = _taggedTemplateLiteral20(["Disembodied Hand"]))):
-        w = "0.00";
-        break;
-    }
-    return w;
-  }
-  return "-combat, ".concat(getModWeight(fam), ' familiar weight, 0.0001 init, 0.2 bonus "fuzzy slippers of hatred"');
+  return (!pants || !have(pants)) && get("_pantsgivingCount") < 500 && defaultEquipment2.push($item(_templateObject1110 || (_templateObject1110 = _taggedTemplateLiteral23(["Pantsgiving"])))), getEquipment(defaultEquipment2);
 }
 
 // src/lib/preparenoncom.ts
 init_kolmafia_polyfill();
-var import_kolmafia33 = require("kolmafia");
-var _templateObject100;
-function _taggedTemplateLiteral21(strings, raw) {
+var import_kolmafia35 = require("kolmafia");
+var _templateObject101;
+function _taggedTemplateLiteral24(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-function _createForOfIteratorHelper12(o, allowArrayLike) {
+function _createForOfIteratorHelper11(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray16(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray15(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -12973,27 +12596,27 @@ function _createForOfIteratorHelper12(o, allowArrayLike) {
     }
   } };
 }
-function _unsupportedIterableToArray16(o, minLen) {
+function _unsupportedIterableToArray15(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray16(o, minLen);
+      return _arrayLikeToArray15(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray16(o, minLen);
+      return _arrayLikeToArray15(o, minLen);
   }
 }
-function _arrayLikeToArray16(arr, len) {
+function _arrayLikeToArray15(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-var EFFECTIVE_NC_VALUE = 100, itemInfo = [], _iterator = _createForOfIteratorHelper12($items(_templateObject100 || (_templateObject100 = _taggedTemplateLiteral21([""])))), _step;
+var EFFECTIVE_NC_VALUE = 100, itemInfo = [], _iterator = _createForOfIteratorHelper11($items(_templateObject101 || (_templateObject101 = _taggedTemplateLiteral24([""])))), _step;
 try {
   for (_iterator.s(); !(_step = _iterator.n()).done; )
-    item4 = _step.value, effect = (0, import_kolmafia33.effectModifier)(item4, "Effect"), modifier = -1 * get2("Combat Rate", effect), !(modifier <= 0) && (duration = (0, import_kolmafia33.numericModifier)(item4, "Effect Duration"), duration !== 0 && item4.tradeable && (price2 = (0, import_kolmafia33.mallPrice)(item4), !(price2 / duration > EFFECTIVE_NC_VALUE) && itemInfo.push({
+    item4 = _step.value, effect = (0, import_kolmafia35.effectModifier)(item4, "Effect"), modifier = -1 * get2("Combat Rate", effect), !(modifier <= 0) && (duration = (0, import_kolmafia35.numericModifier)(item4, "Effect Duration"), duration !== 0 && item4.tradeable && (price2 = (0, import_kolmafia35.mallPrice)(item4), !(price2 / duration > EFFECTIVE_NC_VALUE) && itemInfo.push({
       item: item4,
       modifier: modifier,
       duration: duration,
@@ -13015,30 +12638,97 @@ function value(info) {
 function capNonCombat() {
   for (var itemBought = !1, i = 0; i < itemInfo.length; i++) {
     var info = itemInfo[i], item4 = info.item;
-    if ((0, import_kolmafia33.combatRateModifier)() <= -35)
+    if ((0, import_kolmafia35.combatRateModifier)() <= -35)
       break;
-    if (!(0, import_kolmafia33.haveEffect)(get2("Effect", item4))) {
+    if (!(0, import_kolmafia35.haveEffect)(get2("Effect", item4))) {
       var maxPrice = Math.min(EFFECTIVE_NC_VALUE * info.duration * info.modifier / 5, 1e4);
       if (info.price < maxPrice && have(item4)) {
-        if (!(0, import_kolmafia33.use)(item4, 1))
+        if (!(0, import_kolmafia35.use)(item4, 1))
           throw "Failed to use item";
         continue;
       }
-      var bought = (0, import_kolmafia33.buy)(item4, 1, maxPrice);
+      var bought = (0, import_kolmafia35.buy)(item4, 1, maxPrice);
       if (bought > 1)
         throw "Bought too many items.";
       if (bought === 0)
         break;
-      if (!(0, import_kolmafia33.use)(item4, 1))
+      if (!(0, import_kolmafia35.use)(item4, 1))
         throw "Failed to use item";
-      itemBought = !0, info.price = (0, import_kolmafia33.mallPrice)(item4);
+      itemBought = !0, info.price = (0, import_kolmafia35.mallPrice)(item4);
     }
   }
   itemBought && itemInfo.sort(byValue);
 }
 
-// src/quests/cognac/tasks/heap.ts
-var _templateObject101, _templateObject241, _templateObject331, _templateObject426, _templateObject519, _templateObject615, _templateObject714, _templateObject812, _templateObject913, _templateObject1011, _templateObject1111, _templateObject1210, _templateObject1310, _templateObject149, _templateObject159, _templateObject169, _templateObject179;
+// src/quests/sewers/tasks/explore.ts
+var _templateObject110, _templateObject248, _templateObject329, _templateObject426, _templateObject519, _templateObject616, _templateObject715;
+function _toConsumableArray9(arr) {
+  return _arrayWithoutHoles9(arr) || _iterableToArray9(arr) || _unsupportedIterableToArray16(arr) || _nonIterableSpread9();
+}
+function _nonIterableSpread9() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray16(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray16(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray16(o, minLen);
+  }
+}
+function _iterableToArray9(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles9(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray16(arr);
+}
+function _arrayLikeToArray16(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+function _taggedTemplateLiteral25(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var tryFreeRunThenAttack = Macro2.trySkill($skill(_templateObject110 || (_templateObject110 = _taggedTemplateLiteral25(["Bowl a Curveball"])))).trySkill($skill(_templateObject248 || (_templateObject248 = _taggedTemplateLiteral25(["Asdon Martin: Spring-Loaded Front Bumper"])))).externalIf(get(FREE_RUN, !1), Macro2.freeRunItems()).attack().repeat(), ExploreTasks = [{
+  name: "Explore sewer",
+  completed: function() {
+    return !1;
+  },
+  prepare: function() {
+    capNonCombat();
+  },
+  do: function() {
+    return $location(_templateObject329 || (_templateObject329 = _taggedTemplateLiteral25(["A Maze of Sewer Tunnels"])));
+  },
+  effects: function() {
+    return [].concat(_toConsumableArray9(basicEffects()), _toConsumableArray9(noncombatEffects()));
+  },
+  combat: new CombatStrategy().autoattack(tryFreeRunThenAttack),
+  outfit: function() {
+    return {
+      equip: getEquipment([$item(_templateObject426 || (_templateObject426 = _taggedTemplateLiteral25(["gatorskin umbrella"]))), $item(_templateObject519 || (_templateObject519 = _taggedTemplateLiteral25(["hobo code binder"])))].concat(_toConsumableArray9(get(FREE_RUN, !1) ? [] : [$item(_templateObject616 || (_templateObject616 = _taggedTemplateLiteral25(["mafia thumb ring"])))]))),
+      modifier: "-combat",
+      bonuses: /* @__PURE__ */ new Map([[$item(_templateObject715 || (_templateObject715 = _taggedTemplateLiteral25(["mafia thumb ring"]))), 200]]),
+      familiar: selectBestFamiliar()
+    };
+  },
+  choices: {
+    197: 1,
+    198: 1,
+    199: 1,
+    211: 1,
+    212: 1
+  }
+}];
+
+// src/quests/sewers/sewers.ts
 function _toConsumableArray10(arr) {
   return _arrayWithoutHoles10(arr) || _iterableToArray10(arr) || _unsupportedIterableToArray17(arr) || _nonIterableSpread10();
 }
@@ -13070,126 +12760,24 @@ function _arrayLikeToArray17(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _classCallCheck17(instance, Constructor) {
-  if (!(instance instanceof Constructor))
-    throw new TypeError("Cannot call a class as a function");
+var complete = !1;
+function Sewers(nocage) {
+  return {
+    name: "Sewers",
+    completed: function() {
+      return complete || (complete = !!(0, import_kolmafia36.visitUrl)("clan_hobopolis.php?place=3&pwd", !1).match(/Richard's Redoubt/)), complete;
+    },
+    tasks: [DriveStealthily].concat(_toConsumableArray10(nocage ? [] : CageTasks), _toConsumableArray10(AcquireTasks), _toConsumableArray10(ExploreTasks))
+  };
 }
-function _defineProperties17(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey18(descriptor.key), descriptor);
-  }
-}
-function _createClass17(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties17(Constructor.prototype, protoProps), staticProps && _defineProperties17(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
-}
-function _defineProperty14(obj, key, value2) {
-  return key = _toPropertyKey18(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
-}
-function _toPropertyKey18(arg) {
-  var key = _toPrimitive18(arg, "string");
-  return typeof key == "symbol" ? key : String(key);
-}
-function _toPrimitive18(input, hint) {
-  if (typeof input != "object" || input === null)
-    return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== void 0) {
-    var res = prim.call(input, hint || "default");
-    if (typeof res != "object")
-      return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-function _taggedTemplateLiteral22(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var epilogue = function(gossip2) {
-  _set(HEAP_ATTEMPTS, get(HEAP_ATTEMPTS, 0) + 1), get("lastEncounter") === "I Refuse!" ? (gossip2.resetStench(), _set(DIVES, get(DIVES, 0) + 1), _set(LIFETIME_DIVES, get(LIFETIME_DIVES, 0) + 1), _set(HEAP_ATTEMPTS, 0), _set(LAST_STENCH_CHECK, 0), _set(REFUSES_UNTIL_COMPOST, get(REFUSES_UNTIL_COMPOST, 0) - 1)) : get("lastEncounter") === "The Compostal Service" && gossip2.willCompost() ? _set(REFUSES_UNTIL_COMPOST, 5) : get("lastEncounter") === "Deep Enough to Dive" && (0, import_kolmafia34.abort)("At Oscus! Time to reset dungeon and set it up again");
-}, familiar2 = function() {
-  return !drunk() && have($familiar(_templateObject101 || (_templateObject101 = _taggedTemplateLiteral22(["Space Jellyfish"])))) ? $familiar(_templateObject241 || (_templateObject241 = _taggedTemplateLiteral22(["Space Jellyfish"]))) : selectBestFamiliar();
-}, ambientStenchRe = function() {
-  return /<p>The oppressive smell of the heaps of garbage around you makes you feel sort of sick.<center><table><tr><td><img[A-Za-z0-9=":/. ]+><\/td><td[A-Za-z0-9=" ]+>You lose ([0-9]+) hit points./g;
-};
-function mustCheckStench() {
-  var nextStenchCheck = [30, 45, 59].find(function(attempts) {
-    return attempts > get(LAST_STENCH_CHECK, 0);
-  });
-  return !drunk() && nextStenchCheck !== void 0 && get(HEAP_ATTEMPTS, 0) >= nextStenchCheck;
-}
-var Heap = /* @__PURE__ */ function() {
-  function Heap2(gossip2) {
-    _classCallCheck17(this, Heap2), _defineProperty14(this, "gossip", void 0), this.gossip = gossip2;
-  }
-  return _createClass17(Heap2, [{
-    key: "getTasks",
-    value: function() {
-      var _this = this;
-      return [{
-        name: "Dive",
-        completed: function() {
-          return (0, import_kolmafia34.myAdventures)() < 1;
-        },
-        do: function() {
-          if (mustCheckStench()) {
-            (0, import_kolmafia34.print)("Went ".concat(get(HEAP_ATTEMPTS, 0), " attempts at diving without success - double-checking stench level."), "blue"), (0, import_kolmafia34.retrieveItem)($item(_templateObject331 || (_templateObject331 = _taggedTemplateLiteral22(["seal tooth"])))), have($skill(_templateObject426 || (_templateObject426 = _taggedTemplateLiteral22(["Song of Starch"])))) && ensureEffect($effect(_templateObject519 || (_templateObject519 = _taggedTemplateLiteral22(["Song of Starch"])))), have($skill(_templateObject615 || (_templateObject615 = _taggedTemplateLiteral22(["Get Big"])))) && ensureEffect($effect(_templateObject714 || (_templateObject714 = _taggedTemplateLiteral22(["Big"])))), (0, import_kolmafia34.restoreHp)((0, import_kolmafia34.myMaxhp)());
-            var page = (0, import_kolmafia34.visitUrl)((0, import_kolmafia34.toUrl)($location(_templateObject812 || (_templateObject812 = _taggedTemplateLiteral22(["The Heap"])))));
-            if (page.includes("You're fighting")) {
-              for (var re = ambientStenchRe(), match, totalHpLost = 0, matchCount = 0; (match = re.exec(page)) !== null; )
-                totalHpLost += parseInt(match[1]), matchCount++;
-              if (matchCount > 0) {
-                var averageHpLost = totalHpLost / matchCount, stenchDamage = averageHpLost / (1 - (0, import_kolmafia34.elementalResistance)($element(_templateObject913 || (_templateObject913 = _taggedTemplateLiteral22(["stench"])))) / 100), stenchLevel = Math.round(stenchDamage / 5);
-                (0, import_kolmafia34.print)("Computed: average HP lost ".concat(averageHpLost, ", average stench damage dealt ").concat(stenchDamage, ", expected stench level ").concat(stenchLevel)), _this.gossip.setStench(stenchLevel), _set(LAST_STENCH_CHECK, get(HEAP_ATTEMPTS, 0));
-              }
-            }
-            (0, import_kolmafia34.runTurn)(), have($effect(_templateObject1011 || (_templateObject1011 = _taggedTemplateLiteral22(["Beaten Up"])))) && uneffect($effect(_templateObject1111 || (_templateObject1111 = _taggedTemplateLiteral22(["Beaten Up"]))));
-          } else
-            (0, import_kolmafia34.adv1)($location(_templateObject1210 || (_templateObject1210 = _taggedTemplateLiteral22(["The Heap"]))), -1, "");
-        },
-        effects: [].concat(_toConsumableArray10(basicEffects()), _toConsumableArray10(noncombatEffects())),
-        combat: new CombatStrategy().autoattack(function() {
-          return Macro2.externalIf(!drunk(), Macro2.trySkill($skill(_templateObject1310 || (_templateObject1310 = _taggedTemplateLiteral22(["Extract Jelly"])))).trySkill($skill(_templateObject149 || (_templateObject149 = _taggedTemplateLiteral22(["Extract"]))))).externalIf(mustCheckStench(), Macro2.stasis().tryItem($item(_templateObject159 || (_templateObject159 = _taggedTemplateLiteral22(["Rain-Doh indigo cup"])))).tryItem($item(_templateObject169 || (_templateObject169 = _taggedTemplateLiteral22(["Rain-Doh blue balls"])))).while_("!hpbelow 400 && !pastround 20", Macro2.item($item(_templateObject179 || (_templateObject179 = _taggedTemplateLiteral22(["seal tooth"])))))).tryFreeRun();
-        }),
-        prepare: function() {
-          capNonCombat();
-        },
-        outfit: function() {
-          return {
-            equip: getDefaultEquipment(),
-            // Include familiar weight modifier if bander/boots is active, else just use -combat
-            modifier: "".concat(getModString(), " ").concat(mustCheckStench() ? "-combat, -2 stench resistance" : ""),
-            familiar: familiar2()
-          };
-        },
-        choices: {
-          203: 2,
-          214: 2,
-          216: function() {
-            return get(REFUSES_UNTIL_COMPOST, 0) <= 0 && _this.gossip.willCompost() ? 1 : 2;
-          },
-          218: 1,
-          295: 2
-        },
-        post: function() {
-          return epilogue(_this.gossip);
-        },
-        limit: {
-          guard: function() {
-            return function() {
-              return get(HEAP_ATTEMPTS, 0) < 100;
-            };
-          }
-        }
-      }];
-    }
-  }]), Heap2;
-}();
 
-// src/quests/cognac/tasks/pld.ts
+// src/quests/spookyraven/spookyraven.ts
 init_kolmafia_polyfill();
-var import_kolmafia35 = require("kolmafia");
-var _templateObject110;
+var import_kolmafia39 = require("kolmafia");
+
+// src/quests/spookyraven/tasks/billards.ts
+init_kolmafia_polyfill();
+var _templateObject111, _templateObject249, _templateObject330, _templateObject427;
 function _toConsumableArray11(arr) {
   return _arrayWithoutHoles11(arr) || _iterableToArray11(arr) || _unsupportedIterableToArray18(arr) || _nonIterableSpread11();
 }
@@ -13221,223 +12809,74 @@ function _arrayLikeToArray18(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral23(strings, raw) {
+function _taggedTemplateLiteral26(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-function _classCallCheck18(instance, Constructor) {
-  if (!(instance instanceof Constructor))
-    throw new TypeError("Cannot call a class as a function");
+function billiardsTask() {
+  return {
+    name: "Haunted Billiards Room",
+    ready: function() {
+      return have($item(_templateObject111 || (_templateObject111 = _taggedTemplateLiteral26(["Spookyraven billiards room key"]))));
+    },
+    completed: function() {
+      return have($item(_templateObject249 || (_templateObject249 = _taggedTemplateLiteral26(["[7302]Spookyraven library key"]))));
+    },
+    effects: function() {
+      return [].concat(_toConsumableArray11(noncombatEffects()), _toConsumableArray11($effects(_templateObject330 || (_templateObject330 = _taggedTemplateLiteral26(["Chalky Hand, Influence of Sphere"])))));
+    },
+    outfit: function() {
+      return {
+        equip: getDefaultEquipment(),
+        modifier: "-combat",
+        familiar: selectBestFamiliar()
+      };
+    },
+    choices: {
+      900: 2,
+      // Lights Out
+      875: 1,
+      // Hustle the ghost
+      1436: 2
+      // Maps: go straight to hustle
+    },
+    combat: new CombatStrategy().autoattack(Macro2.runaway().repeat()),
+    do: $location(_templateObject427 || (_templateObject427 = _taggedTemplateLiteral26(["The Haunted Billiards Room"])))
+  };
 }
-function _defineProperties18(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey19(descriptor.key), descriptor);
-  }
-}
-function _createClass18(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties18(Constructor.prototype, protoProps), staticProps && _defineProperties18(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
-}
-function _defineProperty15(obj, key, value2) {
-  return key = _toPropertyKey19(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
-}
-function _toPropertyKey19(arg) {
-  var key = _toPrimitive19(arg, "string");
-  return typeof key == "symbol" ? key : String(key);
-}
-function _toPrimitive19(input, hint) {
-  if (typeof input != "object" || input === null)
-    return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== void 0) {
-    var res = prim.call(input, hint || "default");
-    if (typeof res != "object")
-      return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-var PLD = /* @__PURE__ */ function() {
-  function PLD2(gossip2) {
-    _classCallCheck18(this, PLD2), _defineProperty15(this, "gossip", void 0), this.gossip = gossip2;
-  }
-  return _createClass18(PLD2, [{
-    key: "getTasks",
-    value: function() {
-      var _this = this;
-      return [{
-        name: "Delay until diving",
-        completed: function() {
-          return _this.gossip.getWaitTime() === 0;
-        },
-        do: function() {
-          (0, import_kolmafia35.print)("Waiting for next cognac round to begin"), (0, import_kolmafia35.wait)(_this.gossip.getWaitTime());
-        }
-      }, {
-        name: "Increase stench",
-        completed: function() {
-          return _this.gossip.readyToDive();
-        },
-        do: function() {
-          return $location(_templateObject110 || (_templateObject110 = _taggedTemplateLiteral23(["The Purple Light District"])));
-        },
-        effects: function() {
-          return [].concat(_toConsumableArray11(basicEffects()), _toConsumableArray11(noncombatEffects()));
-        },
-        combat: new CombatStrategy().autoattack(Macro2.tryFreeRun()),
-        prepare: function() {
-          capNonCombat();
-        },
-        outfit: function() {
-          return {
-            equip: getDefaultEquipment(),
-            // Include familiar weight modifier if bander/boots is active, else just use -combat
-            modifier: getModString(),
-            familiar: selectBestFamiliar()
-          };
-        },
-        choices: {
-          205: 2,
-          219: 2,
-          223: 1,
-          224: 1,
-          294: 2
-        },
-        post: function() {
-          get("lastEncounter") === "The Furtivity of My City" && (_this.gossip.incrementStench(), (0, import_kolmafia35.print)("Stench level increased to ".concat(_this.gossip.stench, ".")));
-        }
-      }];
-    }
-  }]), PLD2;
-}();
 
-// src/quests/cognac/tasks/round.ts
+// src/quests/spookyraven/tasks/epilogue.ts
 init_kolmafia_polyfill();
-var import_kolmafia36 = require("kolmafia");
-function _classCallCheck19(instance, Constructor) {
-  if (!(instance instanceof Constructor))
-    throw new TypeError("Cannot call a class as a function");
+var import_kolmafia37 = require("kolmafia");
+var _templateObject120;
+function _taggedTemplateLiteral27(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-function _defineProperties19(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey20(descriptor.key), descriptor);
-  }
-}
-function _createClass19(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties19(Constructor.prototype, protoProps), staticProps && _defineProperties19(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
-}
-function _defineProperty16(obj, key, value2) {
-  return key = _toPropertyKey20(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
-}
-function _toPropertyKey20(arg) {
-  var key = _toPrimitive20(arg, "string");
-  return typeof key == "symbol" ? key : String(key);
-}
-function _toPrimitive20(input, hint) {
-  if (typeof input != "object" || input === null)
-    return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== void 0) {
-    var res = prim.call(input, hint || "default");
-    if (typeof res != "object")
-      return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-var Round = /* @__PURE__ */ function() {
-  function Round2(gossip2) {
-    _classCallCheck19(this, Round2), _defineProperty16(this, "gossip", void 0), _defineProperty16(this, "initRetries", 0), this.gossip = gossip2;
-  }
-  return _createClass19(Round2, [{
-    key: "getTasks",
-    value: function() {
-      var _this = this;
-      return [{
-        name: "Request compost",
-        completed: function() {
-          return _this.gossip.getWaitTime() === 0 || _this.gossip.willCompost() ? !0 : get(REFUSES_UNTIL_COMPOST, 0) > 0;
-        },
-        do: function() {
-          _this.gossip.requestCompost();
-        }
-      }, {
-        name: "Wait",
-        completed: function() {
-          return _this.gossip.getWaitTime() === 0;
-        },
-        do: function() {
-          _set(HEAP_ATTEMPTS, 0), _set(LAST_STENCH_CHECK, 0), (0, import_kolmafia36.print)("Waiting for next cognac round to begin"), (0, import_kolmafia36.wait)(_this.gossip.getWaitTime());
-        }
-      }];
+function epilogueTask() {
+  return {
+    name: "Give Lady Spookyraven Her Necklace",
+    ready: function() {
+      return have($item(_templateObject120 || (_templateObject120 = _taggedTemplateLiteral27(["Lady Spookyraven's necklace"]))));
+    },
+    completed: function() {
+      return get("questM20Necklace") === "finished";
+    },
+    effects: basicEffects,
+    do: function() {
+      (0, import_kolmafia37.visitUrl)("place.php?whichplace=manor1&action=manor1_ladys");
+    },
+    limit: {
+      guard: Guards.changed("questM20Necklace")
     }
-  }]), Round2;
-}();
+  };
+}
 
-// src/quests/cognac/tasks/whiteboard.ts
+// src/quests/spookyraven/tasks/library.ts
 init_kolmafia_polyfill();
-function _classCallCheck20(instance, Constructor) {
-  if (!(instance instanceof Constructor))
-    throw new TypeError("Cannot call a class as a function");
-}
-function _defineProperties20(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey21(descriptor.key), descriptor);
-  }
-}
-function _createClass20(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties20(Constructor.prototype, protoProps), staticProps && _defineProperties20(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
-}
-function _defineProperty17(obj, key, value2) {
-  return key = _toPropertyKey21(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
-}
-function _toPropertyKey21(arg) {
-  var key = _toPrimitive21(arg, "string");
-  return typeof key == "symbol" ? key : String(key);
-}
-function _toPrimitive21(input, hint) {
-  if (typeof input != "object" || input === null)
-    return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== void 0) {
-    var res = prim.call(input, hint || "default");
-    if (typeof res != "object")
-      return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-var Whiteboard = /* @__PURE__ */ function() {
-  function Whiteboard2(gossip2) {
-    _classCallCheck20(this, Whiteboard2), _defineProperty17(this, "gossip", void 0), _defineProperty17(this, "lastCheck", (/* @__PURE__ */ new Date()).getTime()), _defineProperty17(this, "checkInterval", 5 * 1e3), this.gossip = gossip2, this.gossip.updateGossip();
-  }
-  return _createClass20(Whiteboard2, [{
-    key: "getTasks",
-    value: function() {
-      var _this = this;
-      return [{
-        name: "Register",
-        completed: function() {
-          return _this.gossip.registered();
-        },
-        do: function() {
-          _this.gossip.register();
-        }
-      }, {
-        name: "Gossip Update",
-        completed: function() {
-          return (/* @__PURE__ */ new Date()).getTime() - _this.lastCheck < _this.checkInterval;
-        },
-        do: function() {
-          _this.gossip.updateGossip(), _this.lastCheck = (/* @__PURE__ */ new Date()).getTime();
-        }
-      }];
-    }
-  }]), Whiteboard2;
-}();
+var import_kolmafia38 = require("kolmafia");
 
-// src/quests/cognac/cognac.ts
+// src/quests/wander/shared/combat.ts
+init_kolmafia_polyfill();
+var _templateObject121, _templateObject250, _templateObject331, _templateObject428, _templateObject520, _templateObject617, _templateObject716, _templateObject814, _templateObject912, _templateObject1012, _templateObject1111;
 function _toConsumableArray12(arr) {
   return _arrayWithoutHoles12(arr) || _iterableToArray12(arr) || _unsupportedIterableToArray19(arr) || _nonIterableSpread12();
 }
@@ -13469,480 +12908,29 @@ function _arrayLikeToArray19(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-var gossip = new Gossip(), whiteboard = new Whiteboard(gossip), pld = new PLD(gossip), heap = new Heap(gossip), round = new Round(gossip), initializedGossip = !1, gossipTask = {
-  name: "Init gossip",
-  completed: function() {
-    return initializedGossip;
-  },
-  do: function() {
-    gossip.init(), initializedGossip = !0;
-  }
-}, Cognac = {
-  name: "Cognac",
-  completed: function() {
-    return (0, import_kolmafia37.myAdventures)() < 1;
-  },
-  tasks: [DriveStealthily, gossipTask].concat(_toConsumableArray12(whiteboard.getTasks()), _toConsumableArray12(round.getTasks()), _toConsumableArray12(pld.getTasks()), _toConsumableArray12(heap.getTasks()))
-};
-
-// src/quests/prologue/prologue.ts
-init_kolmafia_polyfill();
-
-// src/quests/prologue/tasks/asdon.ts
-init_kolmafia_polyfill();
-var import_kolmafia38 = require("kolmafia");
-var _templateObject111, _templateObject249, _templateObject337, _templateObject427;
-function _taggedTemplateLiteral24(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var installAsdon = {
-  name: "Install Asdon",
-  completed: function() {
-    return get("_workshedItemUsed") || AsdonInstalled();
-  },
-  do: function() {
-    AsdonMartin_exports.installed() || !have($item(_templateObject111 || (_templateObject111 = _taggedTemplateLiteral24(["Asdon Martin keyfob"])))) || get(ASDON) && (0, import_kolmafia38.use)($item(_templateObject249 || (_templateObject249 = _taggedTemplateLiteral24(["Asdon Martin keyfob"]))));
-  }
-}, fuelAsdon = {
-  name: "Fuel Asdon",
-  ready: function() {
-    return (0, import_kolmafia38.getFuel)() < 50;
-  },
-  completed: function() {
-    return !AsdonMartin_exports.installed() || have($item(_templateObject337 || (_templateObject337 = _taggedTemplateLiteral24(["Asdon Martin keyfob"]))));
-  },
-  do: function() {
-    AsdonMartin_exports.fillTo(50);
-  }
-};
-function AsdonInstalled() {
-  return !get(ASDON) || AsdonMartin_exports.installed() ? !0 : !have($item(_templateObject427 || (_templateObject427 = _taggedTemplateLiteral24(["Asdon Martin keyfob"]))));
-}
-
-// src/quests/prologue/tasks/autumnaton.ts
-init_kolmafia_polyfill();
-var _templateObject120, _templateObject250;
-function _taggedTemplateLiteral25(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var deployFalle = {
-  name: "Deploy fall-e",
-  completed: function() {
-    return !AutumnAton_exports.available();
-  },
-  do: function() {
-    AutumnAton_exports.sendTo($location(_templateObject120 || (_templateObject120 = _taggedTemplateLiteral25(["The Haunted Conservatory"])))) || AutumnAton_exports.sendTo($location(_templateObject250 || (_templateObject250 = _taggedTemplateLiteral25(["The Haunted Pantry"]))));
-  }
-};
-
-// src/quests/prologue/tasks/latte.ts
-init_kolmafia_polyfill();
-var import_kolmafia39 = require("kolmafia");
-var _templateObject121;
-function _taggedTemplateLiteral26(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-function currentlyHasInk() {
-  var ingredients = get("latteIngredients").toLowerCase().split(",");
-  return ingredients.includes("ink") || ingredients.includes("inky");
-}
-var latteRefreshed = !1, refreshLatte = {
-  name: "Refresh Latte",
-  completed: function() {
-    return latteRefreshed;
-  },
-  do: function() {
-    (0, import_kolmafia39.visitUrl)("main.php?latte=1"), latteRefreshed = !0;
-  }
-}, refillLatte = {
-  name: "Refill Latte",
-  ready: function() {
-    return have($item(_templateObject121 || (_templateObject121 = _taggedTemplateLiteral26(["latte lovers member's mug"]))));
-  },
-  completed: function() {
-    return currentlyHasInk() || LatteLoversMembersMug_exports.refillsRemaining() === 0 ? !0 : LatteLoversMembersMug_exports.ingredientsUnlocked().includes("ink") ? !1 : !get("_latteBanishUsed") || get("_latteRefillsUsed") >= 2;
-  },
-  do: function() {
-    var preferred = ["ink", "rawhide", "cajun", "carrot", "cinnamon", "pumpkin", "vanilla"], unlocked = LatteLoversMembersMug_exports.ingredientsUnlocked(), plan = preferred.filter(function(ingredient) {
-      return unlocked.includes(ingredient);
-    });
-    LatteLoversMembersMug_exports.fill(plan[0], plan[1], plan[2]);
-  }
-};
-
-// src/quests/prologue/tasks/pantsgiving.ts
-init_kolmafia_polyfill();
-var import_kolmafia40 = require("kolmafia");
-var _templateObject130, _templateObject251;
-function _taggedTemplateLiteral27(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var lastPantsgivingFullness = get("_pantsgivingFullness"), pantsgiving = {
-  name: "Pantsgiving",
-  completed: function() {
-    return get("_pantsgivingFullness") <= lastPantsgivingFullness;
-  },
-  do: function() {
-    (0, import_kolmafia40.retrieveItem)($item(_templateObject130 || (_templateObject130 = _taggedTemplateLiteral27(["Special Seasoning"])))), (0, import_kolmafia40.eat)($item(_templateObject251 || (_templateObject251 = _taggedTemplateLiteral27(["meteoreo"])))), lastPantsgivingFullness = get("_pantsgivingFullness");
-  }
-};
-
-// src/quests/prologue/tasks/sourceterminal.ts
-init_kolmafia_polyfill();
-var _templateObject131, _templateObject259;
 function _taggedTemplateLiteral28(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-var setExtract = {
-  name: "Set Extract",
-  completed: function() {
-    return !SourceTerminal_exports.have() || SourceTerminal_exports.getSkills().some(function(s) {
-      return s === $skill(_templateObject131 || (_templateObject131 = _taggedTemplateLiteral28(["Extract"])));
-    });
-  },
-  do: function() {
-    SourceTerminal_exports.educate($skill(_templateObject259 || (_templateObject259 = _taggedTemplateLiteral28(["Extract"]))));
-  }
-};
-
-// src/quests/prologue/prologue.ts
-var Prologue = {
-  name: "Prologue",
-  tasks: [installAsdon, fuelAsdon, deployFalle, refreshLatte, refillLatte, setExtract, pantsgiving]
-};
-
-// src/quests/sewers/sewers.ts
-init_kolmafia_polyfill();
-var import_kolmafia43 = require("kolmafia");
-
-// src/quests/sewers/tasks/acquire.ts
-init_kolmafia_polyfill();
-var import_kolmafia41 = require("kolmafia");
-var _templateObject140, _templateObject260, _templateObject338, _templateObject428, _templateObject520, _templateObject616, _templateObject715, _templateObject813, _templateObject914, _templateObject1012, _templateObject1112, _templateObject1211;
-function _taggedTemplateLiteral29(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var skipDumplings = !1, skipOozo = !1, skipOiliness = !1, skipGatorskin = !1, AcquireTasks = [{
-  name: "Mmm, dumpling",
-  completed: function() {
-    return have($item(_templateObject140 || (_templateObject140 = _taggedTemplateLiteral29(["unfortunate dumplings"])))) || skipDumplings;
-  },
-  do: function() {
-    (0, import_kolmafia41.buy)($item(_templateObject260 || (_templateObject260 = _taggedTemplateLiteral29(["unfortunate dumplings"]))), 1, 2e4), skipDumplings = !have($item(_templateObject338 || (_templateObject338 = _taggedTemplateLiteral29(["unfortunate dumplings"]))));
-  }
-}, {
-  name: "Mmm, oozo",
-  completed: function() {
-    return have($item(_templateObject428 || (_templateObject428 = _taggedTemplateLiteral29(["bottle of Ooze-O"])))) || skipOozo;
-  },
-  do: function() {
-    (0, import_kolmafia41.buy)($item(_templateObject520 || (_templateObject520 = _taggedTemplateLiteral29(["bottle of Ooze-O"]))), 1, 2e4), skipOozo = !have($item(_templateObject616 || (_templateObject616 = _taggedTemplateLiteral29(["bottle of Ooze-O"]))));
-  }
-}, {
-  name: "Get oil of oiliness",
-  completed: function() {
-    return have($item(_templateObject715 || (_templateObject715 = _taggedTemplateLiteral29(["oil of oiliness"])))) || skipOiliness;
-  },
-  do: function() {
-    (0, import_kolmafia41.buy)($item(_templateObject813 || (_templateObject813 = _taggedTemplateLiteral29(["oil of oiliness"]))), 1, 1e4), skipOiliness = !have($item(_templateObject914 || (_templateObject914 = _taggedTemplateLiteral29(["oil of oiliness"]))));
-  }
-}, {
-  name: "Get gatorkskin umbrella",
-  completed: function() {
-    return have($item(_templateObject1012 || (_templateObject1012 = _taggedTemplateLiteral29(["gatorskin umbrella"])))) || skipGatorskin;
-  },
-  do: function() {
-    (0, import_kolmafia41.buy)($item(_templateObject1112 || (_templateObject1112 = _taggedTemplateLiteral29(["gatorskin umbrella"]))), 1, 1e4), skipGatorskin = !have($item(_templateObject1211 || (_templateObject1211 = _taggedTemplateLiteral29(["gatorskin umbrella"]))));
-  }
-}];
-
-// src/quests/sewers/tasks/cage.ts
-init_kolmafia_polyfill();
-var import_kolmafia42 = require("kolmafia");
-var cagebait = "ASSBot", caged = !1, cage = function() {
-  (0, import_kolmafia42.chatPrivate)(cagebait, "cage ".concat(get(CLAN))), (0, import_kolmafia42.wait)(60);
-}, CageTasks = [{
-  name: "Catch ASSBot",
-  completed: function() {
-    return caged;
-  },
-  do: function() {
-    caged = !0, cage();
-  }
-}];
-
-// src/quests/sewers/tasks/explore.ts
-init_kolmafia_polyfill();
-var _templateObject141, _templateObject261, _templateObject339, _templateObject429, _templateObject521, _templateObject617, _templateObject716;
-function _toConsumableArray13(arr) {
-  return _arrayWithoutHoles13(arr) || _iterableToArray13(arr) || _unsupportedIterableToArray20(arr) || _nonIterableSpread13();
-}
-function _nonIterableSpread13() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray20(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray20(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray20(o, minLen);
-  }
-}
-function _iterableToArray13(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
-}
-function _arrayWithoutHoles13(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray20(arr);
-}
-function _arrayLikeToArray20(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
-}
-function _taggedTemplateLiteral30(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var tryFreeRunThenAttack = Macro2.trySkill($skill(_templateObject141 || (_templateObject141 = _taggedTemplateLiteral30(["Bowl a Curveball"])))).trySkill($skill(_templateObject261 || (_templateObject261 = _taggedTemplateLiteral30(["Asdon Martin: Spring-Loaded Front Bumper"])))).externalIf(get(FREE_RUN, !1), Macro2.freeRunItems()).attack().repeat(), ExploreTasks = [{
-  name: "Explore sewer",
-  completed: function() {
-    return !1;
-  },
-  prepare: function() {
-    capNonCombat();
-  },
-  do: function() {
-    return $location(_templateObject339 || (_templateObject339 = _taggedTemplateLiteral30(["A Maze of Sewer Tunnels"])));
-  },
-  effects: function() {
-    return [].concat(_toConsumableArray13(basicEffects()), _toConsumableArray13(noncombatEffects()));
-  },
-  combat: new CombatStrategy().autoattack(tryFreeRunThenAttack),
-  outfit: function() {
-    return {
-      equip: getEquipment([$item(_templateObject429 || (_templateObject429 = _taggedTemplateLiteral30(["gatorskin umbrella"]))), $item(_templateObject521 || (_templateObject521 = _taggedTemplateLiteral30(["hobo code binder"])))].concat(_toConsumableArray13(get(FREE_RUN, !1) ? [] : [$item(_templateObject617 || (_templateObject617 = _taggedTemplateLiteral30(["mafia thumb ring"])))]))),
-      modifier: "-combat",
-      bonuses: /* @__PURE__ */ new Map([[$item(_templateObject716 || (_templateObject716 = _taggedTemplateLiteral30(["mafia thumb ring"]))), 200]]),
-      familiar: selectBestFamiliar()
-    };
-  },
-  choices: {
-    197: 1,
-    198: 1,
-    199: 1,
-    211: 1,
-    212: 1
-  }
-}];
-
-// src/quests/sewers/sewers.ts
-function _toConsumableArray14(arr) {
-  return _arrayWithoutHoles14(arr) || _iterableToArray14(arr) || _unsupportedIterableToArray21(arr) || _nonIterableSpread14();
-}
-function _nonIterableSpread14() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray21(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray21(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray21(o, minLen);
-  }
-}
-function _iterableToArray14(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
-}
-function _arrayWithoutHoles14(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray21(arr);
-}
-function _arrayLikeToArray21(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
-}
-var complete = !1;
-function Sewers(nocage) {
-  return {
-    name: "Sewers",
-    completed: function() {
-      return complete || (complete = !!(0, import_kolmafia43.visitUrl)("clan_hobopolis.php?place=3&pwd", !1).match(/Richard's Redoubt/)), complete;
-    },
-    tasks: [DriveStealthily].concat(_toConsumableArray14(nocage ? [] : CageTasks), _toConsumableArray14(AcquireTasks), _toConsumableArray14(ExploreTasks))
-  };
-}
-
-// src/quests/spookyraven/spookyraven.ts
-init_kolmafia_polyfill();
-var import_kolmafia46 = require("kolmafia");
-
-// src/quests/spookyraven/tasks/billards.ts
-init_kolmafia_polyfill();
-var _templateObject150, _templateObject268, _templateObject340, _templateObject430;
-function _toConsumableArray15(arr) {
-  return _arrayWithoutHoles15(arr) || _iterableToArray15(arr) || _unsupportedIterableToArray22(arr) || _nonIterableSpread15();
-}
-function _nonIterableSpread15() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray22(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray22(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray22(o, minLen);
-  }
-}
-function _iterableToArray15(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
-}
-function _arrayWithoutHoles15(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray22(arr);
-}
-function _arrayLikeToArray22(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
-}
-function _taggedTemplateLiteral31(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-function billiardsTask() {
-  return {
-    name: "Haunted Billiards Room",
-    ready: function() {
-      return have($item(_templateObject150 || (_templateObject150 = _taggedTemplateLiteral31(["Spookyraven billiards room key"]))));
-    },
-    completed: function() {
-      return have($item(_templateObject268 || (_templateObject268 = _taggedTemplateLiteral31(["[7302]Spookyraven library key"]))));
-    },
-    effects: function() {
-      return [].concat(_toConsumableArray15(noncombatEffects()), _toConsumableArray15($effects(_templateObject340 || (_templateObject340 = _taggedTemplateLiteral31(["Chalky Hand, Influence of Sphere"])))));
-    },
-    outfit: function() {
-      return {
-        equip: getDefaultEquipment(),
-        modifier: "-combat",
-        familiar: selectBestFamiliar()
-      };
-    },
-    choices: {
-      900: 2,
-      // Lights Out
-      875: 1,
-      // Hustle the ghost
-      1436: 2
-      // Maps: go straight to hustle
-    },
-    combat: new CombatStrategy().autoattack(Macro2.runaway().repeat()),
-    do: $location(_templateObject430 || (_templateObject430 = _taggedTemplateLiteral31(["The Haunted Billiards Room"])))
-  };
-}
-
-// src/quests/spookyraven/tasks/epilogue.ts
-init_kolmafia_polyfill();
-var import_kolmafia44 = require("kolmafia");
-var _templateObject151;
-function _taggedTemplateLiteral32(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-function epilogueTask() {
-  return {
-    name: "Give Lady Spookyraven Her Necklace",
-    ready: function() {
-      return have($item(_templateObject151 || (_templateObject151 = _taggedTemplateLiteral32(["Lady Spookyraven's necklace"]))));
-    },
-    completed: function() {
-      return get("questM20Necklace") === "finished";
-    },
-    effects: basicEffects,
-    do: function() {
-      (0, import_kolmafia44.visitUrl)("place.php?whichplace=manor1&action=manor1_ladys");
-    },
-    limit: {
-      guard: Guards.changed("questM20Necklace")
-    }
-  };
-}
-
-// src/quests/spookyraven/tasks/library.ts
-init_kolmafia_polyfill();
-var import_kolmafia45 = require("kolmafia");
-
-// src/quests/wander/shared/combat.ts
-init_kolmafia_polyfill();
-var _templateObject160, _templateObject269, _templateObject341, _templateObject431, _templateObject524, _templateObject618, _templateObject717, _templateObject814, _templateObject915, _templateObject1013, _templateObject1113;
-function _toConsumableArray16(arr) {
-  return _arrayWithoutHoles16(arr) || _iterableToArray16(arr) || _unsupportedIterableToArray23(arr) || _nonIterableSpread16();
-}
-function _nonIterableSpread16() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray23(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray23(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray23(o, minLen);
-  }
-}
-function _iterableToArray16(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
-}
-function _arrayWithoutHoles16(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray23(arr);
-}
-function _arrayLikeToArray23(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
-}
-function _taggedTemplateLiteral33(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
 function killMacro() {
-  return Macro.trySkill($skill(_templateObject160 || (_templateObject160 = _taggedTemplateLiteral33(["Micrometeorite"])))).trySkill($skill(_templateObject269 || (_templateObject269 = _taggedTemplateLiteral33(["Curse of Weaksauce"])))).attack().repeat();
+  return Macro.trySkill($skill(_templateObject121 || (_templateObject121 = _taggedTemplateLiteral28(["Micrometeorite"])))).trySkill($skill(_templateObject250 || (_templateObject250 = _taggedTemplateLiteral28(["Curse of Weaksauce"])))).attack().repeat();
 }
 function kill() {
-  return new CombatStrategy().autoattack(Macro.trySkill.apply(Macro, _toConsumableArray16($skills(_templateObject341 || (_templateObject341 = _taggedTemplateLiteral33(["Micrometeorite, Curse of Weaksauce"]))))).attack().repeat());
+  return new CombatStrategy().autoattack(Macro.trySkill.apply(Macro, _toConsumableArray12($skills(_templateObject331 || (_templateObject331 = _taggedTemplateLiteral28(["Micrometeorite, Curse of Weaksauce"]))))).attack().repeat());
 }
 function defaultEquipment() {
   var sweatNeeded = Math.max(0, 75 - get("_sweatOutSomeBoozeUsed") - get("sweat"));
   return {
-    weapon: $item(_templateObject431 || (_templateObject431 = _taggedTemplateLiteral33(["June cleaver"]))),
-    "off-hand": $item(_templateObject524 || (_templateObject524 = _taggedTemplateLiteral33(["cursed magnifying glass"]))),
-    pants: sweatNeeded > 0 && have($item(_templateObject618 || (_templateObject618 = _taggedTemplateLiteral33(["designer sweatpants"])))) ? $item(_templateObject717 || (_templateObject717 = _taggedTemplateLiteral33(["designer sweatpants"]))) : $item(_templateObject814 || (_templateObject814 = _taggedTemplateLiteral33(["Pantsgiving"]))),
-    acc1: $item(_templateObject915 || (_templateObject915 = _taggedTemplateLiteral33(["lucky gold ring"]))),
-    acc2: $item(_templateObject1013 || (_templateObject1013 = _taggedTemplateLiteral33(["Mr. Cheeng's spectacles"]))),
-    acc3: $item(_templateObject1113 || (_templateObject1113 = _taggedTemplateLiteral33(["Mr. Screege's spectacles"])))
+    weapon: $item(_templateObject428 || (_templateObject428 = _taggedTemplateLiteral28(["June cleaver"]))),
+    "off-hand": $item(_templateObject520 || (_templateObject520 = _taggedTemplateLiteral28(["cursed magnifying glass"]))),
+    pants: sweatNeeded > 0 && have($item(_templateObject617 || (_templateObject617 = _taggedTemplateLiteral28(["designer sweatpants"])))) ? $item(_templateObject716 || (_templateObject716 = _taggedTemplateLiteral28(["designer sweatpants"]))) : $item(_templateObject814 || (_templateObject814 = _taggedTemplateLiteral28(["Pantsgiving"]))),
+    acc1: $item(_templateObject912 || (_templateObject912 = _taggedTemplateLiteral28(["lucky gold ring"]))),
+    acc2: $item(_templateObject1012 || (_templateObject1012 = _taggedTemplateLiteral28(["Mr. Cheeng's spectacles"]))),
+    acc3: $item(_templateObject1111 || (_templateObject1111 = _taggedTemplateLiteral28(["Mr. Screege's spectacles"])))
   };
 }
 
 // src/quests/spookyraven/tasks/library.ts
-var _templateObject161, _templateObject270, _templateObject346, _templateObject434, _templateObject525, _templateObject619, _templateObject718, _templateObject815, _templateObject916, _templateObject1014, _templateObject1114, _templateObject1212, _templateObject1311, _templateObject1410, _templateObject1510, _templateObject1610, _templateObject1710, _templateObject189;
+var _templateObject130, _templateObject251, _templateObject336, _templateObject429, _templateObject521, _templateObject618, _templateObject717, _templateObject815, _templateObject913, _templateObject1013, _templateObject1112, _templateObject1210, _templateObject139, _templateObject148, _templateObject158, _templateObject168, _templateObject178, _templateObject188;
 function ownKeys8(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
@@ -13957,21 +12945,21 @@ function _objectSpread8(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys8(Object(source), !0).forEach(function(key) {
-      _defineProperty18(target, key, source[key]);
+      _defineProperty12(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys8(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _defineProperty18(obj, key, value2) {
-  return key = _toPropertyKey22(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
+function _defineProperty12(obj, key, value2) {
+  return key = _toPropertyKey16(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
 }
-function _toPropertyKey22(arg) {
-  var key = _toPrimitive22(arg, "string");
+function _toPropertyKey16(arg) {
+  var key = _toPrimitive16(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive22(input, hint) {
+function _toPrimitive16(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -13983,27 +12971,27 @@ function _toPrimitive22(input, hint) {
   }
   return (hint === "string" ? String : Number)(input);
 }
-function _taggedTemplateLiteral34(strings, raw) {
+function _taggedTemplateLiteral29(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 function libraryTask() {
   return {
     name: "Spit Acid in Library",
     ready: function() {
-      return have($item(_templateObject161 || (_templateObject161 = _taggedTemplateLiteral34(["Jurassic Parka"])))) && have($item(_templateObject270 || (_templateObject270 = _taggedTemplateLiteral34(["[7302]Spookyraven library key"])))) && questStep("questM20Necklace") < 4 && get("writingDesksDefeated") < 5;
+      return have($item(_templateObject130 || (_templateObject130 = _taggedTemplateLiteral29(["Jurassic Parka"])))) && have($item(_templateObject251 || (_templateObject251 = _taggedTemplateLiteral29(["[7302]Spookyraven library key"])))) && questStep("questM20Necklace") < 4 && get("writingDesksDefeated") < 5;
     },
     completed: function() {
-      return have($effect(_templateObject346 || (_templateObject346 = _taggedTemplateLiteral34(["Everything Looks Yellow"]))));
+      return have($effect(_templateObject336 || (_templateObject336 = _taggedTemplateLiteral29(["Everything Looks Yellow"]))));
     },
     effects: basicEffects,
     outfit: function() {
       return {
         equip: getEquipment(Object.values(_objectSpread8(_objectSpread8({}, defaultEquipment()), {}, {
-          shirt: $item(_templateObject434 || (_templateObject434 = _taggedTemplateLiteral34(["Jurassic Parka"]))),
-          "off-hand": $item(_templateObject525 || (_templateObject525 = _taggedTemplateLiteral34(["latte lovers member's mug"]))),
-          pants: $item(_templateObject619 || (_templateObject619 = _taggedTemplateLiteral34(["Greatest American Pants"])))
+          shirt: $item(_templateObject429 || (_templateObject429 = _taggedTemplateLiteral29(["Jurassic Parka"]))),
+          "off-hand": $item(_templateObject521 || (_templateObject521 = _taggedTemplateLiteral29(["latte lovers member's mug"]))),
+          pants: $item(_templateObject618 || (_templateObject618 = _taggedTemplateLiteral29(["Greatest American Pants"])))
         }))),
-        familiar: $familiar(_templateObject718 || (_templateObject718 = _taggedTemplateLiteral34(["none"])))
+        familiar: $familiar(_templateObject717 || (_templateObject717 = _taggedTemplateLiteral29(["none"])))
       };
     },
     choices: {
@@ -14017,13 +13005,13 @@ function libraryTask() {
       // Melvil Dewey
     },
     prepare: function() {
-      return (0, import_kolmafia45.cliExecute)("parka acid");
+      return (0, import_kolmafia38.cliExecute)("parka acid");
     },
     combat: new CombatStrategy().autoattack(function() {
-      return Macro2.if_("monstername writing desk", Macro2.externalIf(have($skill(_templateObject815 || (_templateObject815 = _taggedTemplateLiteral34(["Transcendent Olfaction"])))) && get("olfactedMonster") !== $monster(_templateObject916 || (_templateObject916 = _taggedTemplateLiteral34(["writing desk"]))) && get("_olfactionsUsed") < 3, Macro2.skill($skill(_templateObject1014 || (_templateObject1014 = _taggedTemplateLiteral34(["Transcendent Olfaction"]))))).externalIf(have($skill(_templateObject1114 || (_templateObject1114 = _taggedTemplateLiteral34(["Gallapagosian Mating Call"])))) && get("_gallapagosMonster") !== $monster(_templateObject1212 || (_templateObject1212 = _taggedTemplateLiteral34(["writing desk"]))), Macro2.skill($skill(_templateObject1311 || (_templateObject1311 = _taggedTemplateLiteral34(["Gallapagosian Mating Call"]))))).skill($skill(_templateObject1410 || (_templateObject1410 = _taggedTemplateLiteral34(["Spit jurassic acid"]))))).trySkill($skill(_templateObject1510 || (_templateObject1510 = _taggedTemplateLiteral34(["Throw Latte on Opponent"])))).runaway().repeat();
+      return Macro2.if_("monstername writing desk", Macro2.externalIf(have($skill(_templateObject815 || (_templateObject815 = _taggedTemplateLiteral29(["Transcendent Olfaction"])))) && get("olfactedMonster") !== $monster(_templateObject913 || (_templateObject913 = _taggedTemplateLiteral29(["writing desk"]))) && get("_olfactionsUsed") < 3, Macro2.skill($skill(_templateObject1013 || (_templateObject1013 = _taggedTemplateLiteral29(["Transcendent Olfaction"]))))).externalIf(have($skill(_templateObject1112 || (_templateObject1112 = _taggedTemplateLiteral29(["Gallapagosian Mating Call"])))) && get("_gallapagosMonster") !== $monster(_templateObject1210 || (_templateObject1210 = _taggedTemplateLiteral29(["writing desk"]))), Macro2.skill($skill(_templateObject139 || (_templateObject139 = _taggedTemplateLiteral29(["Gallapagosian Mating Call"]))))).skill($skill(_templateObject148 || (_templateObject148 = _taggedTemplateLiteral29(["Spit jurassic acid"]))))).trySkill($skill(_templateObject158 || (_templateObject158 = _taggedTemplateLiteral29(["Throw Latte on Opponent"])))).runaway().repeat();
     }),
     do: function() {
-      Cartography_exports.have() && get("_monstersMapped") < 3 ? Cartography_exports.mapMonster($location(_templateObject1610 || (_templateObject1610 = _taggedTemplateLiteral34(["The Haunted Library"]))), $monster(_templateObject1710 || (_templateObject1710 = _taggedTemplateLiteral34(["writing desk"])))) : (0, import_kolmafia45.adv1)($location(_templateObject189 || (_templateObject189 = _taggedTemplateLiteral34(["The Haunted Library"]))), -1, ""), (0, import_kolmafia45.visitUrl)("main.php?latte=1");
+      Cartography_exports.have() && get("_monstersMapped") < 3 ? Cartography_exports.mapMonster($location(_templateObject168 || (_templateObject168 = _taggedTemplateLiteral29(["The Haunted Library"]))), $monster(_templateObject178 || (_templateObject178 = _taggedTemplateLiteral29(["writing desk"])))) : (0, import_kolmafia38.adv1)($location(_templateObject188 || (_templateObject188 = _taggedTemplateLiteral29(["The Haunted Library"]))), -1, ""), (0, import_kolmafia38.visitUrl)("main.php?latte=1");
     },
     limit: {
       soft: 15
@@ -14035,19 +13023,19 @@ function libraryTask() {
 var Spookyraven = {
   name: "Spookyraven",
   completed: function() {
-    return (0, import_kolmafia46.myInebriety)() > (0, import_kolmafia46.inebrietyLimit)();
+    return (0, import_kolmafia39.myInebriety)() > (0, import_kolmafia39.inebrietyLimit)();
   },
   tasks: [billiardsTask(), libraryTask(), epilogueTask()]
 };
 
 // src/quests/townsquare/townsquare.ts
 init_kolmafia_polyfill();
-var import_kolmafia50 = require("kolmafia");
+var import_kolmafia43 = require("kolmafia");
 
 // src/quests/townsquare/tasks/explore.ts
 init_kolmafia_polyfill();
-var import_kolmafia47 = require("kolmafia");
-var _templateObject170, _templateObject271, _templateObject347, _templateObject435, _templateObject526, _templateObject620, _templateObject719, _templateObject816, _templateObject917, _templateObject1015, _templateObject1115, _templateObject1213;
+var import_kolmafia40 = require("kolmafia");
+var _templateObject131, _templateObject258, _templateObject337, _templateObject430, _templateObject524, _templateObject619, _templateObject718, _templateObject816, _templateObject914, _templateObject1014, _templateObject1113, _templateObject1211;
 function ownKeys9(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
@@ -14062,34 +13050,34 @@ function _objectSpread9(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys9(Object(source), !0).forEach(function(key) {
-      _defineProperty19(target, key, source[key]);
+      _defineProperty13(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys9(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _classCallCheck21(instance, Constructor) {
+function _classCallCheck15(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
-function _defineProperties21(target, props) {
+function _defineProperties15(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey23(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey17(descriptor.key), descriptor);
   }
 }
-function _createClass21(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties21(Constructor.prototype, protoProps), staticProps && _defineProperties21(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass15(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties15(Constructor.prototype, protoProps), staticProps && _defineProperties15(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _defineProperty19(obj, key, value2) {
-  return key = _toPropertyKey23(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
+function _defineProperty13(obj, key, value2) {
+  return key = _toPropertyKey17(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
 }
-function _toPropertyKey23(arg) {
-  var key = _toPrimitive23(arg, "string");
+function _toPropertyKey17(arg) {
+  var key = _toPrimitive17(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive23(input, hint) {
+function _toPrimitive17(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -14101,22 +13089,22 @@ function _toPrimitive23(input, hint) {
   }
   return (hint === "string" ? String : Number)(input);
 }
-function _taggedTemplateLiteral35(strings, raw) {
+function _taggedTemplateLiteral30(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var elementMap = {
-  hot: $effects(_templateObject170 || (_templateObject170 = _taggedTemplateLiteral35(["Spirit of Cayenne"]))),
-  cold: $effects(_templateObject271 || (_templateObject271 = _taggedTemplateLiteral35(["Spirit of Peppermint"]))),
-  stench: $effects(_templateObject347 || (_templateObject347 = _taggedTemplateLiteral35(["Spirit of Garlic"]))),
-  spooky: $effects(_templateObject435 || (_templateObject435 = _taggedTemplateLiteral35(["Spirit of Wormwood"]))),
-  sleaze: $effects(_templateObject526 || (_templateObject526 = _taggedTemplateLiteral35(["Spirit of Bacon Grease"]))),
+  hot: $effects(_templateObject131 || (_templateObject131 = _taggedTemplateLiteral30(["Spirit of Cayenne"]))),
+  cold: $effects(_templateObject258 || (_templateObject258 = _taggedTemplateLiteral30(["Spirit of Peppermint"]))),
+  stench: $effects(_templateObject337 || (_templateObject337 = _taggedTemplateLiteral30(["Spirit of Garlic"]))),
+  spooky: $effects(_templateObject430 || (_templateObject430 = _taggedTemplateLiteral30(["Spirit of Wormwood"]))),
+  sleaze: $effects(_templateObject524 || (_templateObject524 = _taggedTemplateLiteral30(["Spirit of Bacon Grease"]))),
   normal: []
 }, Explore = /* @__PURE__ */ function() {
   function Explore2(parts) {
     var _this = this;
-    _classCallCheck21(this, Explore2), _defineProperty19(this, "parts", void 0), _defineProperty19(this, "targetElement", "normal"), _defineProperty19(this, "nextFightPrepped", !1), _defineProperty19(this, "baseTask", {
+    _classCallCheck15(this, Explore2), _defineProperty13(this, "parts", void 0), _defineProperty13(this, "targetElement", "normal"), _defineProperty13(this, "nextFightPrepped", !1), _defineProperty13(this, "baseTask", {
       do: function() {
-        return _this.nextFightPrepped = !1, $location(_templateObject620 || (_templateObject620 = _taggedTemplateLiteral35(["Hobopolis Town Square"])));
+        return _this.nextFightPrepped = !1, $location(_templateObject619 || (_templateObject619 = _taggedTemplateLiteral30(["Hobopolis Town Square"])));
       },
       post: function() {
         return _this.parts[_this.targetElement]++;
@@ -14129,7 +13117,7 @@ var elementMap = {
       }
     }), this.parts = parts;
   }
-  return _createClass21(Explore2, [{
+  return _createClass15(Explore2, [{
     key: "getTasks",
     value: function() {
       var _this = this;
@@ -14142,8 +13130,8 @@ var elementMap = {
           _this.targetElement = Object.keys(_this.parts).find(function(elem) {
             return _this.parts[elem] < 1;
           });
-          var targetMp = (0, import_kolmafia47.mpCost)($skill(_templateObject719 || (_templateObject719 = _taggedTemplateLiteral35(["Curse of Weaksauce"])))) + (0, import_kolmafia47.mpCost)($skill(_templateObject816 || (_templateObject816 = _taggedTemplateLiteral35(["Stuffed Mortar Shell"]))));
-          (0, import_kolmafia47.myMp)() < targetMp && (0, import_kolmafia47.restoreMp)(targetMp), _this.nextFightPrepped = !0;
+          var targetMp = (0, import_kolmafia40.mpCost)($skill(_templateObject718 || (_templateObject718 = _taggedTemplateLiteral30(["Curse of Weaksauce"])))) + (0, import_kolmafia40.mpCost)($skill(_templateObject816 || (_templateObject816 = _taggedTemplateLiteral30(["Stuffed Mortar Shell"]))));
+          (0, import_kolmafia40.myMp)() < targetMp && (0, import_kolmafia40.restoreMp)(targetMp), _this.nextFightPrepped = !0;
         }
       }, _objectSpread9(_objectSpread9({}, this.baseTask), {}, {
         name: "Hobo combat physical",
@@ -14151,9 +13139,9 @@ var elementMap = {
           return _this.targetElement !== "normal";
         },
         combat: new CombatStrategy().autoattack(Macro2.attackKill()),
-        effects: [$effect(_templateObject917 || (_templateObject917 = _taggedTemplateLiteral35(["Carol of the Bulls"])))],
+        effects: [$effect(_templateObject914 || (_templateObject914 = _taggedTemplateLiteral30(["Carol of the Bulls"])))],
         outfit: {
-          equip: [$item(_templateObject1015 || (_templateObject1015 = _taggedTemplateLiteral35(["Fourth of May Cosplay Saber"]))), $item(_templateObject1115 || (_templateObject1115 = _taggedTemplateLiteral35(["mafia thumb ring"])))]
+          equip: [$item(_templateObject1014 || (_templateObject1014 = _taggedTemplateLiteral30(["Fourth of May Cosplay Saber"]))), $item(_templateObject1113 || (_templateObject1113 = _taggedTemplateLiteral30(["mafia thumb ring"])))]
         }
       }), _objectSpread9(_objectSpread9({}, this.baseTask), {}, {
         name: "Hobo combat elemental",
@@ -14165,7 +13153,7 @@ var elementMap = {
         },
         combat: new CombatStrategy().autoattack(Macro2.mortarShell()),
         outfit: {
-          equip: [$item(_templateObject1213 || (_templateObject1213 = _taggedTemplateLiteral35(["mafia thumb ring"])))]
+          equip: [$item(_templateObject1211 || (_templateObject1211 = _taggedTemplateLiteral30(["mafia thumb ring"])))]
         }
       })];
     }
@@ -14174,31 +13162,31 @@ var elementMap = {
 
 // src/quests/townsquare/tasks/scobo.ts
 init_kolmafia_polyfill();
-var import_kolmafia48 = require("kolmafia");
-function _slicedToArray11(arr, i) {
-  return _arrayWithHoles11(arr) || _iterableToArrayLimit11(arr, i) || _unsupportedIterableToArray24(arr, i) || _nonIterableRest11();
+var import_kolmafia41 = require("kolmafia");
+function _slicedToArray10(arr, i) {
+  return _arrayWithHoles10(arr) || _iterableToArrayLimit10(arr, i) || _unsupportedIterableToArray20(arr, i) || _nonIterableRest10();
 }
-function _nonIterableRest11() {
+function _nonIterableRest10() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray24(o, minLen) {
+function _unsupportedIterableToArray20(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray24(o, minLen);
+      return _arrayLikeToArray20(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray24(o, minLen);
+      return _arrayLikeToArray20(o, minLen);
   }
 }
-function _arrayLikeToArray24(arr, len) {
+function _arrayLikeToArray20(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-function _iterableToArrayLimit11(arr, i) {
+function _iterableToArrayLimit10(arr, i) {
   var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
   if (_i != null) {
     var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
@@ -14224,31 +13212,31 @@ function _iterableToArrayLimit11(arr, i) {
     return _arr;
   }
 }
-function _arrayWithHoles11(arr) {
+function _arrayWithHoles10(arr) {
   if (Array.isArray(arr))
     return arr;
 }
-function _classCallCheck22(instance, Constructor) {
+function _classCallCheck16(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
-function _defineProperties22(target, props) {
+function _defineProperties16(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey24(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey18(descriptor.key), descriptor);
   }
 }
-function _createClass22(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties22(Constructor.prototype, protoProps), staticProps && _defineProperties22(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass16(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties16(Constructor.prototype, protoProps), staticProps && _defineProperties16(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _defineProperty20(obj, key, value2) {
-  return key = _toPropertyKey24(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
+function _defineProperty14(obj, key, value2) {
+  return key = _toPropertyKey18(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
 }
-function _toPropertyKey24(arg) {
-  var key = _toPrimitive24(arg, "string");
+function _toPropertyKey18(arg) {
+  var key = _toPrimitive18(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive24(input, hint) {
+function _toPrimitive18(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -14262,9 +13250,9 @@ function _toPrimitive24(input, hint) {
 }
 var talkToRichard = !0, Scobo = /* @__PURE__ */ function() {
   function Scobo2(parts) {
-    _classCallCheck22(this, Scobo2), _defineProperty20(this, "parts", void 0), this.parts = parts;
+    _classCallCheck16(this, Scobo2), _defineProperty14(this, "parts", void 0), this.parts = parts;
   }
-  return _createClass22(Scobo2, [{
+  return _createClass16(Scobo2, [{
     key: "processScoboParts",
     value: function(parts, html) {
       var extractMatch = function(re) {
@@ -14279,7 +13267,7 @@ var talkToRichard = !0, Scobo = /* @__PURE__ */ function() {
         normal: /Richard has[^\d]+(\d+)[<b>\\/\s]+hobo skin/
       };
       Object.entries(matchRegistry).map(function(_ref) {
-        var _ref2 = _slicedToArray11(_ref, 2), key = _ref2[0], value2 = _ref2[1];
+        var _ref2 = _slicedToArray10(_ref, 2), key = _ref2[0], value2 = _ref2[1];
         return parts[key] = extractMatch(value2);
       });
     }
@@ -14295,7 +13283,7 @@ var talkToRichard = !0, Scobo = /* @__PURE__ */ function() {
           });
         },
         do: function() {
-          var html = (0, import_kolmafia48.visitUrl)("clan_hobopolis.php?preaction=simulacrum&place=3&qty=1");
+          var html = (0, import_kolmafia41.visitUrl)("clan_hobopolis.php?preaction=simulacrum&place=3&qty=1");
           _this.processScoboParts(_this.parts, html);
         }
       }, {
@@ -14304,7 +13292,7 @@ var talkToRichard = !0, Scobo = /* @__PURE__ */ function() {
           return !talkToRichard;
         },
         do: function() {
-          var html = (0, import_kolmafia48.visitUrl)("clan_hobopolis.php?place=3&action=talkrichard&whichtalk=3&pwd", !1);
+          var html = (0, import_kolmafia41.visitUrl)("clan_hobopolis.php?place=3&action=talkrichard&whichtalk=3&pwd", !1);
           _this.processScoboParts(_this.parts, html), talkToRichard = !1;
         }
       }];
@@ -14314,48 +13302,48 @@ var talkToRichard = !0, Scobo = /* @__PURE__ */ function() {
 
 // src/quests/townsquare/tasks/snapper.ts
 init_kolmafia_polyfill();
-var import_kolmafia49 = require("kolmafia");
-var _templateObject171, _templateObject278, _templateObject348;
-function _taggedTemplateLiteral36(strings, raw) {
+var import_kolmafia42 = require("kolmafia");
+var _templateObject140, _templateObject259, _templateObject338;
+function _taggedTemplateLiteral31(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-var snapper = $familiar(_templateObject171 || (_templateObject171 = _taggedTemplateLiteral36(["Red-Nosed Snapper"]))), Snapper = {
+var snapper = $familiar(_templateObject140 || (_templateObject140 = _taggedTemplateLiteral31(["Red-Nosed Snapper"]))), Snapper = {
   name: "Setup",
   completed: function() {
-    return !have(snapper) || (0, import_kolmafia49.myFamiliar)() === $familiar(_templateObject278 || (_templateObject278 = _taggedTemplateLiteral36(["Red-Nosed Snapper"])));
+    return !have(snapper) || (0, import_kolmafia42.myFamiliar)() === $familiar(_templateObject259 || (_templateObject259 = _taggedTemplateLiteral31(["Red-Nosed Snapper"])));
   },
   do: function() {
-    Snapper_exports.trackPhylum($phylum(_templateObject348 || (_templateObject348 = _taggedTemplateLiteral36(["Hobo"])))), (0, import_kolmafia49.useFamiliar)(snapper);
+    Snapper_exports.trackPhylum($phylum(_templateObject338 || (_templateObject338 = _taggedTemplateLiteral31(["Hobo"])))), (0, import_kolmafia42.useFamiliar)(snapper);
   }
 };
 
 // src/quests/townsquare/townsquare.ts
-function _toConsumableArray17(arr) {
-  return _arrayWithoutHoles17(arr) || _iterableToArray17(arr) || _unsupportedIterableToArray25(arr) || _nonIterableSpread17();
+function _toConsumableArray13(arr) {
+  return _arrayWithoutHoles13(arr) || _iterableToArray13(arr) || _unsupportedIterableToArray21(arr) || _nonIterableSpread13();
 }
-function _nonIterableSpread17() {
+function _nonIterableSpread13() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray25(o, minLen) {
+function _unsupportedIterableToArray21(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray25(o, minLen);
+      return _arrayLikeToArray21(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray25(o, minLen);
+      return _arrayLikeToArray21(o, minLen);
   }
 }
-function _iterableToArray17(iter) {
+function _iterableToArray13(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles17(arr) {
+function _arrayWithoutHoles13(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray25(arr);
+    return _arrayLikeToArray21(arr);
 }
-function _arrayLikeToArray25(arr, len) {
+function _arrayLikeToArray21(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -14371,116 +13359,116 @@ var scoboParts = {
 }, scobo = new Scobo(scoboParts), explore = new Explore(scoboParts), skipTownSquare = !1, TownSquare = {
   name: "Town Square",
   completed: function() {
-    return skipTownSquare || (skipTownSquare = !!(0, import_kolmafia50.visitUrl)("clan_hobopolis.php?place=8&pwd", !1).match(/The Purple Light District/)), skipTownSquare;
+    return skipTownSquare || (skipTownSquare = !!(0, import_kolmafia43.visitUrl)("clan_hobopolis.php?place=8&pwd", !1).match(/The Purple Light District/)), skipTownSquare;
   },
-  tasks: [DriveStealthily, Snapper].concat(_toConsumableArray17(scobo.getTasks()), _toConsumableArray17(explore.getTasks()))
+  tasks: [DriveStealthily, Snapper].concat(_toConsumableArray13(scobo.getTasks()), _toConsumableArray13(explore.getTasks()))
 };
 
 // src/quests/wander/wander.ts
 init_kolmafia_polyfill();
-var import_kolmafia55 = require("kolmafia");
+var import_kolmafia48 = require("kolmafia");
 
 // src/quests/wander/tasks/digitized.ts
 init_kolmafia_polyfill();
-var import_kolmafia52 = require("kolmafia");
+var import_kolmafia45 = require("kolmafia");
 
 // src/quests/wander/shared/effects.ts
 init_kolmafia_polyfill();
 
 // src/quests/wander/shared/location.ts
 init_kolmafia_polyfill();
-var import_kolmafia51 = require("kolmafia");
-var _templateObject180, _templateObject279, _templateObject349, _templateObject436;
-function _taggedTemplateLiteral37(strings, raw) {
+var import_kolmafia44 = require("kolmafia");
+var _templateObject141, _templateObject260, _templateObject339, _templateObject431;
+function _taggedTemplateLiteral32(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 function getLocation2() {
-  return !have($item(_templateObject180 || (_templateObject180 = _taggedTemplateLiteral37(["Spookyraven billiards room key"])))) && (0, import_kolmafia51.canAdventure)($location(_templateObject279 || (_templateObject279 = _taggedTemplateLiteral37(["The Haunted Kitchen"])))) ? $location(_templateObject349 || (_templateObject349 = _taggedTemplateLiteral37(["The Haunted Kitchen"]))) : $location(_templateObject436 || (_templateObject436 = _taggedTemplateLiteral37(["Noob Cave"])));
+  return !have($item(_templateObject141 || (_templateObject141 = _taggedTemplateLiteral32(["Spookyraven billiards room key"])))) && (0, import_kolmafia44.canAdventure)($location(_templateObject260 || (_templateObject260 = _taggedTemplateLiteral32(["The Haunted Kitchen"])))) ? $location(_templateObject339 || (_templateObject339 = _taggedTemplateLiteral32(["The Haunted Kitchen"]))) : $location(_templateObject431 || (_templateObject431 = _taggedTemplateLiteral32(["Noob Cave"])));
 }
 
 // src/quests/wander/shared/effects.ts
-var _templateObject181;
-function _taggedTemplateLiteral38(strings, raw) {
+var _templateObject149;
+function _taggedTemplateLiteral33(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-function _toConsumableArray18(arr) {
-  return _arrayWithoutHoles18(arr) || _iterableToArray18(arr) || _unsupportedIterableToArray26(arr) || _nonIterableSpread18();
+function _toConsumableArray14(arr) {
+  return _arrayWithoutHoles14(arr) || _iterableToArray14(arr) || _unsupportedIterableToArray22(arr) || _nonIterableSpread14();
 }
-function _nonIterableSpread18() {
+function _nonIterableSpread14() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray26(o, minLen) {
+function _unsupportedIterableToArray22(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray26(o, minLen);
+      return _arrayLikeToArray22(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray26(o, minLen);
+      return _arrayLikeToArray22(o, minLen);
   }
 }
-function _iterableToArray18(iter) {
+function _iterableToArray14(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles18(arr) {
+function _arrayWithoutHoles14(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray26(arr);
+    return _arrayLikeToArray22(arr);
 }
-function _arrayLikeToArray26(arr, len) {
+function _arrayLikeToArray22(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
 function getEffects() {
-  return [].concat(_toConsumableArray18(basicEffects()), _toConsumableArray18(getLocation2() === $location(_templateObject181 || (_templateObject181 = _taggedTemplateLiteral38(["The Haunted Kitchen"]))) ? resistanceEffects() : []));
+  return [].concat(_toConsumableArray14(basicEffects()), _toConsumableArray14(getLocation2() === $location(_templateObject149 || (_templateObject149 = _taggedTemplateLiteral33(["The Haunted Kitchen"]))) ? resistanceEffects() : []));
 }
 
 // src/quests/wander/tasks/digitized.ts
-var _templateObject190, _templateObject280, _templateObject350, _templateObject437, _templateObject527;
-function _toConsumableArray19(arr) {
-  return _arrayWithoutHoles19(arr) || _iterableToArray19(arr) || _unsupportedIterableToArray27(arr) || _nonIterableSpread19();
+var _templateObject150, _templateObject261, _templateObject340, _templateObject434, _templateObject525;
+function _toConsumableArray15(arr) {
+  return _arrayWithoutHoles15(arr) || _iterableToArray15(arr) || _unsupportedIterableToArray23(arr) || _nonIterableSpread15();
 }
-function _nonIterableSpread19() {
+function _nonIterableSpread15() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray27(o, minLen) {
+function _unsupportedIterableToArray23(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray27(o, minLen);
+      return _arrayLikeToArray23(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray27(o, minLen);
+      return _arrayLikeToArray23(o, minLen);
   }
 }
-function _iterableToArray19(iter) {
+function _iterableToArray15(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles19(arr) {
+function _arrayWithoutHoles15(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray27(arr);
+    return _arrayLikeToArray23(arr);
 }
-function _arrayLikeToArray27(arr, len) {
+function _arrayLikeToArray23(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral39(strings, raw) {
+function _taggedTemplateLiteral34(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 function shouldRedigitize() {
   var digitizesLeft = SourceTerminal_exports.getDigitizeUsesRemaining(), monsterCount = SourceTerminal_exports.getDigitizeMonsterCount() + 1, digitizeAdventuresUsed = monsterCount * (monsterCount + 1) * 5 - 3;
-  return SourceTerminal_exports.have() && SourceTerminal_exports.canDigitize() && (0, import_kolmafia52.myAdventures)() / 0.96 < digitizesLeft * digitizeAdventuresUsed;
+  return SourceTerminal_exports.have() && SourceTerminal_exports.canDigitize() && (0, import_kolmafia45.myAdventures)() / 0.96 < digitizesLeft * digitizeAdventuresUsed;
 }
 function meatBuffEffects() {
   var monster = SourceTerminal_exports.getDigitizeMonster(), result = getEffects();
-  return monster === $monster(_templateObject190 || (_templateObject190 = _taggedTemplateLiteral39(["Knob Goblin Embezzler"]))) && result.push.apply(result, _toConsumableArray19($effects(_templateObject280 || (_templateObject280 = _taggedTemplateLiteral39(["Polka of Plenty, Disco Leer"]))))), result;
+  return monster === $monster(_templateObject150 || (_templateObject150 = _taggedTemplateLiteral34(["Knob Goblin Embezzler"]))) && result.push.apply(result, _toConsumableArray15($effects(_templateObject261 || (_templateObject261 = _taggedTemplateLiteral34(["Polka of Plenty, Disco Leer"]))))), result;
 }
 function DigitizedTask() {
   return {
@@ -14493,17 +13481,17 @@ function DigitizedTask() {
     },
     effects: meatBuffEffects,
     outfit: function() {
-      return SourceTerminal_exports.getDigitizeMonster() === $monster(_templateObject350 || (_templateObject350 = _taggedTemplateLiteral39(["Knob Goblin Embezzler"]))) ? {
+      return SourceTerminal_exports.getDigitizeMonster() === $monster(_templateObject340 || (_templateObject340 = _taggedTemplateLiteral34(["Knob Goblin Embezzler"]))) ? {
         objective: "Meat Drop"
       } : {
         equip: getEquipment(Object.values(defaultEquipment()))
       };
     },
     combat: new CombatStrategy().autoattack(function() {
-      return Macro.externalIf(shouldRedigitize(), Macro.skill($skill(_templateObject437 || (_templateObject437 = _taggedTemplateLiteral39(["Digitize"]))))).step(killMacro());
+      return Macro.externalIf(shouldRedigitize(), Macro.skill($skill(_templateObject434 || (_templateObject434 = _taggedTemplateLiteral34(["Digitize"]))))).step(killMacro());
     }),
     prepare: function() {
-      shouldRedigitize() && SourceTerminal_exports.educate($skill(_templateObject527 || (_templateObject527 = _taggedTemplateLiteral39(["Digitize"]))));
+      shouldRedigitize() && SourceTerminal_exports.educate($skill(_templateObject525 || (_templateObject525 = _taggedTemplateLiteral34(["Digitize"]))));
     },
     do: getLocation2
   };
@@ -14511,7 +13499,7 @@ function DigitizedTask() {
 
 // src/quests/wander/tasks/magnifyingglass.ts
 init_kolmafia_polyfill();
-var _templateObject191, _templateObject281;
+var _templateObject151, _templateObject267;
 function ownKeys10(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
@@ -14526,21 +13514,21 @@ function _objectSpread10(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys10(Object(source), !0).forEach(function(key) {
-      _defineProperty21(target, key, source[key]);
+      _defineProperty15(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys10(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _defineProperty21(obj, key, value2) {
-  return key = _toPropertyKey25(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
+function _defineProperty15(obj, key, value2) {
+  return key = _toPropertyKey19(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
 }
-function _toPropertyKey25(arg) {
-  var key = _toPrimitive25(arg, "string");
+function _toPropertyKey19(arg) {
+  var key = _toPrimitive19(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive25(input, hint) {
+function _toPrimitive19(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -14552,14 +13540,14 @@ function _toPrimitive25(input, hint) {
   }
   return (hint === "string" ? String : Number)(input);
 }
-function _taggedTemplateLiteral40(strings, raw) {
+function _taggedTemplateLiteral35(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 function MagnifyingGlass() {
   return {
     name: "Magnifying Glass",
     ready: function() {
-      return have($item(_templateObject191 || (_templateObject191 = _taggedTemplateLiteral40(["cursed magnifying glass"])))) && get("cursedMagnifyingGlassCount") === 13;
+      return have($item(_templateObject151 || (_templateObject151 = _taggedTemplateLiteral35(["cursed magnifying glass"])))) && get("cursedMagnifyingGlassCount") === 13;
     },
     completed: function() {
       return get("_voidFreeFights") >= 5;
@@ -14568,7 +13556,7 @@ function MagnifyingGlass() {
     outfit: function() {
       return {
         equip: getEquipment(Object.values(_objectSpread10(_objectSpread10({}, defaultEquipment()), {}, {
-          "off-hand": $item(_templateObject281 || (_templateObject281 = _taggedTemplateLiteral40(["cursed magnifying glass"])))
+          "off-hand": $item(_templateObject267 || (_templateObject267 = _taggedTemplateLiteral35(["cursed magnifying glass"])))
         }))),
         modifier: "-combat"
       };
@@ -14580,8 +13568,8 @@ function MagnifyingGlass() {
 
 // src/quests/wander/tasks/sausage.ts
 init_kolmafia_polyfill();
-var import_kolmafia53 = require("kolmafia");
-var _templateObject199, _templateObject287;
+var import_kolmafia46 = require("kolmafia");
+var _templateObject159, _templateObject268;
 function ownKeys11(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
@@ -14596,21 +13584,21 @@ function _objectSpread11(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys11(Object(source), !0).forEach(function(key) {
-      _defineProperty22(target, key, source[key]);
+      _defineProperty16(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys11(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _defineProperty22(obj, key, value2) {
-  return key = _toPropertyKey26(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
+function _defineProperty16(obj, key, value2) {
+  return key = _toPropertyKey20(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
 }
-function _toPropertyKey26(arg) {
-  var key = _toPrimitive26(arg, "string");
+function _toPropertyKey20(arg) {
+  var key = _toPrimitive20(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive26(input, hint) {
+function _toPrimitive20(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -14622,14 +13610,14 @@ function _toPrimitive26(input, hint) {
   }
   return (hint === "string" ? String : Number)(input);
 }
-function _taggedTemplateLiteral41(strings, raw) {
+function _taggedTemplateLiteral36(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 function SausageTask() {
   return {
     name: "Sausage Goblin",
     ready: function() {
-      return have($item(_templateObject199 || (_templateObject199 = _taggedTemplateLiteral41(["Kramco Sausage-o-Matic\u2122"])))) && (0, import_kolmafia53.myInebriety)() <= (0, import_kolmafia53.inebrietyLimit)();
+      return have($item(_templateObject159 || (_templateObject159 = _taggedTemplateLiteral36(["Kramco Sausage-o-Matic\u2122"])))) && (0, import_kolmafia46.myInebriety)() <= (0, import_kolmafia46.inebrietyLimit)();
     },
     completed: function() {
       return getKramcoWandererChance() < 1;
@@ -14638,7 +13626,7 @@ function SausageTask() {
     outfit: function() {
       return {
         equip: getEquipment(Object.values(_objectSpread11(_objectSpread11({}, defaultEquipment()), {}, {
-          "off-hand": $item(_templateObject287 || (_templateObject287 = _taggedTemplateLiteral41(["Kramco Sausage-o-Matic\u2122"])))
+          "off-hand": $item(_templateObject268 || (_templateObject268 = _taggedTemplateLiteral36(["Kramco Sausage-o-Matic\u2122"])))
         }))),
         modifier: "-combat"
       };
@@ -14650,8 +13638,8 @@ function SausageTask() {
 
 // src/quests/wander/tasks/voter.ts
 init_kolmafia_polyfill();
-var import_kolmafia54 = require("kolmafia");
-var _templateObject200, _templateObject288;
+var import_kolmafia47 = require("kolmafia");
+var _templateObject160, _templateObject269;
 function ownKeys12(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
@@ -14666,21 +13654,21 @@ function _objectSpread12(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys12(Object(source), !0).forEach(function(key) {
-      _defineProperty23(target, key, source[key]);
+      _defineProperty17(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys12(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _defineProperty23(obj, key, value2) {
-  return key = _toPropertyKey27(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
+function _defineProperty17(obj, key, value2) {
+  return key = _toPropertyKey21(key), key in obj ? Object.defineProperty(obj, key, { value: value2, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value2, obj;
 }
-function _toPropertyKey27(arg) {
-  var key = _toPrimitive27(arg, "string");
+function _toPropertyKey21(arg) {
+  var key = _toPrimitive21(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive27(input, hint) {
+function _toPrimitive21(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -14692,23 +13680,23 @@ function _toPrimitive27(input, hint) {
   }
   return (hint === "string" ? String : Number)(input);
 }
-function _taggedTemplateLiteral42(strings, raw) {
+function _taggedTemplateLiteral37(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 function VoterTask() {
   return {
     name: "Voter",
     ready: function() {
-      return have($item(_templateObject200 || (_templateObject200 = _taggedTemplateLiteral42(['"I Voted!" sticker']))));
+      return have($item(_templateObject160 || (_templateObject160 = _taggedTemplateLiteral37(['"I Voted!" sticker']))));
     },
     completed: function() {
-      return get("_voteFreeFights") >= 3 || (0, import_kolmafia54.totalTurnsPlayed)() % 11 !== 1 || get("lastVoteMonsterTurn") >= (0, import_kolmafia54.totalTurnsPlayed)();
+      return get("_voteFreeFights") >= 3 || (0, import_kolmafia47.totalTurnsPlayed)() % 11 !== 1 || get("lastVoteMonsterTurn") >= (0, import_kolmafia47.totalTurnsPlayed)();
     },
     effects: getEffects(),
     outfit: function() {
       return {
         equip: getEquipment(Object.values(_objectSpread12(_objectSpread12({}, defaultEquipment()), {}, {
-          acc3: $item(_templateObject288 || (_templateObject288 = _taggedTemplateLiteral42(['"I Voted!" sticker'])))
+          acc3: $item(_templateObject269 || (_templateObject269 = _taggedTemplateLiteral37(['"I Voted!" sticker'])))
         }))),
         modifier: "-combat"
       };
@@ -14722,7 +13710,7 @@ function VoterTask() {
 var Wander = {
   name: "Wander",
   completed: function() {
-    return (0, import_kolmafia55.myInebriety)() > (0, import_kolmafia55.inebrietyLimit)();
+    return (0, import_kolmafia48.myInebriety)() > (0, import_kolmafia48.inebrietyLimit)();
   },
   tasks: [VoterTask(), DigitizedTask(), SausageTask(), MagnifyingGlass()]
 };
@@ -14755,13 +13743,20 @@ function main(command) {
     printLifetime();
     return;
   }
-  checkGarbo(), checkClan(), maybeResetDailyPreferences();
-  var cognacTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare, Cognac]), engine = new Engine2(cognacTasks), startingClan = (0, import_kolmafia56.getClanId)(), meatToCloset = (0, import_kolmafia56.myMeat)() > 1e6 ? (0, import_kolmafia56.myMeat)() - 1e6 : 0;
+  checkClan(), maybeResetDailyPreferences();
+  var cognacTasks = getTasks([
+    Prologue,
+    Wander,
+    Spookyraven,
+    Sewers(args.nocage),
+    TownSquare
+    // Cognac,
+  ]), engine = new Engine2(cognacTasks), startingClan = (0, import_kolmafia49.getClanId)(), meatToCloset = (0, import_kolmafia49.myMeat)() > 1e6 ? (0, import_kolmafia49.myMeat)() - 1e6 : 0;
   try {
     var clan = get(CLAN);
-    meatToCloset > 0 && (0, import_kolmafia56.cliExecute)("closet put ".concat(meatToCloset, " meat")), Clan.join(clan), engine.run();
+    meatToCloset > 0 && (0, import_kolmafia49.cliExecute)("closet put ".concat(meatToCloset, " meat")), startingClan.toString(10) !== clan && Clan.join(clan), engine.run();
   } finally {
-    engine.destruct(), _set(HEAP_ATTEMPTS, 0), _set(LAST_STENCH_CHECK, 0), new Gossip().destroy(), Clan.join(startingClan), meatToCloset > 0 && (0, import_kolmafia56.cliExecute)("closet take ".concat(meatToCloset, " meat")), save(), printSession();
+    engine.destruct(), _set(HEAP_ATTEMPTS, 0), _set(LAST_STENCH_CHECK, 0), Clan.join(startingClan), meatToCloset > 0 && (0, import_kolmafia49.cliExecute)("closet take ".concat(meatToCloset, " meat")), save(), printSession();
   }
 }
 // Annotate the CommonJS export names for ESM import in node:
