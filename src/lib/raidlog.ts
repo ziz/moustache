@@ -40,10 +40,10 @@ function nbsptrim(text: string): string {
 function clubPopularityFromRaidlog(page: string): string[] {
   let raidLog = between(page,"<b>Hobopolis", "<b>Loot Distribution:");
 
-  let positives = matchAll((diverted some cold|bamboozled|flimflammed).*?\((\d*) turns?\)/g, raidLog);
+  let positives = matchAll(/(diverted some cold|bamboozled|flimflammed).*?\((\d*) turns?\)/g, raidLog);
   let goodThings = Array.from(positives).map((match => match[2])).sum();
-  let steams = matchAll(diverted some steam.*?\((\d*) turns?\)/g, raidLog);
-  let nosepicks = matchAll(danced like a superstar.*?\((\d*) turns?\)/g, raidLog);
+  let steams = matchAll(/diverted some steam.*?\((\d*) turns?\)/g, raidLog);
+  let nosepicks = matchAll(/danced like a superstar.*?\((\d*) turns?\)/g, raidLog);
   let steamCount = Array.from(steams).map((match => match[1])).sum();
   let nosepickCount = Math.max(Array.from(nosepicks).map((match => match[1])).sum() - 1,0);
   const result = goodThings - steamCount - nosepickCount;
