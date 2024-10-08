@@ -10,3 +10,13 @@ export const DriveStealthily: Task = {
     AsdonMartin.drive($effect`Driving Stealthily`);
   },
 };
+
+export const DriveObnoxiously: Task = {
+  name: "Drive Obnoxiously",
+  completed: () => {
+    return !AsdonMartin.installed() || have($effect`Driving Obnoxiously`);
+  },
+  do: () => {
+    AsdonMartin.drive($effect`Driving Obnoxiously`);
+  },
+};

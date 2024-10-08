@@ -25,6 +25,10 @@ export function noncombatEffects(): Effect[] {
   return filterHave($effects`The Sonata of Sneakiness, Smooth Movements`);
 }
 
+export function plusCombatEffects(): Effect[] {
+  return filterHave($effects`Carlweather's Cantata of Confrontation, Hippy Stench, Musk of the Moose`)
+}
+
 export function resistanceEffects(): Effect[] {
   return filterHave($effects`Elemental Saucesphere, Astral Shell`);
 }
