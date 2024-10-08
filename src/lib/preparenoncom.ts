@@ -66,7 +66,7 @@ function value(info: Info): number {
   return (info.duration * info.modifier) / info.price;
 }
 
-export function capPlusCombat(): void {
+export function capNonCombat(): void {
   let itemBought = false;
 
   for (let i = 0; i < itemInfo.length; i++) {
