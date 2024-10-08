@@ -22,7 +22,7 @@ const watchPlugin = {
 
 const config = {
   entryPoints: {
-    cognac: "./src/index.ts",
+    moustacherider: "./src/index.ts",
   },
   bundle: true,
   minifySyntax: true,
@@ -39,7 +39,7 @@ const config = {
       },
     }),
   ],
-  outdir: "KoLmafia/scripts/cognac/",
+  outdir: "KoLmafia/scripts/moustacherider/",
   loader: { ".json": "text" },
   inject: ["./kolmafia-polyfill.js"],
   define: {

@@ -4,7 +4,7 @@ import { get, set } from "libram";
 import * as Properties from "./properties";
 
 export function showPreferences(): void {
-  print("Preferences for cognac", "blue");
+  print("Preferences for moustacherider", "blue");
   print("");
   Object.values(Properties).map(prettyPrint);
 }
@@ -52,6 +52,6 @@ export function checkGarbo(): void {
 
 export function checkClan(): void {
   if (!get(Properties.CLAN)) {
-    throw `Please set cognac clan pref. See \`cognac config\``;
+    throw `Please set moustacherider clan pref. See \`moustacherider config\``;
   }
 }

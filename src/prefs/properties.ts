@@ -1,4 +1,4 @@
-const SCRIPT_PREFIX = "cognac";
+const SCRIPT_PREFIX = "moustache";
 
 const prefix = (prop: string): string => {
   return `${SCRIPT_PREFIX}_${prop}`;

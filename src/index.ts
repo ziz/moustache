@@ -4,10 +4,10 @@ import { Clan, get, set } from "libram";
 
 import * as CognacStats from "./lib/cognac";
 import { Engine } from "./lib/engine";
-import { Gossip } from "./lib/gossip";
-import { checkClan, checkGarbo, maybeResetDailyPreferences, showPreferences } from "./prefs/prefs";
+// import { Gossip } from "./lib/gossip";
+import { checkClan, maybeResetDailyPreferences, showPreferences } from "./prefs/prefs";
 import * as Properties from "./prefs/properties";
-import { Cognac } from "./quests/cognac/cognac";
+// import { Cognac } from "./quests/cognac/cognac";
 import { Prologue } from "./quests/prologue/prologue";
 import { Sewers } from "./quests/sewers/sewers";
 import { Spookyraven } from "./quests/spookyraven/spookyraven";
@@ -44,7 +44,7 @@ export function main(command?: string): void {
     return;
   }
 
-  checkGarbo();
+  // checkGarbo();
   checkClan();
   maybeResetDailyPreferences();
 
@@ -54,7 +54,7 @@ export function main(command?: string): void {
     Spookyraven,
     Sewers(args.nocage),
     TownSquare,
-    Cognac,
+    // Cognac,
   ]);
   const engine = new Engine(cognacTasks);
 
@@ -65,13 +65,15 @@ export function main(command?: string): void {
     if (meatToCloset > 0) {
       cliExecute(`closet put ${meatToCloset} meat`);
     }
-    Clan.join(clan);
+    if (startingClan.toString(10) !== clan) {
+      Clan.join(clan);
+    }
     engine.run();
   } finally {
     engine.destruct();
     set(Properties.HEAP_ATTEMPTS, 0);
     set(Properties.LAST_STENCH_CHECK, 0);
-    new Gossip().destroy();
+    // new Gossip().destroy();
     Clan.join(startingClan);
     if (meatToCloset > 0) {
       cliExecute(`closet take ${meatToCloset} meat`);
