@@ -15,7 +15,7 @@ export function printSession(): void {
   print("Moustache summary:");
   print("");
 
-  print(`You've spent ${get(TURNS_SPENT)} turns moustache-hunting today!`);
+  print(`You've spent ${get(TURNS_SPENT)} turns moustache-hunting this run!`);
 }
 
 export function printLifetime(): void {

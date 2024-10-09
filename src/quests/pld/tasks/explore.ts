@@ -1,5 +1,5 @@
 import { CombatStrategy, Task } from "grimoire-kolmafia";
-import { getProperty, visitUrl } from "kolmafia";
+import { getProperty, print, visitUrl } from "kolmafia";
 import { $effect, $location, AprilingBandHelmet, have } from "libram";
 
 import { Macro } from "../../../lib/combat";
@@ -13,8 +13,9 @@ export class Explore {
   baseTask = {
     do: () => $location`The Purple Light District`,
     post: () => {
-      if (["Van, Damn", "This Van's a' Rockin'"].includes(getProperty("lastAdventure"))) {
+      if (["Van, Damn", "This Van's a' Rockin'"].includes(getProperty("lastEncounter"))) {
         this.doneWithPLD = true;
+        print("Chester waits. He waits. He waits. He waits. He waits.", "purple");
       }
       this.clubAdventures = clubPopularityFromRaidlog(visitUrl("clan_raidlogs.php"));
     },
