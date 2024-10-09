@@ -13,28 +13,30 @@
     "watch": "node build.mjs --watch"
   },
   "devDependencies": {
-    "@babel/cli": "^7.22.6",
-    "@babel/core": "^7.22.8",
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.7",
     "@babel/plugin-proposal-object-rest-spread": "^7.14.7",
-    "@babel/preset-env": "^7.22.7",
-    "@babel/preset-typescript": "^7.15.0",
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
-    "esbuild": "^0.18.11",
+    "@babel/preset-env": "^7.25.7",
+    "@babel/preset-typescript": "^7.25.7",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.12.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "esbuild": "^0.24.0",
     "esbuild-plugin-babel": "^0.2.3",
     "esbuild-plugin-copy": "^2.1.1",
-    "eslint": "^8.44.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-libram": "^0.2.32",
-    "prettier": "^3.0.0",
-    "typescript": "^5.1.6"
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-libram": "^0.4.14",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
   },
   "dependencies": {
-    "core-js": "^3.31.1",
-    "grimoire-kolmafia": "^0.3.18",
-    "kolmafia": ">=5.27467.0",
-    "libram": ">=0.8.4"
+    "core-js": "^3.38.1",
+    "grimoire-kolmafia": "^0.3.26",
+    "kolmafia": ">=5.28059.0",
+    "libram": ">=0.9.11"
   },
   "repository": {
     "type": "git",
