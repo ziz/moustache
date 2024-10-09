@@ -1,4 +1,5 @@
 import {
+  Effect,
   Item,
   buy,
   combatRateModifier,
@@ -75,7 +76,7 @@ export function capNonCombat(): void {
     if (combatRateModifier() <= -35) {
       break;
     }
-    if (haveEffect(getModifier("Effect", item))) {
+    if (haveEffect(Effect.get(getModifier("Effect", item)))) {
       continue;
     }
 
