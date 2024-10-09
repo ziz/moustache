@@ -1,4 +1,5 @@
 import {
+  Effect,
   Item,
   buy,
   combatRateModifier,
@@ -66,16 +67,16 @@ function value(info: Info): number {
   return (info.duration * info.modifier) / info.price;
 }
 
-export function capNonCombat(): void {
+export function capCombat(): void {
   let itemBought = false;
 
   for (let i = 0; i < itemInfo.length; i++) {
     const info = itemInfo[i];
     const item = info.item;
-    if (combatRateModifier() <= -35) {
+    if (combatRateModifier() >= 35) {
       break;
     }
-    if (haveEffect(getModifier("Effect", item))) {
+    if (haveEffect(Effect.get(getModifier("Effect", item)))) {
       continue;
     }
 
