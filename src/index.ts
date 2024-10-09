@@ -8,6 +8,7 @@ import { Engine } from "./lib/engine";
 import { checkClan, maybeResetDailyPreferences, showPreferences } from "./prefs/prefs";
 import * as Properties from "./prefs/properties";
 // import { Cognac } from "./quests/cognac/cognac";
+import { PLD } from "./quests/pld/pld";
 import { Prologue } from "./quests/prologue/prologue";
 import { Sewers } from "./quests/sewers/sewers";
 import { Spookyraven } from "./quests/spookyraven/spookyraven";
@@ -54,6 +55,7 @@ export function main(command?: string): void {
     Spookyraven,
     Sewers(args.nocage),
     TownSquare,
+    PLD,
     // Cognac,
   ]);
   const engine = new Engine(cognacTasks);
