@@ -10,7 +10,7 @@ const explore = new Explore();
 export const PLD: Quest<Task> = {
   name: "Purple Light District",
   completed: () => {
-    return myAdventures() < 1;
+    return myAdventures() < 1 || explore.doneWithPLD;
   },
   tasks: [DriveObnoxiously, Snapper, ...explore.getTasks()],
 };
