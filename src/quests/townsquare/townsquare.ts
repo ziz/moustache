@@ -1,5 +1,5 @@
 import { Quest, Task } from "grimoire-kolmafia";
-import { visitUrl } from "kolmafia";
+import { print, visitUrl } from "kolmafia";
 
 import { DriveStealthily } from "../shared/asdon";
 import { Explore } from "./tasks/explore";
@@ -27,6 +27,9 @@ export const TownSquare: Quest<Task> = {
       skipTownSquare = !!visitUrl("clan_hobopolis.php?place=8&pwd", false).match(
         /The Purple Light District/,
       );
+      if (skipTownSquare) {
+        print("Town Square is sufficiently finished to open the PLD.", "purple");
+      }
     }
     return skipTownSquare;
   },
