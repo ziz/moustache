@@ -35,7 +35,7 @@ export class Explore {
       },
       {
         ...this.baseTask,
-        ready: () => this.clubAdventures < 21,
+        ready: () => this.clubAdventures <= 21,
         name: "Purple it up (flimflammable)",
         choices: {
           219: 1, // The Furtivity of My City: fight sleaze hobo
@@ -46,7 +46,7 @@ export class Explore {
       },
       {
         ...this.baseTask,
-        ready: () => this.clubAdventures >= 21,
+        ready: () => this.clubAdventures > 21,
         name: "Purple it up (let's you and him fight)",
         choices: {
           219: 1, // The Furtivity of My City: fight sleaze hobo
