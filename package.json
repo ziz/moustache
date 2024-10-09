@@ -1,8 +1,8 @@
 {
-  "name": "cognac",
+  "name": "moustache",
   "version": "1.0.0",
-  "description": "Farm cognac for fun and profit.",
-  "main": "target/cognac.js",
+  "description": "Farm moustaches for fun and profit.",
+  "main": "KolMafia/scripts/moustacherider/moustacherider.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "yarn run build:types && yarn run build:js",
@@ -34,19 +34,20 @@
   },
   "dependencies": {
     "core-js": "^3.38.1",
+    "garbo-lib": "https://github.com/loathers/garbage-collector#head=main&workspace=garbo-lib",
     "grimoire-kolmafia": "^0.3.26",
     "kolmafia": ">=5.28059.0",
     "libram": ">=0.9.11"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tigerinanenet/cognac.git"
+    "url": "git+https://github.com/ziz/moustache.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tigerinanenet/cognac/issues"
+    "url": "https://github.com/ziz/moustache/issues"
   },
-  "homepage": "https://github.com/tigerinanenet/cognac#readme",
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "homepage": "https://github.com/ziz/moustache#readme",
+  "packageManager": "yarn@4.5.0"
 }
