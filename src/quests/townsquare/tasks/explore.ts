@@ -3,6 +3,7 @@ import { mpCost, myMp, restoreMp } from "kolmafia";
 import { $effect, $effects, $item, $location, $skill } from "libram";
 
 import { Macro } from "../../../lib/combat";
+import { selectWorstFamiliar } from "../../../lib/familiar";
 import { ScoboPartType, ScoboParts } from "./parts";
 
 const elementMap = {
@@ -61,6 +62,8 @@ export class Explore {
         effects: [$effect`Carol of the Bulls`],
         outfit: {
           equip: [$item`Fourth of May Cosplay Saber`, $item`mafia thumb ring`],
+          bonuses: new Map([[$item`Space Trip safety headphones`, 200]]),
+          familiar: selectWorstFamiliar(),
         },
       },
       {
@@ -71,6 +74,8 @@ export class Explore {
         combat: new CombatStrategy().autoattack(Macro.mortarShell()),
         outfit: {
           equip: [$item`mafia thumb ring`],
+          bonuses: new Map([[$item`Space Trip safety headphones`, 200]]),
+          familiar: selectWorstFamiliar(),
         },
       },
     ];
