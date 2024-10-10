@@ -1,6 +1,6 @@
 import { CombatStrategy, Task } from "grimoire-kolmafia";
-import { mpCost, myMp, restoreMp } from "kolmafia";
-import { $effect, $effects, $item, $location, $skill } from "libram";
+import { haveEffect, mpCost, myMp, restoreMp } from "kolmafia";
+import { $effect, $effects, $item, $location, $skill, uneffect } from "libram";
 
 import { Macro } from "../../../lib/combat";
 import { selectDropFamiliar } from "../../../lib/familiar";
@@ -47,7 +47,9 @@ export class Explore {
             (elem) => this.parts[elem as ScoboPartType] < 1,
           ) as ScoboPartType;
           const targetMp =
-            mpCost($skill`Curse of Weaksauce`) + mpCost($skill`Stuffed Mortar Shell`);
+            mpCost($skill`Curse of Weaksauce`) +
+            mpCost($skill`Stuffed Mortar Shell`) +
+            mpCost($skill`Weapon of the Pastalord`);
           if (myMp() < targetMp) {
             restoreMp(targetMp);
           }
@@ -57,6 +59,13 @@ export class Explore {
       {
         ...this.baseTask,
         name: "Hobo combat physical",
+        prepare: () => {
+          for (const effect of $effects`Spirit of Cayenne, Spirit of Peppermint, Spirit of Garlic, Spirit of Wormwood, Spirit of Bacon Grease`) {
+            if (haveEffect(effect)) {
+              uneffect(effect);
+            }
+          }
+        },
         completed: () => this.targetElement !== "normal",
         combat: new CombatStrategy().autoattack(Macro.attackKill()),
         effects: [$effect`Carol of the Bulls`],

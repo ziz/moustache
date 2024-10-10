@@ -1,13 +1,14 @@
 import { Args, getTasks } from "grimoire-kolmafia";
-import { cliExecute, getClanId, myMeat } from "kolmafia";
+import { cliExecute, getClanId, myMeat, print, visitUrl } from "kolmafia";
 import { Clan, get, set } from "libram";
 
 import * as CognacStats from "./lib/cognac";
 import { Engine } from "./lib/engine";
+// import { Cognac } from "./quests/cognac/cognac";
+import { clubPopularityFromRaidlog } from "./lib/raidlog";
 // import { Gossip } from "./lib/gossip";
 import { checkClan, maybeResetDailyPreferences, showPreferences } from "./prefs/prefs";
 import * as Properties from "./prefs/properties";
-// import { Cognac } from "./quests/cognac/cognac";
 import { PLD } from "./quests/pld/pld";
 import { Prologue } from "./quests/prologue/prologue";
 import { Sewers } from "./quests/sewers/sewers";
@@ -28,6 +29,10 @@ const args = Args.create("Cognac", "Farming perscription strength alcohol since 
     help: "Do not fetch cagebait.",
     default: false,
   }),
+  showclub: Args.flag({
+    help: "Show club information.",
+    default: false,
+  }),
 });
 
 export function main(command?: string): void {
@@ -42,6 +47,10 @@ export function main(command?: string): void {
   }
   if (args.stats) {
     CognacStats.printLifetime();
+    return;
+  }
+  if (args.showclub) {
+    print(`Club total: ${clubPopularityFromRaidlog(visitUrl("clan_raidlogs.php"))}`);
     return;
   }
 

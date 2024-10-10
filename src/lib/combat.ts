@@ -133,6 +133,7 @@ export class Macro extends LibramMacro {
       .trySingAlong()
       .trySkill($skill`Stuffed Mortar Shell`)
       .tryItem($item`seal tooth`)
+      .trySkill($skill`Weapon of the Pastalord`)
       .attack() // Mortar shell should finish the fight but just in-case
       .repeat();
   }

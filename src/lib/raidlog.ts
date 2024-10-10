@@ -38,11 +38,14 @@ export function clubPopularityFromRaidlog(page: string): number {
     raidLog,
     2,
   );
+  // print(`positives: ${positives}`);
   const steams = extractInt(/diverted some steam.*?\((\d*) turns?\)/g, raidLog);
-  const nosepicks = Math.min(
+  // print(`steams: ${steams}`);
+  const nosepicks = Math.max(
     extractInt(/danced like a superstar.*?\((\d*) turns?\)/g, raidLog) - 1,
     0,
   );
+  // print(`nosepicks: ${nosepicks}`);
   const result = positives - steams - nosepicks;
   return result;
 }
