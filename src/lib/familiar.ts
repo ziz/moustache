@@ -6,7 +6,31 @@ import {
   myInebriety,
   numericModifier,
 } from "kolmafia";
-import { $familiar, $item, get, have } from "libram";
+import { $familiar, $familiars, $item, get, have } from "libram";
+
+export function selectDropFamiliar(): Familiar {
+  if (
+    (myFamiliar() === $familiar`Stooper` && myInebriety() === inebrietyLimit()) ||
+    myInebriety() === inebrietyLimit() + 1
+  ) {
+    return $familiar`Stooper`;
+  }
+
+  let fam: Familiar = $familiar`none`;
+  for (fam of $familiars`Li'l Xenomorph`) {
+    if (have(fam) && fam.dropsToday < fam.dropsLimit) {
+      return fam;
+    }
+  }
+
+  for (fam of $familiars`Reagnimated Gnome, Cookbookbat`) {
+    if (have(fam)) {
+      return fam;
+    }
+  }
+
+  return $familiar`none`;
+}
 
 export function selectWorstFamiliar(): Familiar {
   if (
@@ -24,11 +48,7 @@ export function selectWorstFamiliar(): Familiar {
     return $familiar`Jumpsuited Hound Dog`;
   }
 
-  if (have($familiar`Cookbookbat`)) {
-    return $familiar`Cookbookbat`;
-  }
-
-  return $familiar`none`;
+  return selectDropFamiliar();
 }
 
 export function selectBestFamiliar(): Familiar {
@@ -62,9 +82,8 @@ export function noncombatFamiliar(): Familiar {
     return $familiar`Disembodied Hand`;
   } else if (have($familiar`Disgeist`)) {
     return $familiar`Disgeist`;
-  } else {
-    return $familiar`none`;
   }
+  return selectDropFamiliar();
 }
 
 export function freeRunsFamiliar(): Familiar {

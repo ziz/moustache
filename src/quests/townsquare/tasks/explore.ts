@@ -3,7 +3,7 @@ import { mpCost, myMp, restoreMp } from "kolmafia";
 import { $effect, $effects, $item, $location, $skill } from "libram";
 
 import { Macro } from "../../../lib/combat";
-import { selectWorstFamiliar } from "../../../lib/familiar";
+import { selectDropFamiliar } from "../../../lib/familiar";
 import { ScoboPartType, ScoboParts } from "./parts";
 
 const elementMap = {
@@ -63,7 +63,7 @@ export class Explore {
         outfit: {
           equip: [$item`Fourth of May Cosplay Saber`, $item`mafia thumb ring`],
           bonuses: new Map([[$item`Space Trip safety headphones`, 200]]),
-          familiar: selectWorstFamiliar(),
+          familiar: selectDropFamiliar(),
         },
       },
       {
@@ -75,7 +75,7 @@ export class Explore {
         outfit: {
           equip: [$item`mafia thumb ring`],
           bonuses: new Map([[$item`Space Trip safety headphones`, 200]]),
-          familiar: selectWorstFamiliar(),
+          familiar: selectDropFamiliar(),
         },
       },
     ];
