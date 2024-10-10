@@ -12817,7 +12817,7 @@ function capNonCombat() {
 }
 
 // src/quests/sewers/tasks/explore.ts
-var _templateObject139, _templateObject258, _templateObject338, _templateObject428, _templateObject520, _templateObject617, _templateObject713;
+var _templateObject139, _templateObject258, _templateObject338, _templateObject428, _templateObject520, _templateObject617, _templateObject713, _templateObject812;
 function _toConsumableArray10(r) {
   return _arrayWithoutHoles10(r) || _iterableToArray10(r) || _unsupportedIterableToArray19(r) || _nonIterableSpread10();
 }
@@ -12846,6 +12846,17 @@ function _taggedTemplateLiteral29(e, t) {
   return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, { raw: { value: Object.freeze(t) } }));
 }
 var tryFreeRunThenAttack = Macro2.trySkill($skill(_templateObject139 || (_templateObject139 = _taggedTemplateLiteral29(["Bowl a Curveball"])))).trySkill($skill(_templateObject258 || (_templateObject258 = _taggedTemplateLiteral29(["Asdon Martin: Spring-Loaded Front Bumper"])))).externalIf(get(FREE_RUN, !1), Macro2.freeRunItems()).attack().repeat(), ExploreTasks = [{
+  name: "Conduct Apriling Band Patrol Beat",
+  ready: function() {
+    return AprilingBandHelmet_exports.canChangeSong();
+  },
+  completed: function() {
+    return have($effect(_templateObject338 || (_templateObject338 = _taggedTemplateLiteral29(["Apriling Band Patrol Beat"]))));
+  },
+  do: function() {
+    return AprilingBandHelmet_exports.changeSong("Apriling Band Patrol Beat");
+  }
+}, {
   name: "Explore sewer",
   completed: function() {
     return !1;
@@ -12854,7 +12865,7 @@ var tryFreeRunThenAttack = Macro2.trySkill($skill(_templateObject139 || (_templa
     capNonCombat();
   },
   do: function() {
-    return $location(_templateObject338 || (_templateObject338 = _taggedTemplateLiteral29(["A Maze of Sewer Tunnels"])));
+    return $location(_templateObject428 || (_templateObject428 = _taggedTemplateLiteral29(["A Maze of Sewer Tunnels"])));
   },
   effects: function() {
     return [].concat(_toConsumableArray10(basicEffects()), _toConsumableArray10(noncombatEffects()));
@@ -12862,9 +12873,9 @@ var tryFreeRunThenAttack = Macro2.trySkill($skill(_templateObject139 || (_templa
   combat: new CombatStrategy().autoattack(tryFreeRunThenAttack),
   outfit: function() {
     return {
-      equip: getEquipment([$item(_templateObject428 || (_templateObject428 = _taggedTemplateLiteral29(["gatorskin umbrella"]))), $item(_templateObject520 || (_templateObject520 = _taggedTemplateLiteral29(["hobo code binder"])))].concat(_toConsumableArray10(get(FREE_RUN, !1) ? [] : [$item(_templateObject617 || (_templateObject617 = _taggedTemplateLiteral29(["mafia thumb ring"])))]))),
+      equip: getEquipment([$item(_templateObject520 || (_templateObject520 = _taggedTemplateLiteral29(["gatorskin umbrella"]))), $item(_templateObject617 || (_templateObject617 = _taggedTemplateLiteral29(["hobo code binder"])))].concat(_toConsumableArray10(get(FREE_RUN, !1) ? [] : [$item(_templateObject713 || (_templateObject713 = _taggedTemplateLiteral29(["mafia thumb ring"])))]))),
       modifier: "-combat",
-      bonuses: /* @__PURE__ */ new Map([[$item(_templateObject713 || (_templateObject713 = _taggedTemplateLiteral29(["mafia thumb ring"]))), 200]]),
+      bonuses: /* @__PURE__ */ new Map([[$item(_templateObject812 || (_templateObject812 = _taggedTemplateLiteral29(["mafia thumb ring"]))), 200]]),
       familiar: selectBestFamiliar()
     };
   },
@@ -12907,7 +12918,7 @@ function Sewers(nocage) {
   return {
     name: "Sewers",
     completed: function() {
-      return complete || (complete = !!(0, import_kolmafia41.visitUrl)("clan_hobopolis.php?place=3&pwd", !1).match(/Richard's Redoubt/)), complete;
+      return (0, import_kolmafia41.myAdventures)() < 11 ? !0 : (complete || (complete = !!(0, import_kolmafia41.visitUrl)("clan_hobopolis.php?place=3&pwd", !1).match(/Richard's Redoubt/)), complete);
     },
     tasks: [DriveStealthily].concat(_toConsumableArray11(nocage ? [] : CageTasks), _toConsumableArray11(AcquireTasks), _toConsumableArray11(ExploreTasks))
   };
@@ -13011,7 +13022,7 @@ var import_kolmafia43 = require("kolmafia");
 
 // src/quests/wander/shared/combat.ts
 init_kolmafia_polyfill();
-var _templateObject148, _templateObject260, _templateObject340, _templateObject430, _templateObject521, _templateObject618, _templateObject714, _templateObject812, _templateObject911, _templateObject1012, _templateObject1111;
+var _templateObject148, _templateObject260, _templateObject340, _templateObject430, _templateObject521, _templateObject618, _templateObject714, _templateObject813, _templateObject911, _templateObject1012, _templateObject1111;
 function _toConsumableArray13(r) {
   return _arrayWithoutHoles13(r) || _iterableToArray13(r) || _unsupportedIterableToArray22(r) || _nonIterableSpread13();
 }
@@ -13050,7 +13061,7 @@ function defaultEquipment() {
   return {
     weapon: $item(_templateObject430 || (_templateObject430 = _taggedTemplateLiteral32(["June cleaver"]))),
     "off-hand": $item(_templateObject521 || (_templateObject521 = _taggedTemplateLiteral32(["cursed magnifying glass"]))),
-    pants: sweatNeeded > 0 && have($item(_templateObject618 || (_templateObject618 = _taggedTemplateLiteral32(["designer sweatpants"])))) ? $item(_templateObject714 || (_templateObject714 = _taggedTemplateLiteral32(["designer sweatpants"]))) : $item(_templateObject812 || (_templateObject812 = _taggedTemplateLiteral32(["Pantsgiving"]))),
+    pants: sweatNeeded > 0 && have($item(_templateObject618 || (_templateObject618 = _taggedTemplateLiteral32(["designer sweatpants"])))) ? $item(_templateObject714 || (_templateObject714 = _taggedTemplateLiteral32(["designer sweatpants"]))) : $item(_templateObject813 || (_templateObject813 = _taggedTemplateLiteral32(["Pantsgiving"]))),
     acc1: $item(_templateObject911 || (_templateObject911 = _taggedTemplateLiteral32(["lucky gold ring"]))),
     acc2: $item(_templateObject1012 || (_templateObject1012 = _taggedTemplateLiteral32(["Mr. Cheeng's spectacles"]))),
     acc3: $item(_templateObject1111 || (_templateObject1111 = _taggedTemplateLiteral32(["Mr. Screege's spectacles"])))
@@ -13058,7 +13069,7 @@ function defaultEquipment() {
 }
 
 // src/quests/spookyraven/tasks/library.ts
-var _templateObject149, _templateObject261, _templateObject341, _templateObject431, _templateObject524, _templateObject619, _templateObject715, _templateObject813, _templateObject912, _templateObject1013, _templateObject1112, _templateObject1210, _templateObject1310, _templateObject1410, _templateObject158, _templateObject168, _templateObject178, _templateObject188;
+var _templateObject149, _templateObject261, _templateObject341, _templateObject431, _templateObject524, _templateObject619, _templateObject715, _templateObject814, _templateObject912, _templateObject1013, _templateObject1112, _templateObject1210, _templateObject1310, _templateObject1410, _templateObject158, _templateObject168, _templateObject178, _templateObject188;
 function ownKeys9(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -13134,7 +13145,7 @@ function libraryTask() {
       return (0, import_kolmafia43.cliExecute)("parka acid");
     },
     combat: new CombatStrategy().autoattack(function() {
-      return Macro2.if_("monstername writing desk", Macro2.externalIf(have($skill(_templateObject813 || (_templateObject813 = _taggedTemplateLiteral33(["Transcendent Olfaction"])))) && get("olfactedMonster") !== $monster(_templateObject912 || (_templateObject912 = _taggedTemplateLiteral33(["writing desk"]))) && get("_olfactionsUsed") < 3, Macro2.skill($skill(_templateObject1013 || (_templateObject1013 = _taggedTemplateLiteral33(["Transcendent Olfaction"]))))).externalIf(have($skill(_templateObject1112 || (_templateObject1112 = _taggedTemplateLiteral33(["Gallapagosian Mating Call"])))) && get("_gallapagosMonster") !== $monster(_templateObject1210 || (_templateObject1210 = _taggedTemplateLiteral33(["writing desk"]))), Macro2.skill($skill(_templateObject1310 || (_templateObject1310 = _taggedTemplateLiteral33(["Gallapagosian Mating Call"]))))).skill($skill(_templateObject1410 || (_templateObject1410 = _taggedTemplateLiteral33(["Spit jurassic acid"]))))).trySkill($skill(_templateObject158 || (_templateObject158 = _taggedTemplateLiteral33(["Throw Latte on Opponent"])))).runaway().repeat();
+      return Macro2.if_("monstername writing desk", Macro2.externalIf(have($skill(_templateObject814 || (_templateObject814 = _taggedTemplateLiteral33(["Transcendent Olfaction"])))) && get("olfactedMonster") !== $monster(_templateObject912 || (_templateObject912 = _taggedTemplateLiteral33(["writing desk"]))) && get("_olfactionsUsed") < 3, Macro2.skill($skill(_templateObject1013 || (_templateObject1013 = _taggedTemplateLiteral33(["Transcendent Olfaction"]))))).externalIf(have($skill(_templateObject1112 || (_templateObject1112 = _taggedTemplateLiteral33(["Gallapagosian Mating Call"])))) && get("_gallapagosMonster") !== $monster(_templateObject1210 || (_templateObject1210 = _taggedTemplateLiteral33(["writing desk"]))), Macro2.skill($skill(_templateObject1310 || (_templateObject1310 = _taggedTemplateLiteral33(["Gallapagosian Mating Call"]))))).skill($skill(_templateObject1410 || (_templateObject1410 = _taggedTemplateLiteral33(["Spit jurassic acid"]))))).trySkill($skill(_templateObject158 || (_templateObject158 = _taggedTemplateLiteral33(["Throw Latte on Opponent"])))).runaway().repeat();
     }),
     do: function() {
       Cartography_exports.have() && get("_monstersMapped") < 3 ? Cartography_exports.mapMonster($location(_templateObject168 || (_templateObject168 = _taggedTemplateLiteral33(["The Haunted Library"]))), $monster(_templateObject178 || (_templateObject178 = _taggedTemplateLiteral33(["writing desk"])))) : (0, import_kolmafia43.adv1)($location(_templateObject188 || (_templateObject188 = _taggedTemplateLiteral33(["The Haunted Library"]))), -1, ""), (0, import_kolmafia43.visitUrl)("main.php?latte=1");
@@ -13161,7 +13172,7 @@ var import_kolmafia48 = require("kolmafia");
 // src/quests/townsquare/tasks/explore.ts
 init_kolmafia_polyfill();
 var import_kolmafia45 = require("kolmafia");
-var _templateObject150, _templateObject268, _templateObject347, _templateObject434, _templateObject525, _templateObject620, _templateObject716, _templateObject814, _templateObject913, _templateObject1014, _templateObject1113, _templateObject1211, _templateObject1311, _templateObject1411;
+var _templateObject150, _templateObject268, _templateObject347, _templateObject434, _templateObject525, _templateObject620, _templateObject716, _templateObject815, _templateObject913, _templateObject1014, _templateObject1113, _templateObject1211, _templateObject1311, _templateObject1411;
 function ownKeys10(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -13253,7 +13264,7 @@ var elementMap = {
           _this.targetElement = Object.keys(_this.parts).find(function(elem) {
             return _this.parts[elem] < 1;
           });
-          var targetMp = (0, import_kolmafia45.mpCost)($skill(_templateObject716 || (_templateObject716 = _taggedTemplateLiteral34(["Curse of Weaksauce"])))) + (0, import_kolmafia45.mpCost)($skill(_templateObject814 || (_templateObject814 = _taggedTemplateLiteral34(["Stuffed Mortar Shell"]))));
+          var targetMp = (0, import_kolmafia45.mpCost)($skill(_templateObject716 || (_templateObject716 = _taggedTemplateLiteral34(["Curse of Weaksauce"])))) + (0, import_kolmafia45.mpCost)($skill(_templateObject815 || (_templateObject815 = _taggedTemplateLiteral34(["Stuffed Mortar Shell"]))));
           (0, import_kolmafia45.myMp)() < targetMp && (0, import_kolmafia45.restoreMp)(targetMp), _this.nextFightPrepped = !0;
         }
       }, _objectSpread10(_objectSpread10({}, this.baseTask), {}, {
@@ -13465,7 +13476,7 @@ var scoboParts = {
 }, scobo = new Scobo(scoboParts), explore2 = new Explore2(scoboParts), skipTownSquare = !1, TownSquare = {
   name: "Town Square",
   completed: function() {
-    return skipTownSquare || (skipTownSquare = !!(0, import_kolmafia48.visitUrl)("clan_hobopolis.php?place=8&pwd", !1).match(/The Purple Light District/), skipTownSquare && (0, import_kolmafia48.print)("Town Square is sufficiently finished to open the PLD.", "purple")), skipTownSquare;
+    return (0, import_kolmafia48.myAdventures)() < 1 ? !0 : (skipTownSquare || (skipTownSquare = !!(0, import_kolmafia48.visitUrl)("clan_hobopolis.php?place=8&pwd", !1).match(/The Purple Light District/), skipTownSquare && (0, import_kolmafia48.print)("Town Square is sufficiently finished to open the PLD.", "purple")), skipTownSquare);
   },
   tasks: [DriveStealthily, Snapper2].concat(_toConsumableArray14(scobo.getTasks()), _toConsumableArray14(explore2.getTasks()))
 };
