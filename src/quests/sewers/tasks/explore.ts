@@ -1,5 +1,5 @@
 import { CombatStrategy, Task } from "grimoire-kolmafia";
-import { $item, $location, $skill, get } from "libram";
+import { $effect, $item, $location, $skill, AprilingBandHelmet, get, have } from "libram";
 
 import { Macro } from "../../../lib/combat";
 import { basicEffects, noncombatEffects } from "../../../lib/effects";
@@ -15,6 +15,12 @@ const tryFreeRunThenAttack = Macro.trySkill($skill`Bowl a Curveball`)
   .repeat();
 
 export const ExploreTasks: Task[] = [
+  {
+    name: `Conduct Apriling Band Patrol Beat`,
+    ready: () => AprilingBandHelmet.canChangeSong(),
+    completed: () => have($effect`Apriling Band Patrol Beat`),
+    do: () => AprilingBandHelmet.changeSong("Apriling Band Patrol Beat"),
+  },
   {
     name: "Explore sewer",
     completed: () => false,
