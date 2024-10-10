@@ -1,8 +1,10 @@
 import { CombatStrategy, Task } from "grimoire-kolmafia";
 import { getProperty, print, visitUrl } from "kolmafia";
-import { $effect, $location, AprilingBandHelmet, have } from "libram";
+import { $effect, $item, $location, AprilingBandHelmet, have } from "libram";
 
 import { Macro } from "../../../lib/combat";
+import { getEquipment } from "../../../lib/equipment";
+import { selectWorstFamiliar } from "../../../lib/familiar";
 import { capCombat } from "../../../lib/preparepluscom";
 import { clubPopularityFromRaidlog } from "../../../lib/raidlog";
 
@@ -22,6 +24,12 @@ export class Explore {
     prepare: () => {
       capCombat();
     },
+    outfit: () => ({
+      equip: getEquipment([$item`mafia thumb ring`]),
+      modifier: "+combat",
+      bonuses: new Map([[$item`mafia thumb ring`, 200]]),
+      familiar: selectWorstFamiliar(),
+    }),
     completed: () => this.doneWithPLD,
     combat: new CombatStrategy().autoattack(Macro.attackKill()),
   };

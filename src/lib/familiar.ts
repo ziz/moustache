@@ -8,6 +8,29 @@ import {
 } from "kolmafia";
 import { $familiar, $item, get, have } from "libram";
 
+export function selectWorstFamiliar(): Familiar {
+  if (
+    (myFamiliar() === $familiar`Stooper` && myInebriety() === inebrietyLimit()) ||
+    myInebriety() === inebrietyLimit() + 1
+  ) {
+    return $familiar`Stooper`;
+  }
+
+  if (have($familiar`Disembodied Hand`) && have($item`Dungeon Fist gauntlet`)) {
+    return $familiar`Disembodied Hand`;
+  }
+
+  if (have($familiar`Jumpsuited Hound Dog`)) {
+    return $familiar`Jumpsuited Hound Dog`;
+  }
+
+  if (have($familiar`Cookbookbat`)) {
+    return $familiar`Cookbookbat`;
+  }
+
+  return $familiar`none`;
+}
+
 export function selectBestFamiliar(): Familiar {
   if (
     (myFamiliar() === $familiar`Stooper` && myInebriety() === inebrietyLimit()) ||
