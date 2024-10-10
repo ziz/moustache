@@ -4,7 +4,6 @@ import { myAdventures, print, visitUrl } from "kolmafia";
 import { DriveStealthily } from "../shared/asdon";
 import { Explore } from "./tasks/explore";
 import { Scobo } from "./tasks/scobo";
-import { Snapper } from "./tasks/snapper";
 
 const scoboParts = {
   hot: 0,
@@ -36,5 +35,5 @@ export const TownSquare: Quest<Task> = {
     }
     return skipTownSquare;
   },
-  tasks: [DriveStealthily, Snapper, ...scobo.getTasks(), ...explore.getTasks()],
+  tasks: [DriveStealthily, ...scobo.getTasks(), ...explore.getTasks()],
 };
