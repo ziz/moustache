@@ -10,7 +10,6 @@ const daily = (prop: string): string => {
 
 export const CLAN = prefix("clan");
 export const ASDON = prefix("useAsdon");
-export const SKIP_GARBO = prefix("skipGarbo");
 export const FREE_RUN = prefix("freeRun");
 
 // export const REFUSES_UNTIL_COMPOST = prefix("choice216");

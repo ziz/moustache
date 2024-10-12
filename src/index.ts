@@ -54,7 +54,6 @@ export function main(command?: string): void {
     return;
   }
 
-  // checkGarbo();
   checkClan();
   maybeResetDailyPreferences();
 

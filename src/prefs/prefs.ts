@@ -1,4 +1,4 @@
-import { abort, print, todayToString, userConfirm } from "kolmafia";
+import { print, todayToString } from "kolmafia";
 import { get, set } from "libram";
 
 import * as Properties from "./properties";
@@ -32,20 +32,6 @@ export function maybeResetDailyPreferences(): void {
   if (resetDailyPreference(Properties.RESULTS_DAY)) {
     set(Properties.TURNS_SPENT, 0);
   }
-}
-
-export function checkGarbo(): void {
-  if (get(Properties.SKIP_GARBO)) {
-    return;
-  }
-  // Certified 100% "not a hack"
-  if (parseInt(get("garboEmbezzlerCount")) > 0) {
-    return;
-  }
-  if (userConfirm("You have not yet run garbo. Are you sure you wish to proceed?")) {
-    return;
-  }
-  abort("Go bonk those embezzlers real good.");
 }
 
 export function checkClan(): void {
