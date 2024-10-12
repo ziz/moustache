@@ -1,13 +1,14 @@
 import { Task } from "grimoire-kolmafia";
-import { $location, AutumnAton } from "libram";
+import { getAutumnatonLocations } from "kolmafia";
+import { $locations, AutumnAton } from "libram";
 
 export const deployFalle: Task = {
   name: "Deploy fall-e",
   completed: () => !AutumnAton.available(),
   do: () => {
-    if (AutumnAton.sendTo($location`The Haunted Conservatory`)) {
-      return;
+    for (const loc of $locations`Shadow Rift, The Haunted Conservatory, The Haunted Pantry`) {
+      if (AutumnAton.sendTo(loc)) return;
     }
-    AutumnAton.sendTo($location`The Haunted Pantry`);
+    getAutumnatonLocations();
   },
 };
