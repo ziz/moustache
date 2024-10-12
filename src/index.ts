@@ -1,12 +1,10 @@
 import { Args, getTasks } from "grimoire-kolmafia";
 import { cliExecute, getClanId, myMeat, print, visitUrl } from "kolmafia";
-import { Clan, get, set } from "libram";
+import { Clan, get } from "libram";
 
 import * as CognacStats from "./lib/cognac";
 import { Engine } from "./lib/engine";
-// import { Cognac } from "./quests/cognac/cognac";
 import { clubPopularityFromRaidlog } from "./lib/raidlog";
-// import { Gossip } from "./lib/gossip";
 import { checkClan, maybeResetDailyPreferences, showPreferences } from "./prefs/prefs";
 import * as Properties from "./prefs/properties";
 import { PLD } from "./quests/pld/pld";
@@ -81,8 +79,6 @@ export function main(command?: string): void {
     engine.run();
   } finally {
     engine.destruct();
-    set(Properties.HEAP_ATTEMPTS, 0);
-    set(Properties.LAST_STENCH_CHECK, 0);
     // new Gossip().destroy();
     Clan.join(startingClan);
     if (meatToCloset > 0) {

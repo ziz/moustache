@@ -4,9 +4,9 @@ const prefix = (prop: string): string => {
   return `${SCRIPT_PREFIX}_${prop}`;
 };
 
-const daily = (prop: string): string => {
-  return `_${prefix(prop)}`;
-};
+// const daily = (prop: string): string => {
+//   return `_${prefix(prop)}`;
+// };
 
 export const CLAN = prefix("clan");
 export const ASDON = prefix("useAsdon");
@@ -22,7 +22,3 @@ export const TURNS_SPENT = prefix("turnsSpentToday");
 export const LIFETIME_TURNS_SPENT = prefix("turnsLifetime");
 
 export const CLUB_POPULARITY = prefix("clubPopularity");
-
-export const HEAP_ATTEMPTS = daily("heapAttempts");
-export const LAST_STENCH_CHECK = daily("heapAttemptsAtLastStenchCheck");
-export const CURRENT_PLAYERS = daily("currentPlayers");
