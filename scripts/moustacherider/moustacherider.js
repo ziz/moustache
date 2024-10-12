@@ -12244,6 +12244,10 @@ function value(info) {
   return info.duration * info.modifier / info.price;
 }
 function capCombat() {
+  for (var effname in (0, import_kolmafia29.myEffects)()) {
+    var eff = import_kolmafia29.Effect.get(effname);
+    get2("Combat Rate", eff) < 0 && uneffect(eff);
+  }
   for (var itemBought = !1, i = 0; i < itemInfo.length; i++) {
     var info = itemInfo[i], item4 = info.item;
     if ((0, import_kolmafia29.combatRateModifier)() >= 35)
@@ -12774,6 +12778,10 @@ function value2(info) {
   return info.duration * info.modifier / info.price;
 }
 function capNonCombat() {
+  for (var effname in (0, import_kolmafia39.myEffects)()) {
+    var eff = import_kolmafia39.Effect.get(effname);
+    get2("Combat Rate", eff) > 0 && uneffect(eff);
+  }
   for (var itemBought = !1, i = 0; i < itemInfo2.length; i++) {
     var info = itemInfo2[i], item4 = info.item;
     if ((0, import_kolmafia39.combatRateModifier)() <= -35)
