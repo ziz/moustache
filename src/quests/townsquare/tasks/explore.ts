@@ -3,6 +3,7 @@ import { haveEffect, mpCost, myMp, restoreMp } from "kolmafia";
 import { $effect, $effects, $item, $location, $skill, uneffect } from "libram";
 
 import { Macro } from "../../../lib/combat";
+import { getEquipment } from "../../../lib/equipment";
 import { selectDropFamiliar } from "../../../lib/familiar";
 import { ScoboPartType, ScoboParts } from "./parts";
 
@@ -70,8 +71,15 @@ export class Explore {
         combat: new CombatStrategy().autoattack(Macro.attackKill()),
         effects: [$effect`Carol of the Bulls`],
         outfit: {
-          equip: [$item`Fourth of May Cosplay Saber`, $item`mafia thumb ring`],
-          bonuses: new Map([[$item`Space Trip safety headphones`, 200]]),
+          equip: getEquipment([$item`mafia thumb ring`]),
+          modifier: "weapon dmg",
+          bonuses: new Map([
+            [$item`Fourth of May Cosplay Saber`, 300],
+            [$item`June cleaver`, 299],
+            [$item`Space Trip safety headphones`, 200],
+            [$item`HOA regulation book`, 200],
+            [$item`pine cone necklace`, 100],
+          ]),
           familiar: selectDropFamiliar(),
         },
       },
@@ -82,8 +90,13 @@ export class Explore {
         effects: () => elementMap[this.targetElement],
         combat: new CombatStrategy().autoattack(Macro.mortarShell()),
         outfit: {
-          equip: [$item`mafia thumb ring`],
-          bonuses: new Map([[$item`Space Trip safety headphones`, 200]]),
+          equip: getEquipment([$item`mafia thumb ring`]),
+          modifier: "spell dmg",
+          bonuses: new Map([
+            [$item`Space Trip safety headphones`, 200],
+            [$item`HOA regulation book`, 200],
+            [$item`pine cone necklace`, 100],
+          ]),
           familiar: selectDropFamiliar(),
         },
       },

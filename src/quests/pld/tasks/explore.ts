@@ -26,8 +26,9 @@ export class Explore {
     },
     outfit: () => ({
       equip: getEquipment([$item`mafia thumb ring`]),
+
       modifier: "+combat, weapon dmg, sleaze res, 0.05 hp",
-      bonuses: new Map([[$item`mafia thumb ring`, 200]]),
+      //bonuses: new Map([[$item`mafia thumb ring`, 500]]),
       familiar: selectWorstFamiliar(),
     }),
     completed: () => this.doneWithPLD,
