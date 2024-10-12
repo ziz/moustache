@@ -17,13 +17,8 @@ export function selectDropFamiliar(): Familiar {
   }
 
   let fam: Familiar = $familiar`none`;
-  for (fam of $familiars`Li'l Xenomorph`) {
-    if (have(fam) && fam.dropsToday < fam.dropsLimit) {
-      return fam;
-    }
-  }
 
-  for (fam of $familiars`Reagnimated Gnome, Cookbookbat`) {
+  for (fam of $familiars`Reagnimated Gnome, Cookbookbat, Squamous Gibberer, Stocking Mimic`) {
     if (have(fam)) {
       return fam;
     }
