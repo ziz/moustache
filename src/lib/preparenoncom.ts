@@ -6,10 +6,11 @@ import {
   effectModifier,
   haveEffect,
   mallPrice,
+  myEffects,
   numericModifier,
   use,
 } from "kolmafia";
-import { $items, getModifier, have } from "libram";
+import { $items, getModifier, have, uneffect } from "libram";
 
 type Info = { item: Item; modifier: number; duration: number; price: number };
 
@@ -68,6 +69,13 @@ function value(info: Info): number {
 }
 
 export function capNonCombat(): void {
+  for (const effname in myEffects()) {
+    const eff = Effect.get(effname);
+    if (getModifier("Combat Rate", eff) > 0) {
+      uneffect(eff);
+    }
+  }
+
   let itemBought = false;
 
   for (let i = 0; i < itemInfo.length; i++) {
