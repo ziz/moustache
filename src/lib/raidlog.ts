@@ -30,6 +30,23 @@ function between(text: string, start: string, end: string): string {
 //   return matches;
 // }
 
+export function roughHoboRemnant(page: string): number {
+  // This is a rough estimate of the number of hobos remaining in PLD.
+  // It's not exact but it's good enough to stop us from starting really useless fights.
+  // We assume the smallest number of starting hobos (490), that all the hobo fights happened first,
+  // and then subtract 10%. rounded down, for each barfight.
+  const raidLog = between(page, "<b>Hobopolis", "<b>Loot Distribution:");
+  const barfights = extractInt(/started (a|\d*) barfight/g, raidLog);
+  const sleazeHobos = extractInt(/defeated\s+Sleaze hobo x (\d*)/g, raidLog);
+  let hobos = 490 - sleazeHobos;
+  // print(`490 - ${sleazeHobos} = ${hobos}, barfights: ${barfights}`);
+  for (let i = 0; i < barfights; i++) {
+    hobos = Math.ceil(hobos * 0.9);
+    // print(`barfight ${i + 1}: ${hobos}`);
+  }
+  return hobos;
+}
+
 export function clubPopularityFromRaidlog(page: string): number {
   const raidLog = between(page, "<b>Hobopolis", "<b>Loot Distribution:");
 

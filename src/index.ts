@@ -4,7 +4,7 @@ import { Clan, get } from "libram";
 
 import * as CognacStats from "./lib/cognac";
 import { Engine } from "./lib/engine";
-import { clubPopularityFromRaidlog } from "./lib/raidlog";
+import { clubPopularityFromRaidlog, roughHoboRemnant } from "./lib/raidlog";
 import { checkClan, maybeResetDailyPreferences, showPreferences } from "./prefs/prefs";
 import * as Properties from "./prefs/properties";
 import { PLD } from "./quests/pld/pld";
@@ -48,7 +48,9 @@ export function main(command?: string): void {
     return;
   }
   if (args.showclub) {
-    print(`Club total: ${clubPopularityFromRaidlog(visitUrl("clan_raidlogs.php"))}`);
+    const raidlog = visitUrl("clan_raidlogs.php");
+    print(`Club total: ${clubPopularityFromRaidlog(raidlog)}`);
+    print(`Rough sleaze hobos remaining: ${roughHoboRemnant(raidlog)}`);
     return;
   }
 

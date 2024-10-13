@@ -6,10 +6,11 @@ import { Macro } from "../../../lib/combat";
 import { getEquipment } from "../../../lib/equipment";
 import { selectWorstFamiliar } from "../../../lib/familiar";
 import { capCombat } from "../../../lib/preparepluscom";
-import { clubPopularityFromRaidlog } from "../../../lib/raidlog";
+import { clubPopularityFromRaidlog, roughHoboRemnant } from "../../../lib/raidlog";
 
 export class Explore {
   clubAdventures = 0;
+  sleazeHobosLeft = 490;
   doneWithPLD = false;
 
   baseTask = {
@@ -19,10 +20,14 @@ export class Explore {
         this.doneWithPLD = true;
         print("Chester waits. He waits. He waits. He waits. He waits.", "purple");
       }
-      this.clubAdventures = clubPopularityFromRaidlog(visitUrl("clan_raidlogs.php"));
+      const raidlog = visitUrl("clan_raidlogs.php");
+      this.clubAdventures = clubPopularityFromRaidlog(raidlog);
+      this.sleazeHobosLeft = roughHoboRemnant(raidlog);
     },
     prepare: () => {
-      capCombat();
+      if (this.sleazeHobosLeft >= 20) {
+        capCombat();
+      }
     },
     outfit: () => ({
       equip: getEquipment([$item`mafia thumb ring`]),
@@ -56,12 +61,23 @@ export class Explore {
       },
       {
         ...this.baseTask,
-        ready: () => this.clubAdventures >= 21,
+        ready: () => this.clubAdventures >= 21 && this.sleazeHobosLeft >= 20,
         name: "Purple it down (let's you and him fight)",
         choices: {
           219: 1, // The Furtivity of My City: fight sleaze hobo
           223: 1, // Getting Clubbed: get inside
           224: 2, // Exclusive!: Pick several fights
+          205: 2, // Van, Damn: don't fight Chester
+        },
+      },
+      {
+        ...this.baseTask,
+        ready: () => this.clubAdventures >= 21 && this.sleazeHobosLeft < 20,
+        name: "Purple all around (let's you and me fight)",
+        choices: {
+          219: 1, // The Furtivity of My City: fight sleaze hobo
+          223: 1, // Getting Clubbed: get inside
+          224: 1, // Exclusive!: Pick a fight
           205: 2, // Van, Damn: don't fight Chester
         },
       },
