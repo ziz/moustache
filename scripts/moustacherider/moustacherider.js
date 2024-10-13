@@ -11791,6 +11791,11 @@ function between(text, start, end) {
   var endIndex = text.indexOf(end, startIndex + start.length);
   return endIndex === -1 ? "" : text.slice(startIndex + start.length, endIndex);
 }
+function roughHoboRemnant(page) {
+  for (var raidLog = between(page, "<b>Hobopolis", "<b>Loot Distribution:"), barfights = extractInt(/started (a|\d*) barfight/g, raidLog), sleazeHobos = extractInt(/defeated\s+Sleaze hobo x (\d*)/g, raidLog), hobos = 490 - sleazeHobos, i = 0; i < barfights; i++)
+    hobos = Math.ceil(hobos * 0.9);
+  return hobos;
+}
 function clubPopularityFromRaidlog(page) {
   var raidLog = between(page, "<b>Hobopolis", "<b>Loot Distribution:"), positives = extractInt(/(diverted some cold|bamboozled|flimflammed).*?\((\d*) turns?\)/g, raidLog, 2), steams = extractInt(/diverted some steam.*?\((\d*) turns?\)/g, raidLog), nosepicks = Math.max(extractInt(/danced like a superstar.*?\((\d*) turns?\)/g, raidLog) - 1, 0), result = positives - steams - nosepicks;
   return result;
@@ -12330,15 +12335,17 @@ function _toPrimitive16(t, r) {
 var Explore = /* @__PURE__ */ function() {
   function Explore3() {
     var _this = this;
-    _classCallCheck15(this, Explore3), _defineProperty12(this, "clubAdventures", 0), _defineProperty12(this, "doneWithPLD", !1), _defineProperty12(this, "baseTask", {
+    _classCallCheck15(this, Explore3), _defineProperty12(this, "clubAdventures", 0), _defineProperty12(this, "sleazeHobosLeft", 490), _defineProperty12(this, "doneWithPLD", !1), _defineProperty12(this, "baseTask", {
       do: function() {
         return $location(_templateObject90 || (_templateObject90 = _taggedTemplateLiteral19(["The Purple Light District"])));
       },
       post: function() {
-        ["Van, Damn", "This Van's a' Rockin'"].includes((0, import_kolmafia30.getProperty)("lastEncounter")) && (_this.doneWithPLD = !0, (0, import_kolmafia30.print)("Chester waits. He waits. He waits. He waits. He waits.", "purple")), _this.clubAdventures = clubPopularityFromRaidlog((0, import_kolmafia30.visitUrl)("clan_raidlogs.php"));
+        ["Van, Damn", "This Van's a' Rockin'"].includes((0, import_kolmafia30.getProperty)("lastEncounter")) && (_this.doneWithPLD = !0, (0, import_kolmafia30.print)("Chester waits. He waits. He waits. He waits. He waits.", "purple"));
+        var raidlog = (0, import_kolmafia30.visitUrl)("clan_raidlogs.php");
+        _this.clubAdventures = clubPopularityFromRaidlog(raidlog), _this.sleazeHobosLeft = roughHoboRemnant(raidlog);
       },
       prepare: function() {
-        capCombat();
+        _this.sleazeHobosLeft >= 20 && capCombat();
       },
       outfit: function() {
         return {
@@ -12386,7 +12393,7 @@ var Explore = /* @__PURE__ */ function() {
         }
       }), _objectSpread8(_objectSpread8({}, this.baseTask), {}, {
         ready: function() {
-          return _this.clubAdventures >= 21;
+          return _this.clubAdventures >= 21 && _this.sleazeHobosLeft >= 20;
         },
         name: "Purple it down (let's you and him fight)",
         choices: {
@@ -12396,6 +12403,21 @@ var Explore = /* @__PURE__ */ function() {
           // Getting Clubbed: get inside
           224: 2,
           // Exclusive!: Pick several fights
+          205: 2
+          // Van, Damn: don't fight Chester
+        }
+      }), _objectSpread8(_objectSpread8({}, this.baseTask), {}, {
+        ready: function() {
+          return _this.clubAdventures >= 21 && _this.sleazeHobosLeft < 20;
+        },
+        name: "Purple all around (let's you and me fight)",
+        choices: {
+          219: 1,
+          // The Furtivity of My City: fight sleaze hobo
+          223: 1,
+          // Getting Clubbed: get inside
+          224: 1,
+          // Exclusive!: Pick a fight
           205: 2
           // Van, Damn: don't fight Chester
         }
@@ -13876,7 +13898,8 @@ function main(command) {
     return;
   }
   if (args.showclub) {
-    (0, import_kolmafia52.print)("Club total: ".concat(clubPopularityFromRaidlog((0, import_kolmafia52.visitUrl)("clan_raidlogs.php"))));
+    var raidlog = (0, import_kolmafia52.visitUrl)("clan_raidlogs.php");
+    (0, import_kolmafia52.print)("Club total: ".concat(clubPopularityFromRaidlog(raidlog))), (0, import_kolmafia52.print)("Rough sleaze hobos remaining: ".concat(roughHoboRemnant(raidlog)));
     return;
   }
   checkClan(), maybeResetDailyPreferences();
