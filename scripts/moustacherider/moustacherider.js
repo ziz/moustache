@@ -11589,55 +11589,9 @@ var Guards = /* @__PURE__ */ function() {
 // src/index.ts
 var import_kolmafia52 = require("kolmafia");
 
-// src/lib/cognac.ts
-init_kolmafia_polyfill();
-var import_kolmafia21 = require("kolmafia");
-
-// src/prefs/properties.ts
-var properties_exports = {};
-__export(properties_exports, {
-  ASDON: function() {
-    return ASDON;
-  },
-  CLAN: function() {
-    return CLAN;
-  },
-  CLUB_POPULARITY: function() {
-    return CLUB_POPULARITY;
-  },
-  FREE_RUN: function() {
-    return FREE_RUN;
-  },
-  LIFETIME_TURNS_SPENT: function() {
-    return LIFETIME_TURNS_SPENT;
-  },
-  RESULTS_DAY: function() {
-    return RESULTS_DAY;
-  },
-  TURNS_SPENT: function() {
-    return TURNS_SPENT;
-  }
-});
-init_kolmafia_polyfill();
-var SCRIPT_PREFIX = "moustache", prefix = function(prop) {
-  return "".concat(SCRIPT_PREFIX, "_").concat(prop);
-}, CLAN = prefix("clan"), ASDON = prefix("useAsdon"), FREE_RUN = prefix("freeRun"), RESULTS_DAY = prefix("resultsDay"), TURNS_SPENT = prefix("turnsSpentToday"), LIFETIME_TURNS_SPENT = prefix("turnsLifetime"), CLUB_POPULARITY = prefix("clubPopularity");
-
-// src/lib/cognac.ts
-var initialTurns = (0, import_kolmafia21.totalTurnsPlayed)();
-function save() {
-  _set(TURNS_SPENT, get(TURNS_SPENT, 0) + (0, import_kolmafia21.totalTurnsPlayed)() - initialTurns), _set(LIFETIME_TURNS_SPENT, get(LIFETIME_TURNS_SPENT, 0) + (0, import_kolmafia21.totalTurnsPlayed)() - initialTurns);
-}
-function printSession() {
-  (0, import_kolmafia21.print)("Moustache summary:"), (0, import_kolmafia21.print)(""), (0, import_kolmafia21.print)("You've spent ".concat(get(TURNS_SPENT), " turns moustache-hunting this run!"));
-}
-function printLifetime() {
-  (0, import_kolmafia21.print)(""), (0, import_kolmafia21.print)("Moustache lifetime summary:"), (0, import_kolmafia21.print)(""), (0, import_kolmafia21.print)("You've spent ".concat(get(LIFETIME_TURNS_SPENT, 0), " turns moustache-hunting!"), "green");
-}
-
 // src/lib/engine.ts
 init_kolmafia_polyfill();
-var import_kolmafia22 = require("kolmafia");
+var import_kolmafia21 = require("kolmafia");
 var _templateObject68, _templateObject221;
 function ownKeys7(e, r) {
   var t = Object.keys(e);
@@ -11754,7 +11708,7 @@ var Engine2 = /* @__PURE__ */ function(_BaseEngine) {
   return _inherits5(Engine3, _BaseEngine), _createClass13(Engine3, [{
     key: "execute",
     value: function(task) {
-      if (_superPropGet(Engine3, "execute", this, 3)([task]), get("lastEncounter") !== "Poetic Justice" && (0, import_kolmafia22.haveEffect)($effect(_templateObject68 || (_templateObject68 = _taggedTemplateLiteral12(["Beaten Up"])))))
+      if (_superPropGet(Engine3, "execute", this, 3)([task]), get("lastEncounter") !== "Poetic Justice" && (0, import_kolmafia21.haveEffect)($effect(_templateObject68 || (_templateObject68 = _taggedTemplateLiteral12(["Beaten Up"])))))
         throw "Combat lost";
       uneffect($effect(_templateObject221 || (_templateObject221 = _taggedTemplateLiteral12(["Beaten Up"]))));
     }
@@ -11775,6 +11729,52 @@ _defineProperty11(Engine2, "defaultSettings", _objectSpread7(_objectSpread7({}, 
   choiceAdventure1475: "1",
   afterAdventureScript: get("afterAdventureScript", "")
 }));
+
+// src/lib/moustache.ts
+init_kolmafia_polyfill();
+var import_kolmafia22 = require("kolmafia");
+
+// src/prefs/properties.ts
+var properties_exports = {};
+__export(properties_exports, {
+  ASDON: function() {
+    return ASDON;
+  },
+  CLAN: function() {
+    return CLAN;
+  },
+  CLUB_POPULARITY: function() {
+    return CLUB_POPULARITY;
+  },
+  FREE_RUN: function() {
+    return FREE_RUN;
+  },
+  LIFETIME_TURNS_SPENT: function() {
+    return LIFETIME_TURNS_SPENT;
+  },
+  RESULTS_DAY: function() {
+    return RESULTS_DAY;
+  },
+  TURNS_SPENT: function() {
+    return TURNS_SPENT;
+  }
+});
+init_kolmafia_polyfill();
+var SCRIPT_PREFIX = "moustache", prefix = function(prop) {
+  return "".concat(SCRIPT_PREFIX, "_").concat(prop);
+}, CLAN = prefix("clan"), ASDON = prefix("useAsdon"), FREE_RUN = prefix("freeRun"), RESULTS_DAY = prefix("resultsDay"), TURNS_SPENT = prefix("turnsSpentToday"), LIFETIME_TURNS_SPENT = prefix("turnsLifetime"), CLUB_POPULARITY = prefix("clubPopularity");
+
+// src/lib/moustache.ts
+var initialTurns = (0, import_kolmafia22.totalTurnsPlayed)();
+function save() {
+  _set(TURNS_SPENT, get(TURNS_SPENT, 0) + (0, import_kolmafia22.totalTurnsPlayed)() - initialTurns), _set(LIFETIME_TURNS_SPENT, get(LIFETIME_TURNS_SPENT, 0) + (0, import_kolmafia22.totalTurnsPlayed)() - initialTurns);
+}
+function printSession() {
+  (0, import_kolmafia22.print)("Moustache summary:"), (0, import_kolmafia22.print)(""), (0, import_kolmafia22.print)("You've spent ".concat(get(TURNS_SPENT), " turns moustache-hunting this run!"));
+}
+function printLifetime() {
+  (0, import_kolmafia22.print)(""), (0, import_kolmafia22.print)("Moustache lifetime summary:"), (0, import_kolmafia22.print)(""), (0, import_kolmafia22.print)("You've spent ".concat(get(LIFETIME_TURNS_SPENT, 0), " turns moustache-hunting!"), "green");
+}
 
 // src/lib/raidlog.ts
 init_kolmafia_polyfill();
@@ -13866,13 +13866,13 @@ var Wander = {
 };
 
 // src/index.ts
-var args = Args.create("Cognac", "Farming perscription strength alcohol since 2023.", {
+var args = Args.create("Moustacherider", "Farming perscription strength moustaches since 2024.", {
   config: Args.flag({
     help: "Show script configuration, and exit.",
     default: !1
   }),
   stats: Args.flag({
-    help: "Show lifetime achievement awards in the field of cognac.",
+    help: "Show lifetime achievement awards in the field of moustaches.",
     default: !1
   }),
   nocage: Args.flag({
@@ -13903,15 +13903,7 @@ function main(command) {
     return;
   }
   checkClan(), maybeResetDailyPreferences();
-  var cognacTasks = getTasks([
-    Prologue,
-    Wander,
-    Spookyraven,
-    Sewers(args.nocage),
-    TownSquare,
-    PLD
-    // Cognac,
-  ]), engine = new Engine2(cognacTasks), startingClan = (0, import_kolmafia52.getClanId)(), meatToCloset = (0, import_kolmafia52.myMeat)() > 1e6 ? (0, import_kolmafia52.myMeat)() - 1e6 : 0;
+  var mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare, PLD]), engine = new Engine2(mousTasks), startingClan = (0, import_kolmafia52.getClanId)(), meatToCloset = (0, import_kolmafia52.myMeat)() > 1e6 ? (0, import_kolmafia52.myMeat)() - 1e6 : 0;
   try {
     var clan = get(CLAN);
     meatToCloset > 0 && (0, import_kolmafia52.cliExecute)("closet put ".concat(meatToCloset, " meat")), startingClan.toString(10) !== clan && Clan.join(clan), engine.run();
