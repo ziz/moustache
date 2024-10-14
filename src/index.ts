@@ -2,8 +2,8 @@ import { Args, getTasks } from "grimoire-kolmafia";
 import { cliExecute, getClanId, myMeat, print, visitUrl } from "kolmafia";
 import { Clan, get } from "libram";
 
-import * as CognacStats from "./lib/cognac";
 import { Engine } from "./lib/engine";
+import * as MouStats from "./lib/moustache";
 import { clubPopularityFromRaidlog, roughHoboRemnant } from "./lib/raidlog";
 import { checkClan, maybeResetDailyPreferences, showPreferences } from "./prefs/prefs";
 import * as Properties from "./prefs/properties";
@@ -14,13 +14,13 @@ import { Spookyraven } from "./quests/spookyraven/spookyraven";
 import { TownSquare } from "./quests/townsquare/townsquare";
 import { Wander } from "./quests/wander/wander";
 
-const args = Args.create("Cognac", "Farming perscription strength alcohol since 2023.", {
+const args = Args.create("Moustacherider", "Farming perscription strength moustaches since 2024.", {
   config: Args.flag({
     help: "Show script configuration, and exit.",
     default: false,
   }),
   stats: Args.flag({
-    help: "Show lifetime achievement awards in the field of cognac.",
+    help: "Show lifetime achievement awards in the field of moustaches.",
     default: false,
   }),
   nocage: Args.flag({
@@ -44,7 +44,7 @@ export function main(command?: string): void {
     return;
   }
   if (args.stats) {
-    CognacStats.printLifetime();
+    MouStats.printLifetime();
     return;
   }
   if (args.showclub) {
@@ -57,16 +57,8 @@ export function main(command?: string): void {
   checkClan();
   maybeResetDailyPreferences();
 
-  const cognacTasks = getTasks([
-    Prologue,
-    Wander,
-    Spookyraven,
-    Sewers(args.nocage),
-    TownSquare,
-    PLD,
-    // Cognac,
-  ]);
-  const engine = new Engine(cognacTasks);
+  const mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare, PLD]);
+  const engine = new Engine(mousTasks);
 
   const startingClan = getClanId();
   const meatToCloset = myMeat() > 1000000 ? myMeat() - 1000000 : 0;
@@ -86,7 +78,7 @@ export function main(command?: string): void {
     if (meatToCloset > 0) {
       cliExecute(`closet take ${meatToCloset} meat`);
     }
-    CognacStats.save();
-    CognacStats.printSession();
+    MouStats.save();
+    MouStats.printSession();
   }
 }

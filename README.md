@@ -8,7 +8,7 @@ Welcome to the `moustache` repo!
 
 moustacherider is a script that will automatically try and steal Chester's moustache for the clan Photo Booth. The script should work regardless of your loadout.
 
-This is a badly edited fork of https://github.com/tigerinanenet/cognac. Blame sepos. Or thank them, either way.
+This is a badly edited fork of <https://github.com/tigerinanenet/cognac>. Blame sepos. Or thank them, either way.
 
 ## Install
 
@@ -57,8 +57,6 @@ moustache will also
 
 moustache will work for any loadout. However, there are a few star items that really shine in this script, or at least in the cognac precursor to this script.
 
-- Greatest american pants
-  - It's basically a free +20% adventures, since we are running all the time.
 - Mafia thumb ring
   - It triggers on turn taking runaways. It's free adventures.
 - June Cleaver
