@@ -12142,7 +12142,7 @@ function _taggedTemplateLiteral17(e, t) {
 function selectDropFamiliar() {
   if ((0, import_kolmafia28.myFamiliar)() === $familiar(_templateObject80 || (_templateObject80 = _taggedTemplateLiteral17(["Stooper"]))) && (0, import_kolmafia28.myInebriety)() === (0, import_kolmafia28.inebrietyLimit)() || (0, import_kolmafia28.myInebriety)() === (0, import_kolmafia28.inebrietyLimit)() + 1)
     return $familiar(_templateObject231 || (_templateObject231 = _taggedTemplateLiteral17(["Stooper"])));
-  var fam = $familiar(_templateObject326 || (_templateObject326 = _taggedTemplateLiteral17(["none"]))), _iterator3 = _createForOfIteratorHelper12($familiars(_templateObject517 || (_templateObject517 = _taggedTemplateLiteral17(["Reagnimated Gnome, Cookbookbat, Squamous Gibberer, Stocking Mimic"])))), _step3;
+  var fam = $familiar(_templateObject326 || (_templateObject326 = _taggedTemplateLiteral17(["none"]))), _iterator3 = _createForOfIteratorHelper12($familiars(_templateObject517 || (_templateObject517 = _taggedTemplateLiteral17(["Cookbookbat, Squamous Gibberer, Stocking Mimic"])))), _step3;
   try {
     for (_iterator3.s(); !(_step3 = _iterator3.n()).done; )
       if (fam = _step3.value, have(fam))
