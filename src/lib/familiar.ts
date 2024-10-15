@@ -18,7 +18,7 @@ export function selectDropFamiliar(): Familiar {
 
   let fam: Familiar = $familiar`none`;
 
-  for (fam of $familiars`Reagnimated Gnome, Cookbookbat, Squamous Gibberer, Stocking Mimic`) {
+  for (fam of $familiars`Cookbookbat, Squamous Gibberer, Stocking Mimic`) {
     if (have(fam)) {
       return fam;
     }
