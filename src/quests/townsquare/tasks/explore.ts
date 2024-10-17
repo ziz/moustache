@@ -52,7 +52,7 @@ export class Explore {
       {
         name: "Set Mind Control Device",
         ready: () => canadiaAvailable() || gnomadsAvailable() || have($item`detuned radio`),
-        completed: () => currentMcd() !== 0,
+        completed: () => currentMcd() === 0,
         do: () => changeMcd(0),
       },
       {
