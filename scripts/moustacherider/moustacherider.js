@@ -13320,7 +13320,7 @@ var elementMap = {
           return (0, import_kolmafia44.canadiaAvailable)() || (0, import_kolmafia44.gnomadsAvailable)() || have($item(_templateObject716 || (_templateObject716 = _taggedTemplateLiteral33(["detuned radio"]))));
         },
         completed: function() {
-          return (0, import_kolmafia44.currentMcd)() !== 0;
+          return (0, import_kolmafia44.currentMcd)() === 0;
         },
         do: function() {
           return (0, import_kolmafia44.changeMcd)(0);
