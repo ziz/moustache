@@ -11796,6 +11796,10 @@ function roughHoboRemnant(page) {
     hobos = Math.ceil(hobos * 0.9);
   return hobos;
 }
+function chesterDead(page) {
+  var raidLog = between(page, "<b>Hobopolis", "<b>Loot Distribution:");
+  return raidLog.includes(" defeated Chester");
+}
 function clubPopularityFromRaidlog(page) {
   var raidLog = between(page, "<b>Hobopolis", "<b>Loot Distribution:"), positives = extractInt(/(diverted some cold|bamboozled|flimflammed).*?\((\d*) turns?\)/g, raidLog, 2), steams = extractInt(/diverted some steam.*?\((\d*) turns?\)/g, raidLog), nosepicks = Math.max(extractInt(/danced like a superstar.*?\((\d*) turns?\)/g, raidLog) - 1, 0), result = positives - steams - nosepicks;
   return result;
@@ -13882,6 +13886,10 @@ var args = Args.create("Moustacherider", "Farming perscription strength moustach
   showclub: Args.flag({
     help: "Show club information.",
     default: !1
+  }),
+  moustacheless: Args.flag({
+    help: "Go into Hobopolis knowing that Chester might already be dead.",
+    default: !1
   })
 });
 function main(command) {
@@ -13899,10 +13907,20 @@ function main(command) {
   }
   if (args.showclub) {
     var raidlog = (0, import_kolmafia52.visitUrl)("clan_raidlogs.php");
-    (0, import_kolmafia52.print)("Club total: ".concat(clubPopularityFromRaidlog(raidlog))), (0, import_kolmafia52.print)("Rough sleaze hobos remaining: ".concat(roughHoboRemnant(raidlog)));
+    (0, import_kolmafia52.print)("Club total: ".concat(clubPopularityFromRaidlog(raidlog))), (0, import_kolmafia52.print)("Rough sleaze hobos remaining: ".concat(roughHoboRemnant(raidlog))), (0, import_kolmafia52.print)("Chester dead: ".concat(chesterDead(raidlog) ? "Yes" : "No...not *yet*."));
     return;
   }
-  checkClan(), maybeResetDailyPreferences();
+  if (checkClan(), maybeResetDailyPreferences(), !args.moustacheless) {
+    var _raidlog = (0, import_kolmafia52.visitUrl)("clan_raidlogs.php");
+    if (chesterDead(_raidlog)) {
+      (0, import_kolmafia52.print)("Chester has already been defeated. Rerun with 'moustacheless' if you want moustacherider to go through the sewer anyway.", "red");
+      return;
+    }
+    if (roughHoboRemnant(_raidlog) < 40) {
+      (0, import_kolmafia52.print)("There's probably not very many hobos left in PLD. Rerun with 'moustacheless' if you want moustacherider to go through the sewer anyway.", "red");
+      return;
+    }
+  }
   var mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare, PLD]), engine = new Engine2(mousTasks), startingClan = (0, import_kolmafia52.getClanId)(), meatToCloset = (0, import_kolmafia52.myMeat)() > 1e6 ? (0, import_kolmafia52.myMeat)() - 1e6 : 0;
   try {
     var clan = get(CLAN);
