@@ -13188,7 +13188,7 @@ var import_kolmafia46 = require("kolmafia");
 // src/quests/townsquare/tasks/explore.ts
 init_kolmafia_polyfill();
 var import_kolmafia44 = require("kolmafia");
-var _templateObject150, _templateObject260, _templateObject341, _templateObject431, _templateObject525, _templateObject620, _templateObject716, _templateObject815, _templateObject913, _templateObject1014, _templateObject1113, _templateObject1211, _templateObject1311, _templateObject1410, _templateObject159, _templateObject169, _templateObject179, _templateObject189, _templateObject198, _templateObject208, _templateObject2113;
+var _templateObject150, _templateObject260, _templateObject341, _templateObject431, _templateObject525, _templateObject620, _templateObject716, _templateObject815, _templateObject913, _templateObject1014, _templateObject1113, _templateObject1211, _templateObject1311, _templateObject1410, _templateObject159, _templateObject169, _templateObject179, _templateObject189, _templateObject198, _templateObject208, _templateObject2113, _templateObject2211;
 function _createForOfIteratorHelper16(r, e) {
   var t = typeof Symbol < "u" && r[Symbol.iterator] || r["@@iterator"];
   if (!t) {
@@ -13315,6 +13315,17 @@ var elementMap = {
     value: function() {
       var _this = this;
       return [{
+        name: "Set Mind Control Device",
+        ready: function() {
+          return (0, import_kolmafia44.canadiaAvailable)() || (0, import_kolmafia44.gnomadsAvailable)() || have($item(_templateObject716 || (_templateObject716 = _taggedTemplateLiteral33(["detuned radio"]))));
+        },
+        completed: function() {
+          return (0, import_kolmafia44.currentMcd)() !== 0;
+        },
+        do: function() {
+          return (0, import_kolmafia44.changeMcd)(0);
+        }
+      }, {
         name: "Prep hobo fight",
         completed: function() {
           return _this.nextFightPrepped;
@@ -13323,13 +13334,13 @@ var elementMap = {
           _this.targetElement = Object.keys(_this.parts).find(function(elem) {
             return _this.parts[elem] < 1;
           });
-          var targetMp = (0, import_kolmafia44.mpCost)($skill(_templateObject716 || (_templateObject716 = _taggedTemplateLiteral33(["Curse of Weaksauce"])))) + (0, import_kolmafia44.mpCost)($skill(_templateObject815 || (_templateObject815 = _taggedTemplateLiteral33(["Stuffed Mortar Shell"])))) + (0, import_kolmafia44.mpCost)($skill(_templateObject913 || (_templateObject913 = _taggedTemplateLiteral33(["Weapon of the Pastalord"]))));
+          var targetMp = (0, import_kolmafia44.mpCost)($skill(_templateObject815 || (_templateObject815 = _taggedTemplateLiteral33(["Curse of Weaksauce"])))) + (0, import_kolmafia44.mpCost)($skill(_templateObject913 || (_templateObject913 = _taggedTemplateLiteral33(["Stuffed Mortar Shell"])))) + (0, import_kolmafia44.mpCost)($skill(_templateObject1014 || (_templateObject1014 = _taggedTemplateLiteral33(["Weapon of the Pastalord"]))));
           (0, import_kolmafia44.myMp)() < targetMp && (0, import_kolmafia44.restoreMp)(targetMp), _this.nextFightPrepped = !0;
         }
       }, _objectSpread10(_objectSpread10({}, this.baseTask), {}, {
         name: "Hobo combat physical",
         prepare: function() {
-          var _iterator3 = _createForOfIteratorHelper16($effects(_templateObject1014 || (_templateObject1014 = _taggedTemplateLiteral33(["Spirit of Cayenne, Spirit of Peppermint, Spirit of Garlic, Spirit of Wormwood, Spirit of Bacon Grease"])))), _step3;
+          var _iterator3 = _createForOfIteratorHelper16($effects(_templateObject1113 || (_templateObject1113 = _taggedTemplateLiteral33(["Spirit of Cayenne, Spirit of Peppermint, Spirit of Garlic, Spirit of Wormwood, Spirit of Bacon Grease"])))), _step3;
           try {
             for (_iterator3.s(); !(_step3 = _iterator3.n()).done; ) {
               var effect = _step3.value;
@@ -13345,11 +13356,11 @@ var elementMap = {
           return _this.targetElement !== "normal";
         },
         combat: new CombatStrategy().autoattack(Macro2.attackKill()),
-        effects: [$effect(_templateObject1113 || (_templateObject1113 = _taggedTemplateLiteral33(["Carol of the Bulls"])))],
+        effects: [$effect(_templateObject1211 || (_templateObject1211 = _taggedTemplateLiteral33(["Carol of the Bulls"])))],
         outfit: {
-          equip: getEquipment([$item(_templateObject1211 || (_templateObject1211 = _taggedTemplateLiteral33(["mafia thumb ring"])))]),
+          equip: getEquipment([$item(_templateObject1311 || (_templateObject1311 = _taggedTemplateLiteral33(["mafia thumb ring"])))]),
           modifier: "weapon dmg",
-          bonuses: /* @__PURE__ */ new Map([[$item(_templateObject1311 || (_templateObject1311 = _taggedTemplateLiteral33(["Fourth of May Cosplay Saber"]))), 300], [$item(_templateObject1410 || (_templateObject1410 = _taggedTemplateLiteral33(["June cleaver"]))), 299], [$item(_templateObject159 || (_templateObject159 = _taggedTemplateLiteral33(["Space Trip safety headphones"]))), 200], [$item(_templateObject169 || (_templateObject169 = _taggedTemplateLiteral33(["HOA regulation book"]))), 200], [$item(_templateObject179 || (_templateObject179 = _taggedTemplateLiteral33(["pine cone necklace"]))), 100]]),
+          bonuses: /* @__PURE__ */ new Map([[$item(_templateObject1410 || (_templateObject1410 = _taggedTemplateLiteral33(["Fourth of May Cosplay Saber"]))), 300], [$item(_templateObject159 || (_templateObject159 = _taggedTemplateLiteral33(["June cleaver"]))), 299], [$item(_templateObject169 || (_templateObject169 = _taggedTemplateLiteral33(["Space Trip safety headphones"]))), 200], [$item(_templateObject179 || (_templateObject179 = _taggedTemplateLiteral33(["HOA regulation book"]))), 200], [$item(_templateObject189 || (_templateObject189 = _taggedTemplateLiteral33(["pine cone necklace"]))), 100]]),
           familiar: selectDropFamiliar()
         }
       }), _objectSpread10(_objectSpread10({}, this.baseTask), {}, {
@@ -13362,9 +13373,9 @@ var elementMap = {
         },
         combat: new CombatStrategy().autoattack(Macro2.mortarShell()),
         outfit: {
-          equip: getEquipment([$item(_templateObject189 || (_templateObject189 = _taggedTemplateLiteral33(["mafia thumb ring"])))]),
+          equip: getEquipment([$item(_templateObject198 || (_templateObject198 = _taggedTemplateLiteral33(["mafia thumb ring"])))]),
           modifier: "spell dmg",
-          bonuses: /* @__PURE__ */ new Map([[$item(_templateObject198 || (_templateObject198 = _taggedTemplateLiteral33(["Space Trip safety headphones"]))), 200], [$item(_templateObject208 || (_templateObject208 = _taggedTemplateLiteral33(["HOA regulation book"]))), 200], [$item(_templateObject2113 || (_templateObject2113 = _taggedTemplateLiteral33(["pine cone necklace"]))), 100]]),
+          bonuses: /* @__PURE__ */ new Map([[$item(_templateObject208 || (_templateObject208 = _taggedTemplateLiteral33(["Space Trip safety headphones"]))), 200], [$item(_templateObject2113 || (_templateObject2113 = _taggedTemplateLiteral33(["HOA regulation book"]))), 200], [$item(_templateObject2211 || (_templateObject2211 = _taggedTemplateLiteral33(["pine cone necklace"]))), 100]]),
           familiar: selectDropFamiliar()
         }
       })];
