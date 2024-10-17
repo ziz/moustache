@@ -4,7 +4,7 @@ import { Clan, get } from "libram";
 
 import { Engine } from "./lib/engine";
 import * as MouStats from "./lib/moustache";
-import { clubPopularityFromRaidlog, roughHoboRemnant } from "./lib/raidlog";
+import { chesterDead, clubPopularityFromRaidlog, roughHoboRemnant } from "./lib/raidlog";
 import { checkClan, maybeResetDailyPreferences, showPreferences } from "./prefs/prefs";
 import * as Properties from "./prefs/properties";
 import { PLD } from "./quests/pld/pld";
@@ -31,6 +31,10 @@ const args = Args.create("Moustacherider", "Farming perscription strength mousta
     help: "Show club information.",
     default: false,
   }),
+  moustacheless: Args.flag({
+    help: "Go into Hobopolis knowing that Chester might already be dead.",
+    default: false,
+  }),
 });
 
 export function main(command?: string): void {
@@ -51,12 +55,30 @@ export function main(command?: string): void {
     const raidlog = visitUrl("clan_raidlogs.php");
     print(`Club total: ${clubPopularityFromRaidlog(raidlog)}`);
     print(`Rough sleaze hobos remaining: ${roughHoboRemnant(raidlog)}`);
+    print(`Chester dead: ${chesterDead(raidlog) ? "Yes" : "No...not *yet*."}`);
     return;
   }
 
   checkClan();
   maybeResetDailyPreferences();
 
+  if (!args.moustacheless) {
+    const raidlog = visitUrl("clan_raidlogs.php");
+    if (chesterDead(raidlog)) {
+      print(
+        "Chester has already been defeated. Rerun with 'moustacheless' if you want moustacherider to go through the sewer anyway.",
+        "red",
+      );
+      return;
+    }
+    if (roughHoboRemnant(raidlog) < 40) {
+      print(
+        "There's probably not very many hobos left in PLD. Rerun with 'moustacheless' if you want moustacherider to go through the sewer anyway.",
+        "red",
+      );
+      return;
+    }
+  }
   const mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare, PLD]);
   const engine = new Engine(mousTasks);
 

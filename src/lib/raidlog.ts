@@ -47,6 +47,11 @@ export function roughHoboRemnant(page: string): number {
   return hobos;
 }
 
+export function chesterDead(page: string): boolean {
+  const raidLog = between(page, "<b>Hobopolis", "<b>Loot Distribution:");
+  return raidLog.includes(" defeated Chester");
+}
+
 export function clubPopularityFromRaidlog(page: string): number {
   const raidLog = between(page, "<b>Hobopolis", "<b>Loot Distribution:");
 
