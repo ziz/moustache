@@ -1,6 +1,15 @@
 import { CombatStrategy, Task } from "grimoire-kolmafia";
-import { haveEffect, mpCost, myMp, restoreMp } from "kolmafia";
-import { $effect, $effects, $item, $location, $skill, uneffect } from "libram";
+import {
+  canadiaAvailable,
+  changeMcd,
+  currentMcd,
+  gnomadsAvailable,
+  haveEffect,
+  mpCost,
+  myMp,
+  restoreMp,
+} from "kolmafia";
+import { $effect, $effects, $item, $location, $skill, have, uneffect } from "libram";
 
 import { Macro } from "../../../lib/combat";
 import { getEquipment } from "../../../lib/equipment";
@@ -40,6 +49,12 @@ export class Explore {
 
   getTasks(): Task[] {
     return [
+      {
+        name: "Set Mind Control Device",
+        ready: () => canadiaAvailable() || gnomadsAvailable() || have($item`detuned radio`),
+        completed: () => currentMcd() !== 0,
+        do: () => changeMcd(0),
+      },
       {
         name: "Prep hobo fight",
         completed: () => this.nextFightPrepped,
