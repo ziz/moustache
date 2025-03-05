@@ -27,6 +27,10 @@ const args = Args.create("Moustacherider", "Farming perscription strength mousta
     help: "Do not fetch cagebait.",
     default: false,
   }),
+  nopld: Args.flag({
+    help: "Do not adventure in PLD. (That is, just do sewers and open PLD.)",
+    default: false,
+  }),
   showclub: Args.flag({
     help: "Show club information.",
     default: false,
@@ -79,7 +83,13 @@ export function main(command?: string): void {
       return;
     }
   }
-  const mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare, PLD]);
+  var mousTasks;
+  if (args.nopld) {
+    print("Opening but not entering PLD.", "purple");
+    mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare]);
+  } else {
+    mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare, PLD]);
+  }
   const engine = new Engine(mousTasks);
 
   const startingClan = getClanId();
