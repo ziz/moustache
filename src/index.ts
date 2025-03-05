@@ -83,7 +83,7 @@ export function main(command?: string): void {
       return;
     }
   }
-  var mousTasks;
+  let mousTasks;
   if (args.nopld) {
     print("Opening but not entering PLD.", "purple");
     mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare]);
