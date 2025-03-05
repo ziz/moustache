@@ -13894,6 +13894,10 @@ var args = Args.create("Moustacherider", "Farming perscription strength moustach
     help: "Do not fetch cagebait.",
     default: !1
   }),
+  nopld: Args.flag({
+    help: "Do not adventure in PLD. (That is, just do sewers and open PLD.)",
+    default: !1
+  }),
   showclub: Args.flag({
     help: "Show club information.",
     default: !1
@@ -13932,7 +13936,9 @@ function main(command) {
       return;
     }
   }
-  var mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare, PLD]), engine = new Engine2(mousTasks), startingClan = (0, import_kolmafia52.getClanId)(), meatToCloset = (0, import_kolmafia52.myMeat)() > 1e6 ? (0, import_kolmafia52.myMeat)() - 1e6 : 0;
+  var mousTasks;
+  args.nopld ? ((0, import_kolmafia52.print)("Opening but not entering PLD.", "purple"), mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare])) : mousTasks = getTasks([Prologue, Wander, Spookyraven, Sewers(args.nocage), TownSquare, PLD]);
+  var engine = new Engine2(mousTasks), startingClan = (0, import_kolmafia52.getClanId)(), meatToCloset = (0, import_kolmafia52.myMeat)() > 1e6 ? (0, import_kolmafia52.myMeat)() - 1e6 : 0;
   try {
     var clan = get(CLAN);
     meatToCloset > 0 && (0, import_kolmafia52.cliExecute)("closet put ".concat(meatToCloset, " meat")), startingClan.toString(10) !== clan && Clan.join(clan), engine.run();
